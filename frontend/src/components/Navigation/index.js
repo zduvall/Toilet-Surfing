@@ -3,13 +3,13 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
-import SignUpFormModal from '../SignUpFormModal'
+import SignUpFormModal from '../SignUpFormModal';
 import './Navigation.css';
 
 // edit below, pick one or the other. Top one for reagular login, bottom for modular
-// also make sure the same (top or bottom) is commented in in App.js. 
-  // if use modular, delete src/components/LoginFormPage & src/components/SignUpFormPage
-  // if use non-modular, delete src/components/LoginFormModal, src/components/SignUpFormModal, & Modal src/context/Modal.js + .../Modal.css
+// also make sure the same (top or bottom) is commented in in App.js.
+// if use modular, delete src/components/LoginFormPage & src/components/SignUpFormPage
+// if use non-modular, delete src/components/LoginFormModal, src/components/SignUpFormModal, & Modal src/context/Modal.js + .../Modal.css
 
 // export default function Navigation({ isLoaded }) {
 //   const sessionUser = useSelector((state) => state.session.user);
@@ -37,7 +37,6 @@ import './Navigation.css';
 //     </ul>
 //   );
 // }
-
 
 export default function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
