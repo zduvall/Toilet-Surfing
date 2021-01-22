@@ -4,7 +4,6 @@ import { fetch } from './csrf';
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
 
-
 // Action Creators
 const setUser = (user) => {
   return {
@@ -18,7 +17,6 @@ const removeUser = () => {
     type: REMOVE_USER,
   };
 };
-
 
 // Thunks
 export const login = (user) => async (dispatch) => {
@@ -38,6 +36,20 @@ export const restoreUser = () => async (dispatch) => {
   const res = await fetch('/api/session');
   dispatch(setUser(res.data.user));
   return res;
+};
+
+export const signUp = (user) => async (dispatch) => {
+  const { username, email, password } = user;
+  const response = await fetch('/api/users', {
+    method: 'POST',
+    body: JSON.stringify({
+      username,
+      email,
+      password,
+    }),
+  });
+  dispatch(setUser(response.data.user));
+  return response;
 };
 
 // Reducer

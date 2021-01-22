@@ -10,7 +10,7 @@ const { User } = require('../../db/models');
 const router = express.Router();
 
 // Sign up user
-const validateSignup = [
+const validateSignUp = [
   check('email')
     .exists({ checkFalsy: true })
     .isEmail()
@@ -33,10 +33,10 @@ const validateSignup = [
 
 router.post(
   '',
-  validateSignup,
+  validateSignUp,
   asyncHandler(async (req, res) => {
     const { email, password, username } = req.body;
-    const user = await User.signup({ email, username, password });
+    const user = await User.signUp({ email, username, password });
 
     await setTokenCookie(res, user);
 
