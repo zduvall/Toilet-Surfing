@@ -31,7 +31,6 @@ function LoginForm() {
           />
         </label>
       </div>
-
       <div>
         <label>
           Password
@@ -44,7 +43,9 @@ function LoginForm() {
         </label>
       </div>
 
-      <button type='submit'>Log In</button>
+      <div>
+        <button type='submit'>Log In</button>
+      </div>
 
       <div>
         <ul>

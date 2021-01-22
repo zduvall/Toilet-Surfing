@@ -19,6 +19,7 @@
 }
 
 #modal-content {
+  width: min-content;
   color: rgb(202, 202, 202);
   position: absolute;
   background-color: rgba(0, 0, 0, 0.6);

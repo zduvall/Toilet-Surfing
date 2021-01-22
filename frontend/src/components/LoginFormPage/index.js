@@ -48,13 +48,17 @@ export default function LoginFormPage() {
         </label>
       </div>
 
-      <button type='submit'>Log In</button>
+      <div>
+        <button type='submit'>Log In</button>
+      </div>
 
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
+      <div>
+        <ul>
+          {errors.map((error, idx) => (
+            <li key={idx}>{error}</li>
+          ))}
+        </ul>
+      </div>
     </form>
   );
 }
