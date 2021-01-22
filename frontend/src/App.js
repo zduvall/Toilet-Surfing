@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 // import LoginFormPage from './components/LoginFormPage';
 // import SignUpFormPage from './components/SignUpFormPage';
@@ -8,7 +8,10 @@ import Navigation from './components/Navigation';
 
 function App() {
   const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
+
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -44,7 +47,8 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
-            Home
+            {sessionUser && <h1>Home Logged In</h1>}
+            {!sessionUser && <h1>Home Not Logged In</h1>}
           </Route>
           <Route>Page Not Found</Route>
         </Switch>
