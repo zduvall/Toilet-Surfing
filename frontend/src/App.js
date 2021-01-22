@@ -12,38 +12,39 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
-  
+
   // edit below, pick one or the other. Top one for reagular login, bottom for modular
   // also make sure the same (top or bottom) is commented in in /components/navigation/index.js
-  
-  return (
-    <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path='/login'>
-            <LoginFormPage />
-          </Route>
-          <Route path='/sign-up'>
-            <SignUpFormPage />
-          </Route>
-        </Switch>
-      )}
-    </>
-  );
 
   // return (
   //   <>
   //     <Navigation isLoaded={isLoaded} />
   //     {isLoaded && (
   //       <Switch>
-  //         <Route path='/signup'>
+  //         <Route path='/login'>
+  //           <LoginFormPage />
+  //         </Route>
+  //         <Route path='/sign-up'>
   //           <SignUpFormPage />
   //         </Route>
   //       </Switch>
   //     )}
   //   </>
   // );
+
+  return (
+    <>
+      <Navigation isLoaded={isLoaded} />
+      {isLoaded && (
+        <Switch>
+          <Route exact path='/'>
+            Home
+          </Route>
+          <Route>Page Not Found</Route>
+        </Switch>
+      )}
+    </>
+  );
 }
 
 export default App;
