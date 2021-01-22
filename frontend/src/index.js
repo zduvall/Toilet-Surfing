@@ -7,6 +7,7 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import { restoreCSRF, fetch } from './store/csrf';
+import * as sessionActions from './store/session';
 
 // Access store in window during production
 const store = configureStore();
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   window.csrfFetch = fetch;
   window.store = store;
+  window.sessionActions = sessionActions;
 }
 
 function Root() {
