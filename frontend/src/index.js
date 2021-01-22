@@ -1,4 +1,4 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Provider } from 'react-redux';
@@ -33,8 +33,8 @@ function Root() {
 }
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <Root />
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root')
 );
