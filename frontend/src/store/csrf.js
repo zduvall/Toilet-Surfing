@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
 
+// Custom fetch function
 export async function fetch(url, options = {}) {
   options.method = options.method || 'GET';
   options.headers = options.headers || {};
@@ -21,4 +22,9 @@ export async function fetch(url, options = {}) {
   if (res.status >= 400) throw res;
 
   return res;
+}
+
+// Call to get "XSRF-TOKEN" cookie (for development)
+export function restoreCSRF() {
+  return fetch('/api/csrf/restore');
 }
