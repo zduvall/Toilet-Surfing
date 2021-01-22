@@ -19,6 +19,9 @@
 }
 
 #modal-content {
+  color: rgb(202, 202, 202);
   position: absolute;
-  background-color:white;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
 }
