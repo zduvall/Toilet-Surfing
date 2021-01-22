@@ -9,7 +9,6 @@ const { User } = require('../../db/models');
 
 const router = express.Router();
 
-
 // Log in user
 const validateLogin = [
   check('credential')
@@ -43,7 +42,7 @@ router.post(
     return res.json({
       user,
     });
-  }),
+  })
 );
 
 // Log out user
@@ -57,7 +56,7 @@ router.get('/', restoreUser, (req, res) => {
   const { user } = req;
   if (user) {
     return res.json({
-      user: user.toSafeObject()
+      user: user.toSafeObject(),
     });
   } else return res.json({});
 });

@@ -8,7 +8,6 @@ import App from './App';
 import configureStore from './store';
 import { restoreCSRF, fetch } from './store/csrf';
 
-
 // Access store in window during production
 const store = configureStore();
 
