@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-// import LoginFormPage from './components/LoginFormPage';
-// import SignUpFormPage from './components/SignUpFormPage';
+import LoginFormPage from './components/LoginFormPage';
+import SignUpFormPage from './components/SignUpFormPage';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 
@@ -27,14 +27,15 @@ function App() {
   //     {isLoaded && (
   //       <Switch>
   //         <Route exact path='/'>
-  //           Home
+  //           {sessionUser && <h1>Home Logged In</h1>}
+  //           {!sessionUser && <h1>Home Not Logged In</h1>}
   //         </Route>
-  //         <Route path='/login'>
+  //         {/* {/* <Route path='/login'>
   //           <LoginFormPage />
   //         </Route>
   //         <Route path='/sign-up'>
-  //           <SignUpFormPage />
-  //         </Route>
+  //           <SignUpFormPage /> */}
+  //         </Route> */}
   //         <Route>Page Not Found</Route>
   //       </Switch>
   //     )}
