@@ -1,13 +1,40 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+const { check } = require('express-validator');
 
+const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
+
 const { User } = require('../../db/models');
 
 const router = express.Router();
 
 // Sign up user
-router.post('', asyncHandler(async (req, res) => {
+const validateSignup = [
+  check('email')
+    .exists({ checkFalsy: true })
+    .isEmail()
+    .withMessage('Email must be a valid email.'),
+  check('username')
+    .exists({ checkFalsy: true })
+    .isLength({ min: 4 })
+    .withMessage('Username must be at least 4 characters.'),
+  check('username')
+    .exists({ checkFalsy: true })
+    .isLength({ max: 30 })
+    .withMessage('Username must be less than 30 characters.'),
+  check('username')
+    .not()
+    .isEmail()
+    .withMessage('Username cannot be an email.'),
+  check('password')
+    .exists({ checkFalsy: true })
+    .isLength({ min: 6 })
+    .withMessage('Password must be 6 characters or more.'),
+  handleValidationErrors,
+];
+
+router.post('', validateSignup, asyncHandler(async (req, res) => {
   const { email, password, username } = req.body;
   const user = await User.signup({ email, username, password });
 
