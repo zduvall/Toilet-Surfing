@@ -21,7 +21,7 @@
 #modal-content {
   color: rgb(202, 202, 202);
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 0.25rem;
   padding: 0.5rem;
 }
