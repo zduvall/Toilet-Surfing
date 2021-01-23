@@ -47,13 +47,15 @@ function LoginForm() {
         <button type='submit'>Log In</button>
       </div>
 
-      <div>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-      </div>
+      {!!errors.length && (
+        <div>
+          <ul>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </form>
   );
 }

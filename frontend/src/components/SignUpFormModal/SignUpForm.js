@@ -81,13 +81,15 @@ function SignUpFormPage() {
         <button type='submit'>Sign Up</button>
       </div>
 
-      <div>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-      </div>
+      {!!errors.length && (
+        <div>
+          <ul>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </form>
   );
 }
