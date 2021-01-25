@@ -53,13 +53,20 @@ export default function Navigation({ isLoaded }) {
   }
 
   return (
-    <ul>
-      <li>
-        <NavLink exact to='/'>
-          Home
-        </NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+    <header className='site-header'>
+      <div className='site-header__wrapper'>
+        <a href='#'>Brand</a>
+        <nav className='nav'>
+          <ul className='nav__wrapper'>
+            <li className='nav__item'>
+              <NavLink exact to='/'>
+                Home
+              </NavLink>
+            </li>
+            <li className='nav__item'>{isLoaded && sessionLinks}</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
 }

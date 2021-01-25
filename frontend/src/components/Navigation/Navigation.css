@@ -1,0 +1,39 @@
+.site-header {
+  position: relative;
+  background-color: #def7ff;
+}
+
+.site-header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1140px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav {
+  display: block;
+}
+
+.nav__wrapper {
+  display: flex;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.nav__item {
+  margin: 0 0.5rem;
+  position: relative;
+}
+
+.nav__profile-dropdown {
+  list-style: none;
+  position: absolute;
+  right: 0;
+  left: auto;
+  padding-inline-start: 0;
+  background-color: #9dbdc7;
+}

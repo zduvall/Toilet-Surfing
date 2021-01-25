@@ -34,7 +34,7 @@ export default function ProfileButton({ user }) {
         <i className='fas fa-user-circle' />
       </button>
       {showMenu && (
-        <ul className='profile-dropdown'>
+        <ul className='nav__profile-dropdown'>
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
