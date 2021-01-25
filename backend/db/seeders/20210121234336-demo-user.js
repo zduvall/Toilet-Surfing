@@ -26,7 +26,7 @@ module.exports = {
         {
           email: '1234@gmail.io',
           username: '1234',
-          hashedPassword: bcrypt.hashSync('1234'),
+          hashedPassword: bcrypt.hashSync('123456'),
         },
         {
           email: faker.internet.email(),
