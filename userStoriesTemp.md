@@ -27,27 +27,27 @@ As an unauthorized user, I want to be able to login to the website via a form, s
   * Home page
 * What will be different on the home view for the logged in user vs not logged in?
   * The navbar will have a profile dropdown rather than log in and signup
-* Will we allow OAuth authentication via a third party?
-  * Not yet -- maybe in a future story
 * What happens if the user doesn't exist/enters bad credentials?
-  * Display the message "Invalid climber credentials :( Please try again."
-* Should this story include allowing a user to reset their password?
-  * Not yet -- maybe in a future story
+  * Display the message "Invalid surfer credentials. Please try again."
 * Should logging in use session-based or use token-based authentication?
   * We will use session-based auth
 * How will we protect from cross-site request forgery?
   * We will use the `csurf` package
+* Will we allow OAuth authentication via a third party?
+  * Not yet -- maybe in a future story
+* Should this story include allowing a user to reset their password?
+  * Not yet -- maybe in a future story
 
 ### Acceptance Criteria
 **Given** that I'm a logged-out user and
-1. **When** I'm on the `/login` route
-    * **Then** there will be a login form with an email and password field and a "Login" button to submit the form.
+1. **When** I'm on the `/` route and click login
+    * **Then** there will be a login form with an email or username and password field and a "Log In" button to submit the form.
 2. **When** I try to fill out the form with an invalid email and password combination and the "Login" button
-    * **Then** at the top of the form, I will see a red message "Invalid climber credentials :( Please try again."
-3. **When** I try to fill out the form with a valid email and password and press the "Login" button
-    * **Then** I will be redirected to my profile page at `/users/:id(\\d+)` route.
-4. **When** I try to navigate to any route on Toilet-Surfing
-    * **Then** I will be redirected to the `/login` route
+    * **Then** at the bottom of the form, I will see a message "Invalid surfer credentials. Please try again."
+3. **When** I try to fill out the form with a valid email and password and press the "Log In" button
+    * **Then** I will stay on the home page, the modal login form will disappear, and the nav bar will update.
+4. **When** I try to create, review, or book a bathroom
+    * **Then** I will be prompted to log in or sign up.
 
 **Given** that I am a logged-in user
 1. **When** I refresh a page
@@ -62,14 +62,11 @@ As an **unauthorized user**, I want to **be able to sign up for the website via 
 * Will we confirm their password during signup?
   * User will confirm the password through a confirm password field.
 * What route should we use for signup?
-  * User will be directed to a signup form via `/sign-up` route
-  * The form will use a method of `POST` with an action of `/sign-up`
+  * The form will use a method of `POST` with an action of `/api/user`
 * Where should the user be redirected after signup?
-  * [Personal profile page](https://github.com/zduvall/Toilet-Surfing/wiki/User-Stories#view-user-page) `/users/:id(\\d+)` that will include personal “Forests”
-* Will we allow OAuth authentication via a third party?
-  * Stretch Goal - yes but will be using sessions object in MVP
+  * Home page
 * What happens if the user with the username or email already exists?
-  * Use express middleware to send error to a front end error display text field
+  * Display error
 * What happens if the user enters the wrong password confirmation?
   * Use express middleware to send error to a front end error display text field
 * How will we protect from cross-site request forgery?

@@ -18,7 +18,7 @@ function SignUpFormPage() {
       (res) => {
         if (res.data && res.data.errors) {
           if (password !== confirmPassword) {
-            setErrors([...res.data.errors, 'Password fields must match']);
+            setErrors([...res.data.errors, 'Password fields must match.']);
           } else {
             setErrors(res.data.errors);
           }

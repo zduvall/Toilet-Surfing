@@ -24,6 +24,15 @@ const validateSignUp = [
     .isLength({ max: 30 })
     .withMessage('Username must be less than 30 characters.'),
   check('username').not().isEmail().withMessage('Username cannot be an email.'),
+  check('username').custom((value) => {
+    return User.findOne({ where: { username: value } }).then((username) => {
+      if (username) {
+        return Promise.reject(
+          'Username already taken by another surfer.'
+        );
+      }
+    });
+  }),
   check('password')
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
