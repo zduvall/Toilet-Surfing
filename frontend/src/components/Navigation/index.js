@@ -31,7 +31,7 @@ export default function Navigation({ isLoaded }) {
   return (
     <header className='site-header'>
       <div className='site-header__wrapper'>
-        <a href='#'>Brand</a>
+        <a href='/'>Brand</a>
         <nav className='nav'>
           <ul className='nav__wrapper'>
             <li className='nav__item'>

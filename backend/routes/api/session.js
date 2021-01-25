@@ -33,7 +33,7 @@ router.post(
       const err = new Error('Login failed');
       err.status = 401;
       err.title = 'Login failed';
-      err.errors = ['Invalid login credentials'];
+      err.errors = ['Invalid surfer credentials. Please try again.'];
       return next(err);
     }
 

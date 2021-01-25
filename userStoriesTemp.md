@@ -1,5 +1,5 @@
 # User Stories
-* [Login](https://github.com/zduvall/Toilet-Surfing/wiki/User-Stories#login)
+* [Authorization](https://github.com/zduvall/Toilet-Surfing/wiki/User-Stories#authorization)
 * [Sign Up](https://github.com/zduvall/Toilet-Surfing/wiki/User-Stories#sign-up)
 * [Nav Bar](https://github.com/zduvall/Toilet-Surfing/wiki/User-Stories#nav-bar)
 * [View Bathrooms](https://github.com/zduvall/Toilet-Surfing/wiki/User-Stories#view-bathrooms)
@@ -13,17 +13,20 @@
 * [Mark a Bathroom as Favorite](https://github.com/zduvall/Toilet-Surfing/wiki/User-Stories#mark-a-bathroom-as-favorite)
 * [Messaging](https://github.com/zduvall/Toilet-Surfing/wiki/User-Stories#messaging)
 
-## _Login_
+## Authorization
 As an unauthorized user, I want to be able to login to the website via a form, so that I can access my private information.
 
 ### Questions
 * How will a user login?
   * User will login via email or username and password
 * What routes should we use for login?
-  * User will be directed to a login form via `/login` route
-  * The form will use a method of `POST` with an action of `/login`
+  * POST: log in user
+  * DELETE: log out user
+  * GET: restore session user
 * Where should the user be redirected after login?
-  * [Personal profile page](https://github.com/zduvall/Toilet-Surfing/wiki/User-Stories#view-user-page) `/users/:id(\\d+)` that will include personal “Forests”
+  * Home page
+* What will be different on the home view for the logged in user vs not logged in?
+  * The navbar will have a profile dropdown rather than log in and signup
 * Will we allow OAuth authentication via a third party?
   * Not yet -- maybe in a future story
 * What happens if the user doesn't exist/enters bad credentials?

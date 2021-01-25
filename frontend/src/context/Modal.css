@@ -26,3 +26,10 @@
   border-radius: 0.25rem;
   padding: 1.5rem;
 }
+
+#modal-content ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+  margin-block-end: 0;
+  padding: 0;
+}
