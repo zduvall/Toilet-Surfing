@@ -10,12 +10,20 @@ export default function Navigation({ isLoaded }) {
 
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
+    sessionLinks = (
+      <li className='nav__item'>
+        <ProfileButton user={sessionUser} />
+      </li>
+    );
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal />
-        <SignUpFormModal />
+        <li className='nav__item'>
+          <LoginFormModal />
+        </li>
+        <li className='nav__item'>
+          <SignUpFormModal />
+        </li>
       </>
     );
   }
@@ -31,7 +39,7 @@ export default function Navigation({ isLoaded }) {
                 Home
               </NavLink>
             </li>
-            <li className='nav__item'>{isLoaded && sessionLinks}</li>
+            {isLoaded && sessionLinks}
           </ul>
         </nav>
       </div>
