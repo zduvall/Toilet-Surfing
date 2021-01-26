@@ -4,6 +4,8 @@ import { Route, Switch } from 'react-router-dom';
 import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 
+import bathroomOceanLng from './pictures/Bathroom-ocean-lng.png';
+
 function App() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
@@ -17,6 +19,13 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      {/* <div> */}
+        <img
+          className='home__background'
+          src={bathroomOceanLng}
+          alt='Ocean view from bathroom window'
+        ></img>
+      {/* </div> */}
       {isLoaded && (
         <Switch>
           <Route exact path='/'>

@@ -1,4 +1,14 @@
-/* TODO Add site wide styles */
+html {
+  font-family: 'Spartan', sans-serif;
+}
+
 body {
   margin: 0;
+}
+
+.home__background {
+  max-width: 100%;
+  /* transform: scale(1, 0.7); */
+  /* position: relative;
+  top: 0; */
 }
