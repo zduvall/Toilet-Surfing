@@ -45,16 +45,18 @@
   padding-inline-start: 0;
   background-color: rgba(0, 29, 41, 0.719);
   margin-top: 0.1rem;
-  padding: 1rem 0.75rem 0.5rem 0.75rem;
+  padding: 1rem 0.5rem 0.5rem 0.5rem;
   border-radius: 2rem 0.25rem 2rem 0.25rem;
   font-weight: 600;
 }
 
 .nav__profile-dropdown__info {
   color: rgb(202, 202, 202);
+  padding: 0.25rem;
 }
 .nav__profile-dropdown__button {
   color: rgb(52, 168, 226);
+  margin: 0.25rem;
 }
 
 button {
