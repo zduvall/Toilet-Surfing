@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Bathroom.associate = function (models) {
     // associations can be defined here
+    Bathroom.belongsTo(models.User, { foreignKey: 'bathroomOwnerId' });
   };
   return Bathroom;
 };
