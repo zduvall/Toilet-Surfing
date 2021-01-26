@@ -78,7 +78,9 @@ function SignUpFormPage() {
       </div>
 
       <div>
-        <button type='submit'>Sign Up</button>
+        <button className='auth-form__button' type='submit'>
+          Sign Up
+        </button>
       </div>
 
       {!!errors.length && (

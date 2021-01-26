@@ -44,7 +44,9 @@ function LoginForm() {
       </div>
 
       <div>
-        <button type='submit'>Log In</button>
+        <button className='auth-form__button' type='submit'>
+          Log In
+        </button>
       </div>
 
       {!!errors.length && (
