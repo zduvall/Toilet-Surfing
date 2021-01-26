@@ -44,6 +44,9 @@
   left: auto;
   padding-inline-start: 0;
   background-color: #9dbdc7;
+  margin-top: .1rem;
+  padding: 1rem 0.75rem 0.5rem 0.75rem;
+  border-radius: 2rem 0.25rem 2rem 0.25rem;
 }
 
 button {
