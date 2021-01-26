@@ -5,6 +5,7 @@ import './Bathroom.css';
 
 // thunks
 import { getUsers } from '../../store/user';
+import { getBathrooms } from '../../store/bathroom';
 
 // components
 import BathroomHeader from './BothroomHeader';
@@ -17,6 +18,7 @@ export default function Bathroom() {
 
   useEffect(() => {
     dispatch(getUsers());
+    dispatch(getBathrooms());
   }, [dispatch]);
 
   return (
