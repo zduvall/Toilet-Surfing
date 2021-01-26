@@ -28,8 +28,6 @@ export default function Navigation({ isLoaded }) {
     );
   }
 
-  console.log(window.location.pathname);
-
   return (
     <header
       className='site-header'

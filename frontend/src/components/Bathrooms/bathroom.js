@@ -3,10 +3,12 @@ import { useParams } from 'react-router-dom';
 
 export default function Bathroom() {
   const { bathroomId } = useParams();
-  const bathrooms = useSelector(({ bathrooms }) => bathrooms);
+  const {bathrooms, users} = useSelector(state => state);
+  // const bathrooms = useSelector(({ bathrooms }) => bathrooms);
 
   const curBathroom = bathrooms[bathroomId]
   console.log(curBathroom);
+  console.log(users);
 
   return (
     <>
