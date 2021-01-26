@@ -22,8 +22,8 @@
   /* width: min-content; */
   color: rgb(202, 202, 202);
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.719);
-  border-radius: 0.25rem;
+  background-color: rgba(0, 29, 41, 0.719);
+  border-radius: 2rem 0.25rem 2rem 0.25rem;
   padding: 1.5rem;
 }
 

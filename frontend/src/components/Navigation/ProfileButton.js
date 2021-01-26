@@ -35,10 +35,12 @@ export default function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <ul className='nav__profile-dropdown'>
-          <li>{user.username}</li>
-          <li>{user.email}</li>
+          <li className='nav__profile-dropdown__info'>{user.username}</li>
+          <li className='nav__profile-dropdown__info'>{user.email}</li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button className='nav__profile-dropdown__button' onClick={logout}>
+              Log Out
+            </button>
           </li>
         </ul>
       )}
