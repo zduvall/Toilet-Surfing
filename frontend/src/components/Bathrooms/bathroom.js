@@ -24,6 +24,7 @@ export default function Bathroom() {
       <p>{curBathroom.country}</p>
       <p>{curBathroom.lat}</p>
       <p>{curBathroom.lng}</p>
+      <img src={curBathroom.picture} alt={'bathroom'}/>
     </>
   );
 }

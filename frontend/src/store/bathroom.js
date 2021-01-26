@@ -4,7 +4,7 @@ const initState = {
     bathroomOwnerId: 1,
     name: 'Cool Bath',
     description: 'The coolest bathroom out there',
-    picture: 'frontend/public/pictures/bath-3622540.jpg',
+    picture: '/pictures/bath-3622540.jpg',
     streetNumber: '1374',
     route: 'Royal Troon Drive',
     locality: 'Millcreek',
