@@ -28,8 +28,15 @@ export default function Navigation({ isLoaded }) {
     );
   }
 
+  console.log(window.location.pathname);
+
   return (
-    <header className='site-header'>
+    <header
+      className='site-header'
+      style={{
+        position: window.location.pathname === '/' ? 'fixed' : 'sticky',
+      }}
+    >
       <div className='site-header__wrapper'>
         <a href='/'>Toilet Surfing</a>
         <nav className='nav'>
