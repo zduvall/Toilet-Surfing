@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import * as sessionActions from './store/session';
 
 import Navigation from './components/Navigation';
-import Bathroom from './components/Bathrooms/bathroom';
+import Bathroom from './components/Bathroom';
 
 function App() {
   const dispatch = useDispatch();
