@@ -43,6 +43,6 @@ input {
   padding: .25rem 0 .25rem .25rem;
 }
 
-.auth-form__button {
+.form__button {
   color: rgb(52, 168, 226);
 }

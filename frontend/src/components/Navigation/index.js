@@ -5,6 +5,7 @@ import { useWindowWidth } from '../customHooks';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignUpFormModal from '../SignUpFormModal';
+import BathroomCreateModal from '../BathroomCreateModal';
 import SessionLinksDropdown from './SessionLinksDropdown';
 
 import './Navigation.css';
@@ -17,9 +18,14 @@ export default function Navigation({ isLoaded }) {
 
   if (sessionUser) {
     sessionLinks = (
-      <li className='nav__item'>
-        <ProfileButton user={sessionUser} />
-      </li>
+      <>
+        <li className='nav__item'>
+          <BathroomCreateModal />
+        </li>
+        <li className='nav__item'>
+          <ProfileButton user={sessionUser} />
+        </li>
+      </>
     );
   } else {
     if (width > 800) {
@@ -49,11 +55,6 @@ export default function Navigation({ isLoaded }) {
         <a href='/'>Toilet Surfing</a>
         <nav className='nav'>
           <ul className='nav__wrapper'>
-            <li className='nav__item'>
-              <NavLink exact to='/'>
-                Home
-              </NavLink>
-            </li>
             {isLoaded && sessionLinks}
           </ul>
         </nav>
