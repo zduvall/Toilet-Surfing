@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { useWindowWidth } from '../customHooks';
 
 import ProfileButton from './ProfileButton';

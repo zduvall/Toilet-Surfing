@@ -5,7 +5,6 @@ import * as sessionActions from './store/session';
 
 import Navigation from './components/Navigation';
 import Bathroom from './components/Bathroom';
-import BathroomCreateModal from './components/BathroomCreateModal/BathroomCreateModal'
 
 function App() {
   const dispatch = useDispatch();
