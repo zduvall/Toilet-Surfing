@@ -22,9 +22,9 @@ module.exports = {
         },
       },
       description: {
-        type: Sequelize.STRING(1000),
+        type: Sequelize.STRING(200),
         validate: {
-          len: [0, 1000],
+          len: [0, 200],
         },
       },
       picture: {
@@ -55,11 +55,11 @@ module.exports = {
         allowNull: false,
       },
       lat: {
-        type: Sequelize.DECIMAL(10, 8),
+        type: Sequelize.DECIMAL(11, 8),
         allowNull: false,
       },
       lng: {
-        type: Sequelize.DECIMAL(10, 8),
+        type: Sequelize.DECIMAL(11, 8),
         allowNull: false,
       },
       createdAt: {

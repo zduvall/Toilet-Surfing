@@ -79,7 +79,7 @@ function SignUpFormPage() {
 
       <div>
         <button className='auth-form__button' type='submit'>
-          Sign Up
+          Start Surfing
         </button>
       </div>
 

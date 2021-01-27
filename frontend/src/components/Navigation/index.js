@@ -29,7 +29,12 @@ export default function Navigation({ isLoaded }) {
   }
 
   return (
-    <header className='site-header'>
+    <header
+      className='site-header'
+      style={{
+        position: window.location.pathname === '/' ? 'fixed' : 'sticky',
+      }}
+    >
       <div className='site-header__wrapper'>
         <a href='/'>Toilet Surfing</a>
         <nav className='nav'>

@@ -1,0 +1,33 @@
+.single-bathroom {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.single-bathroom__image-container {
+  overflow: hidden;
+}
+
+.single-bathroom__image {
+  object-fit: cover;
+  width: 100%;
+}
+
+.single-bathroom__text {
+  background-color: rgb(247, 253, 255);
+  padding: 1.5rem;
+}
+
+.bathroom-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bathroom-header__name {
+  font-size: 1.5rem;
+}
+
+.bathroom-header__owner {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}

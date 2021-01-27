@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 
 const { handleValidationErrors } = require('../../utils/validation');
-const { setTokenCookie, requireAuth } = require('../../utils/auth');
+const { setTokenCookie } = require('../../utils/auth');
 
 const { User } = require('../../db/models');
 
@@ -27,9 +27,7 @@ const validateSignUp = [
   check('username').custom((value) => {
     return User.findOne({ where: { username: value } }).then((username) => {
       if (username) {
-        return Promise.reject(
-          'Username already taken by another surfer.'
-        );
+        return Promise.reject('Username already taken by another surfer.');
       }
     });
   }),
@@ -40,6 +38,7 @@ const validateSignUp = [
   handleValidationErrors,
 ];
 
+// add new user
 router.post(
   '',
   validateSignUp,
@@ -52,6 +51,15 @@ router.post(
     return res.json({
       user,
     });
+  })
+);
+
+// get all users
+router.get(
+  '',
+  asyncHandler(async (_req, res) => {
+    const users = await User.findAll();
+    return res.json(users);
   })
 );
 
