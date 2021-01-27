@@ -9,8 +9,10 @@ export default function LoggedInDropdown() {
   const sessionUser = useSelector((state) => state.session.user);
 
   const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
+    let show = true;
+    if (showMenu) show = false;
+    // if (showMenu) return;
+    setShowMenu(show);
   };
 
   const closeMenu = () => {
@@ -19,7 +21,7 @@ export default function LoggedInDropdown() {
 
   useEffect(() => {
     if (!showMenu) return;
-    document.addEventListener('click', closeMenu);
+    // document.addEventListener('click', closeMenu);
     return () => document.removeEventListener('click', closeMenu);
   }, [showMenu]);
 
@@ -31,7 +33,7 @@ export default function LoggedInDropdown() {
   return (
     <>
       <button onClick={openMenu}>
-        <i className='fas fa-water'></i>
+        <i className={showMenu ? 'far fa-window-close' : 'fas fa-water'}></i>
       </button>
       {showMenu && (
         <ul className='navbar__dropdown navbar__dropdown-collapse'>
