@@ -3,6 +3,13 @@
   grid-template-columns: 50% 50%;
 }
 
+@media (max-width: 800px) {
+  .single-bathroom {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .single-bathroom__image-container {
   overflow: hidden;
 }
