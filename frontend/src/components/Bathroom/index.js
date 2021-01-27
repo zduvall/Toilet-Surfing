@@ -3,23 +3,26 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import './Bathroom.css';
 
-// thunks
+// import thunks
 import { getUsers } from '../../store/user';
 import { getBathrooms } from '../../store/bathroom';
 
-// components
+// import components
 import BathroomHeader from './BothroomHeader';
+import BathroomInfo from './BathroomInfo';
 
 export default function Bathroom() {
+  const dispatch = useDispatch();
   const { bathroomId } = useParams();
   const { bathrooms, users } = useSelector((state) => state);
   const curBathroom = bathrooms[bathroomId];
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getBathrooms());
   }, [dispatch]);
+
+  if (!curBathroom) return null
 
   return (
     <div className='single-bathroom'>
@@ -36,17 +39,7 @@ export default function Bathroom() {
           name={curBathroom.name}
           owner={users[curBathroom.bathroomOwnerId].username}
         />
-        <p>{curBathroom.description}</p>
-        <p>
-          {curBathroom.streetNumber} {curBathroom.route}
-        </p>
-        <p>
-          {curBathroom.locality}, {curBathroom.administrativeArea}
-        </p>
-        <p>{curBathroom.postalCode}</p>
-        <p>{curBathroom.country}</p>
-        <p>{curBathroom.lat}</p>
-        <p>{curBathroom.lng}</p>
+        <BathroomInfo curBathroom={curBathroom} />
       </section>
     </div>
   );
