@@ -50,7 +50,7 @@ module.exports = {
           name: 'Best Restroom on The Strip',
           description:
             'Come use our one of a kind bathroom with dark granite walls and mood lights to get you in the mood.',
-          picture: '/pictures/3-vegas-bathroom',
+          picture: '/pictures/3-vegas-bathroom.jpg',
           streetNumber: '3595',
           route: 'East Flamingo Road',
           locality: 'Las Vegas',
@@ -67,7 +67,7 @@ module.exports = {
           name: 'Medibathroom',
           description:
             "Come relax in our bathroom designed to help calm your nerves and your bowels. You'll soon realize it's never been so easy to go.",
-          picture: '/pictures/5-log-bathroom',
+          picture: '/pictures/4-relaxing-bathroom.jpg',
           streetNumber: '73-4050',
           route: 'Hulikoa Dr',
           locality: 'Kailua-Kona',
@@ -84,7 +84,7 @@ module.exports = {
           name: 'Lumbjacks Loo',
           description:
             'Please stop by our one-of-a-kind completely wooden bathroom, where even the porcelin is made of wood (completely de-splinterized!).',
-          picture: '/pictures/5-log-bathroom',
+          picture: '/pictures/5-log-bathroom.jpg',
           streetNumber: '1490',
           route: 'Eagle Way',
           locality: 'Park City',
