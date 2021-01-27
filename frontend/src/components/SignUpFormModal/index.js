@@ -7,7 +7,14 @@ export default function SignUpFormModal() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Sign Up</button>
+      <button
+        onClick={(e) => {
+          setShowModal(true);
+          e.stopPropagation();
+        }}
+      >
+        Sign Up
+      </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <SignUpForm />
