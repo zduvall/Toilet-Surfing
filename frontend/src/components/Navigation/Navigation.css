@@ -49,8 +49,8 @@
   font-weight: 600;
 }
 
-.navbar__dropdown-logged-out {
-  right: auto;
+.navbar__dropdown-collapse {
+  /* right: auto; */
   margin-top: 1.3rem;
 }
 

@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       name: { type: DataTypes.STRING(50), unique: true, allowNull: false },
       description: { type: DataTypes.STRING(200) },
-      picture: { type: DataTypes.STRING(2083) },
+      imageUrl: { type: DataTypes.STRING(2083) },
       streetNumber: { type: DataTypes.STRING(255) },
       route: { type: DataTypes.STRING(255) },
       locality: { type: DataTypes.STRING(255) },
@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
+
   Bathroom.associate = function (models) {
     // associations can be defined here
     Bathroom.belongsTo(models.User, { foreignKey: 'bathroomOwnerId' });

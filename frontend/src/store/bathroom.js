@@ -1,20 +1,76 @@
 import { fetch } from './csrf';
 
-// Action type
-const SET_BATHROOMS = '/users/SET_BATHROOMS';
+// Action types
+const LOAD_BATHROOMS = '/bathrooms/LOAD_BATHROOMS';
+const CREATE_BATHROOM = '/bathrooms/CREATE_BATROOM';
 
-// Action creator
-const setBathrooms = (bathrooms) => ({
-  type: SET_BATHROOMS,
+// Action creators
+const load = (bathrooms) => ({
+  type: LOAD_BATHROOMS,
   bathrooms,
 });
 
-// Thunk
+const create = (bathroom) => ({
+  type: CREATE_BATHROOM,
+  bathroom,
+});
+
+// Thunks
 export const getBathrooms = () => async (dispatch) => {
   const res = await fetch('/api/bathrooms');
   if (res.ok) {
-    dispatch(setBathrooms(res.data));
+    dispatch(load(res.data));
   }
+};
+
+export const createBathroom = (bathroom) => async (dispatch) => {
+  const {
+    images,
+    image,
+    bathroomOwnerId,
+    name,
+    description,
+    streetNumber,
+    route,
+    locality,
+    administrativeArea,
+    postalCode,
+    country,
+    lat,
+    lng,
+  } = bathroom;
+  const formData = new FormData();
+  formData.append('bathroomOwnerId', bathroomOwnerId);
+  formData.append('name', name);
+  formData.append('description', description);
+  formData.append('streetNumber', streetNumber);
+  formData.append('route', route);
+  formData.append('locality', locality);
+  formData.append('administrativeArea', administrativeArea);
+  formData.append('postalCode', postalCode);
+  formData.append('country', country);
+  formData.append('lat', lat);
+  formData.append('lng', lng);
+
+  // for multiple files
+  if (images && images.length !== 0) {
+    for (var i = 0; i < images.length; i++) {
+      formData.append('images', images[i]);
+    }
+  }
+
+  // for single file
+  if (image) formData.append('image', image);
+
+  const res = await fetch(`/api/bathrooms`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+    body: formData,
+  });
+
+  dispatch(create(res.data.bathroom));
 };
 
 // Reducer
@@ -24,7 +80,7 @@ const initState = {
     bathroomOwnerId: 1,
     name: '',
     description: '',
-    picture: '',
+    imageUrl: '',
     streetNumber: '',
     route: '',
     locality: '',
@@ -42,10 +98,14 @@ const bathroomReducer = (state = initState, action) => {
   const newState = { ...state };
 
   switch (action.type) {
-    case SET_BATHROOMS:
+    case LOAD_BATHROOMS:
       for (let bathroom of action.bathrooms) {
         newState[bathroom.id] = bathroom;
       }
+      return newState;
+    case CREATE_BATHROOM:
+      // return { ...newState, bathroom: action.bathroom }
+      newState[action.bathroom.id] = action.bathroom;
       return newState;
     default:
       return newState;

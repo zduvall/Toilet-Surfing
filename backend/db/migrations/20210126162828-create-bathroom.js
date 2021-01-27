@@ -23,12 +23,14 @@ module.exports = {
       },
       description: {
         type: Sequelize.STRING(200),
+        allowNull: false,
         validate: {
-          len: [0, 200],
+          len: [20, 200],
         },
       },
-      picture: {
+      imageUrl: {
         type: Sequelize.STRING(2083),
+        allowNull: false,
       },
       streetNumber: {
         type: Sequelize.STRING(255),

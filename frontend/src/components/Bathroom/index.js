@@ -29,7 +29,7 @@ export default function Bathroom() {
           <section className='single-bathroom__image-container'>
             <img
               className='single-bathroom__image'
-              src={curBathroom.picture}
+              src={curBathroom.imageUrl}
               alt={'bathroom'}
             />
           </section>

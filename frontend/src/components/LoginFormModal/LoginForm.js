@@ -19,46 +19,50 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>
-          Username or Email
-          <input
-            type='text'
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </label>
-      </div>
-      <div>
-        <label>
-          Password
-          <input
-            type='password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-      </div>
+    <>
+      {/* <h1>Log In</h1> */}
 
-      <div>
-        <button className='auth-form__button' type='submit'>
-          Log In
-        </button>
-      </div>
-
-      {!!errors.length && (
+      <form onSubmit={handleSubmit}>
         <div>
-          <ul>
-            {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
-            ))}
-          </ul>
+          <label>
+            Username or Email
+            <input
+              type='text'
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+            />
+          </label>
         </div>
-      )}
-    </form>
+        <div>
+          <label>
+            Password
+            <input
+              type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+
+        <div>
+          <button className='form__button' type='submit'>
+            Log In
+          </button>
+        </div>
+
+        {!!errors.length && (
+          <div>
+            <ul>
+              {errors.map((error, idx) => (
+                <li key={idx}>{error}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </form>
+    </>
   );
 }
 

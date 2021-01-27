@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import LoginForm from './LoginForm';
-// import { useLoggedOutContext } from '../Navigation/LoggedOutDropdown';
+import BathroomCreateModal from './BathroomCreateModal';
 
-export default function LoginFormModal() {
+export default function SignUpFormModal() {
   const [showModal, setShowModal] = useState(false);
-  // const setShowMenu = useLoggedOutContext();
 
   return (
     <>
@@ -13,14 +11,13 @@ export default function LoginFormModal() {
         onClick={(e) => {
           setShowModal(true);
           e.stopPropagation();
-          // setShowMenu(false);
         }}
       >
-        Log In
+        Add Bathroom
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <LoginForm />
+          <BathroomCreateModal />
         </Modal>
       )}
     </>

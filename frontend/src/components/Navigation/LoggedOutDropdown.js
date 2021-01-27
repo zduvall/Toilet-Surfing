@@ -1,6 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
 import LoginFormModal from '../LoginFormModal';
 import SignUpFormModal from '../SignUpFormModal';
+
+// const LoggedOutContext = createContext();
+// export const useLoggedOutContext = () => useContext(LoggedOutContext);
 
 export default function SessionLinksDropdown() {
   const [showMenu, setShowMenu] = useState(false);
@@ -10,13 +13,12 @@ export default function SessionLinksDropdown() {
     setShowMenu(true);
   };
 
+  const closeMenu = () => {
+    setShowMenu(false);
+  };
+
   useEffect(() => {
     if (!showMenu) return;
-
-    const closeMenu = () => {
-      setShowMenu(false);
-    };
-
     document.addEventListener('click', closeMenu);
     return () => document.removeEventListener('click', closeMenu);
   }, [showMenu]);
@@ -27,14 +29,16 @@ export default function SessionLinksDropdown() {
         <i className='fas fa-water'></i>
       </button>
       {showMenu && (
-        <ul className='navbar__dropdown navbar__dropdown-logged-out click-ignore'>
-          <li className='navbar__dropdown__button click-ignore'>
+        // <LoggedOutContext.Provider value={setShowMenu}>
+        <ul className='navbar__dropdown navbar__dropdown-collapse'>
+          <li className='navbar__dropdown__button'>
             <LoginFormModal />
           </li>
-          <li className='navbar__dropdown__button click-ignore'>
+          <li className='navbar__dropdown__button'>
             <SignUpFormModal />
           </li>
         </ul>
+        // </LoggedOutContext.Provider>
       )}
     </>
   );
