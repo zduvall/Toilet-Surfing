@@ -22,25 +22,27 @@ export default function Bathroom() {
     dispatch(getBathrooms());
   }, [dispatch]);
 
-  if (!curBathroom) return null
-
   return (
-    <div className='single-bathroom'>
-      <section className='single-bathroom__image-container'>
-        <img
-          className='single-bathroom__image'
-          src={curBathroom.picture}
-          alt={'bathroom'}
-        />
-      </section>
+    <>
+      {curBathroom && (
+        <div className='single-bathroom'>
+          <section className='single-bathroom__image-container'>
+            <img
+              className='single-bathroom__image'
+              src={curBathroom.picture}
+              alt={'bathroom'}
+            />
+          </section>
 
-      <section className='single-bathroom__text'>
-        <BathroomHeader
-          name={curBathroom.name}
-          owner={users[curBathroom.bathroomOwnerId].username}
-        />
-        <BathroomInfo curBathroom={curBathroom} />
-      </section>
-    </div>
+          <section className='single-bathroom__text'>
+            <BathroomHeader
+              name={curBathroom.name}
+              owner={users[curBathroom.bathroomOwnerId].username}
+            />
+            <BathroomInfo curBathroom={curBathroom} />
+          </section>
+        </div>
+      )}
+    </>
   );
 }

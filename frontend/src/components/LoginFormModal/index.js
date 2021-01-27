@@ -4,10 +4,14 @@ import LoginForm from './LoginForm';
 
 export default function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);
-
   return (
     <>
-      <button onClick={() => setShowModal(true)}>
+      <button
+        onClick={(e) => {
+          setShowModal(true);
+          e.stopPropagation();
+        }}
+      >
         Log In
       </button>
       {showModal && (
