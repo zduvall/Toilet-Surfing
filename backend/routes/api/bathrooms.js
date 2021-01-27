@@ -26,56 +26,71 @@ router.get(
 const validateCreateBathroom = [
   check('name')
     .exists({ checkFalsy: true })
-    .isLength({ min: 3 })
-    .isLength({ max: 50 })
-    .withMessage('Name must be between 4 and 50 characters.'),
+    .withMessage('Bathroom name cannot be empty.')
+    .isLength({ min: 3, max: 50 })
+    .withMessage('Name must be between 4 and 50 characters.')
+    .custom((value) => {
+      return Bathroom.findOne({ where: { name: value } }).then((name) => {
+        if (name) {
+          return Promise.reject('Name already in use by another bathroom.');
+        }
+      });
+    }),
   check('description')
     .exists({ checkFalsy: true })
-    .isLength({ min: 20 })
-    .isLength({ max: 200 })
+    .withMessage('Description cannot be empty.')
+    .isLength({ min: 20, max: 200 })
     .withMessage('Description must be between 20 and 200 characters.'),
   check('imageUrl')
     .exists({ checkFalsy: true })
     .withMessage('Must upload an image.'),
   check('streetNumber')
     .exists({ checkFalsy: true })
+    .withMessage('Street number cannot be empty.')
     .isLength({ max: 255 })
     .withMessage('Street number required (less than 255 chars)'),
   check('route')
     .exists({ checkFalsy: true })
+    .withMessage('Route cannot be empty.')
     .isLength({ max: 255 })
     .withMessage('Route required (less than 255 chars)'),
   check('locality')
     .exists({ checkFalsy: true })
+    .withMessage('Locality cannot be empty.')
     .isLength({ max: 255 })
     .withMessage('Locality required (less than 255 chars)'),
   check('administrativeArea')
     .exists({ checkFalsy: true })
+    .withMessage('Administrative area cannot be empty.')
     .isLength({ max: 255 })
     .withMessage('Adminiatrative area required (less than 255 chars)'),
   check('postalCode')
     .exists({ checkFalsy: true })
+    .withMessage('Postal code cannot be empty.')
     .isLength({ max: 15 })
     .withMessage('Postal required (less than 15 chars)'),
   check('country')
     .exists({ checkFalsy: true })
+    .withMessage('Country cannot be empty.')
     .isLength({ max: 255 })
     .withMessage('Country required (less than 255 chars)'),
   check('lat')
     .exists({ checkFalsy: true })
+    .withMessage('Latitude cannot be empty.')
     .isLength({ max: 255 })
     .withMessage('Country required (less than 255 chars)'),
   check('lng')
     .exists({ checkFalsy: true })
+    .withMessage('Longitude cannot be empty.')
     .isLength({ max: 255 })
     .withMessage('Country required (less than 255 chars)'),
-  check('name').custom((value) => {
-    return Bathroom.findOne({ where: { name: value } }).then((name) => {
-      if (name) {
-        return Promise.reject('Name already taken by another bathroom.');
-      }
-    });
-  }),
+  // check('name').custom((value) => {
+  //   return Bathroom.findOne({ where: { name: value } }).then((name) => {
+  //     if (name) {
+  //       return Promise.reject('Name already in use by another bathroom.');
+  //     }
+  //   });
+  // }),
   handleValidationErrors,
 ];
 
