@@ -12,7 +12,6 @@ const setBathrooms = (bathrooms) => ({
 // Thunk
 export const getBathrooms = () => async (dispatch) => {
   const res = await fetch('/api/bathrooms');
-
   if (res.ok) {
     dispatch(setBathrooms(res.data));
   }
@@ -23,17 +22,17 @@ const initState = {
   1: {
     id: 1,
     bathroomOwnerId: 1,
-    name: 'Cool Bath',
-    description: 'The coolest bathroom out there',
-    picture: '/pictures/1-view-bathroom.jpg',
-    streetNumber: '1374',
-    route: 'Royal Troon Drive',
-    locality: 'Millcreek',
-    administrativeArea: 'UT',
-    postalCode: 84124,
-    country: 'United States',
-    lat: 40.676615,
-    lng: -111.852043,
+    name: '',
+    description: '',
+    picture: '',
+    streetNumber: '',
+    route: '',
+    locality: '',
+    administrativeArea: '',
+    postalCode: 1,
+    country: '',
+    lat: 1,
+    lng: 1,
     createdAt: new Date(),
     updatedAt: new Date(),
   },
