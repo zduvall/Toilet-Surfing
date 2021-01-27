@@ -11,7 +11,7 @@ export default function LoggedInDropdown() {
   const openMenu = () => {
     let show = true;
     if (showMenu) show = false;
-    // if (showMenu) return;
+    // if (showMenu) return; // comment in this line and the event listener below to allow click anywhere close, but that prevents clicking into the form
     setShowMenu(show);
   };
 
