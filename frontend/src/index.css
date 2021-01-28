@@ -15,10 +15,9 @@ body {
 }
 
 .fa-chevron-down {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  left: 50%;
-  right: 50%;
+  left: 49%;
   z-index: 1;
   animation: updown 2s ease infinite;
 }
