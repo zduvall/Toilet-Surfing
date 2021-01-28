@@ -29,7 +29,7 @@ module.exports = {
     const hardCodedUsers = [
       {
         email: 'demo-lition@gmail.io',
-        username: 'Demo-lition',
+        username: 'PottyTrainer',
         hashedPassword: bcrypt.hashSync('password'),
         createdAt: new Date(),
         updatedAt: new Date(),

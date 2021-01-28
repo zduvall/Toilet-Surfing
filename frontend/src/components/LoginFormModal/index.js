@@ -20,7 +20,7 @@ export default function LoginFormModal({ openMenu }) {
         <Modal
           onClose={() => {
             setShowModal(false);
-            openMenu();
+            if (openMenu) openMenu();
           }}
         >
           <LoginForm />

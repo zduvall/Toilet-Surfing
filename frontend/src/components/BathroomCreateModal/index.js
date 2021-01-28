@@ -19,7 +19,7 @@ export default function SignUpFormModal({ openMenu }) {
         <Modal
           onClose={() => {
             setShowModal(false);
-            openMenu();
+            if(openMenu) openMenu();
           }}
         >
           <BathroomCreateModal />

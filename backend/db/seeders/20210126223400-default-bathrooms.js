@@ -81,7 +81,7 @@ module.exports = {
         },
         {
           bathroomOwnerId: 1,
-          name: 'Lumbjacks Loo',
+          name: "Lumberjack's Loo",
           description:
             'Please stop by our one-of-a-kind completely wooden bathroom, where even the porcelin is made of wood (completely de-splinterized!).',
           imageUrl: '/pictures/5-log-bathroom.jpg',
