@@ -28,7 +28,7 @@ function App() {
               src='./pictures/Bathroom-ocean-lng.png'
               alt='Ocean view from bathroom window'
             ></img>
-            {/* <BathroomSmallViewContainer /> */}
+            <BathroomSmallViewContainer />
             {sessionUser && <h1>Home Logged In</h1>}
             {!sessionUser && <h1>Home Not Logged In</h1>}
           </Route>

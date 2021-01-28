@@ -1,7 +1,6 @@
 import BathroomHeader from './BothroomHeader';
 
 import './Bathroom.css';
-import Bathroom from '.';
 
 export default function BathroomSmallView({ bathroom, user }) {
   return (
