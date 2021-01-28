@@ -77,6 +77,7 @@ const BathroomCreateModal = () => {
     <div>
       <h1>Create Bathroom</h1>
       <form
+        encType='multipart/form-data'
         style={{ display: 'flex', flexFlow: 'column' }}
         onSubmit={handleSubmit}
       >

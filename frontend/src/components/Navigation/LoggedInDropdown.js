@@ -34,14 +34,18 @@ export default function LoggedInDropdown() {
   return (
     <>
       <button onClick={openMenu}>
-        <i className={showMenu ? 'far fa-window-close' : 'fas fa-water'}></i>
+        <i
+          className={
+            showMenu ? 'far fa-window-close fa-lg' : 'fas fa-water fa-lg'
+          }
+        ></i>
       </button>
       {showMenu && (
         <ul className='navbar__dropdown navbar__dropdown-collapse'>
           <li className='navbar__dropdown__info'>{sessionUser.username}</li>
           <li className='navbar__dropdown__info'>{sessionUser.email}</li>
           <li className='navbar__dropdown__button'>
-            <BathroomCreateModal />
+            <BathroomCreateModal openMenu={openMenu} />
           </li>
           <li>
             <button className='navbar__dropdown__button' onClick={logout}>

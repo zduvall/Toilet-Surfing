@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import BathroomCreateModal from './BathroomCreateModal';
 
-export default function SignUpFormModal() {
+export default function SignUpFormModal({ openMenu }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -16,7 +16,12 @@ export default function SignUpFormModal() {
         Add Bathroom
       </button>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal
+          onClose={() => {
+            setShowModal(false);
+            openMenu();
+          }}
+        >
           <BathroomCreateModal />
         </Modal>
       )}

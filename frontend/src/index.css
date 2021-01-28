@@ -6,6 +6,32 @@ body {
   margin: 0;
 }
 
+.home__background-container {
+  position: relative;
+}
+
 .home__background {
   max-width: 100%;
+}
+
+.fa-chevron-down {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 1;
+  animation: updown 2s ease infinite;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-8%);
+  }
+
+  50% {
+    transform: translateY(8%);
+  }
+
+  100% {
+    transform: translateY(-8%);
+  }
 }
