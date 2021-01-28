@@ -50,6 +50,15 @@
   grid-template-columns: 33% 33% 33%;
 }
 
+@media (max-width: 800px) {
+  .bathroom-small-view-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .bathroom-small-view {
-  border: black solid;
+  margin: .5rem;
+  background-color: rgba(89, 121, 133, 0.8);
+  /* backdrop-filter: blur(6px); */
 }

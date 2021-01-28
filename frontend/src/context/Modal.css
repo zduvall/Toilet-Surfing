@@ -26,7 +26,6 @@
   backdrop-filter: blur(6px);
   border-radius: 2rem 0.25rem 2rem 0.25rem;
   padding: 1.5rem;
-  z-index: 1;
 }
 
 #modal-content ul {

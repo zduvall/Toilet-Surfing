@@ -3,8 +3,8 @@
   width: 100%;
   top: 0;
   background-color: rgb(236, 250, 255, 0.8);
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(6px);
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.5);
 }
 
 .site-header__wrapper {
