@@ -20,7 +20,7 @@ function App() {
   }, [dispatch]);
 
   document.addEventListener('scroll', () => {
-    setShowDownArrow(window.scrollY < 200);
+    setShowDownArrow(window.scrollY < 100);
     console.log(showDownArrow);
   });
 
