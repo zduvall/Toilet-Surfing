@@ -26,15 +26,19 @@ export default function SessionLinksDropdown() {
   return (
     <>
       <button onClick={openMenu}>
-        <i className={showMenu ? 'far fa-window-close' : 'fas fa-water'}></i>
+        <i
+          className={
+            showMenu ? 'far fa-window-close fa-lg' : 'fas fa-water fa-lg'
+          }
+        ></i>
       </button>
       {showMenu && (
         <ul className='navbar__dropdown navbar__dropdown-collapse'>
           <li className='navbar__dropdown__button'>
-            <LoginFormModal />
+            <LoginFormModal openMenu={openMenu} />
           </li>
           <li className='navbar__dropdown__button'>
-            <SignUpFormModal />
+            <SignUpFormModal openMenu={openMenu} />
           </li>
         </ul>
       )}
