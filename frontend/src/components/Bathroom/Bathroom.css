@@ -10,8 +10,11 @@
   }
 }
 
+/* Single Bathroom */
+
 .single-bathroom__image-container {
   overflow: hidden;
+  min-height: 250px;
 }
 
 .single-bathroom__image {
@@ -23,6 +26,8 @@
   background-color: rgb(247, 253, 255);
   padding: 1.5rem;
 }
+
+/* Bathroom Header */
 
 .bathroom-header {
   display: flex;
@@ -37,4 +42,71 @@
 .bathroom-header__owner {
   font-size: 1rem;
   margin-left: 0.5rem;
+}
+
+/* Bathroom Small View */
+
+.bathroom-small-view-container {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+@media (max-width: 1100px) {
+  .bathroom-small-view-container {
+    grid-template-columns: 33% 33% 33%;
+  }
+}
+
+@media (max-width: 875px) {
+  .bathroom-small-view-container {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media (max-width: 650px) {
+  .bathroom-small-view-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.bathroom-small-view {
+  margin: 0.4rem;
+  overflow: hidden;
+  position: relative;
+  height: 200px;
+  /* background-color: rgba(89, 121, 133, 0.8); */
+}
+
+.bathroom-small-view__text-container {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.438);
+}
+
+.bathroom-small-view__text {
+  margin: 0rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.bathroom-small-view-container > p {
+  font-weight: 1000;
+}
+
+.bathroom-small-view__rating {
+  height: 100%
+}
+
+.bathroom-small-view__image-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+  transition-duration: 0.75s;
+  transition-timing-function: cubic-bezier(0.2, 0.5, 0.3, 1);
+}
+
+.bathroom-small-view__text-container:hover
+  ~ .bathroom-small-view__image-container {
+  transform: scale(1.1);
 }

@@ -26,12 +26,12 @@ export default function Bathroom() {
     <>
       {curBathroom && (
         <div className='single-bathroom'>
-          <section className='single-bathroom__image-container'>
-            <img
-              className='single-bathroom__image'
-              src={curBathroom.imageUrl}
-              alt={'bathroom'}
-            />
+          <section
+            className='single-bathroom__image-container'
+            style={{
+              background: `center / cover url(${curBathroom.imageUrl})`,
+            }}
+          >
           </section>
 
           <section className='single-bathroom__text'>
