@@ -32,11 +32,6 @@ export default function Bathroom() {
               background: `center / cover url(${curBathroom.imageUrl})`,
             }}
           >
-            {/* <img
-              className='single-bathroom__image'
-              src={curBathroom.imageUrl}
-              alt={'bathroom'}
-            /> */}
           </section>
 
           <section className='single-bathroom__text'>
