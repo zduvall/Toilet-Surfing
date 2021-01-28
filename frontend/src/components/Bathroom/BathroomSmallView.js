@@ -9,17 +9,19 @@ export default function BathroomSmallView({ bathroom, user }) {
         <div className='bathroom-small-view'>
           <div className='bathroom-small-view__text-container'>
             <a href={`/bathrooms/${bathroom.id}`}>
-              <h1 className='bathroom-header__name bathroom-small-text'>
+              <h1 className='bathroom-header__name bathroom-small-view__text'>
                 {bathroom.name}
               </h1>
-              <h2 className='bathroom-header__owner bathroom-small-text'>
+              <h2 className='bathroom-header__owner bathroom-small-view__text'>
                 (by {user.username})
               </h2>
-              <p className='bathroom-small-text'>
+              <p className='bathroom-small-view__text'>
                 {bathroom.locality}, {bathroom.administrativeArea},{' '}
                 {bathroom.country}
               </p>
-              <p className='bathroom-small-text'>Average Rating</p>
+              <p className='bathroom-small-view__text bathroom-small-view__rating'>
+                Average Rating
+              </p>
             </a>
           </div>
           <div
