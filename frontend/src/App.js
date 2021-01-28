@@ -12,10 +12,16 @@ function App() {
   const sessionUser = useSelector((state) => state.session.user);
 
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showDownArrow, setShowDownArrow] = useState(true);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
+  document.addEventListener('scroll', () => {
+    setShowDownArrow(window.scrollY < 200);
+    console.log(showDownArrow);
+  });
 
   return (
     <>
@@ -26,12 +32,14 @@ function App() {
             <div>
               <img
                 className='home__background'
-                src='./pictures/Bathroom-ocean-lng2.png'
+                src='./pictures/Bathroom-ocean-lng.png'
                 alt='Ocean view from bathroom window'
               ></img>
-              <span style={{ color: 'rgba(61, 92, 104, 0.8)' }}>
-                <i class='fas fa-chevron-down fa-3x'></i>
-              </span>
+              {showDownArrow && (
+                <span style={{ color: 'rgba(61, 92, 104, 0.8)' }}>
+                  <i className='fas fa-chevron-down fa-3x'></i>
+                </span>
+              )}
             </div>
             <BathroomSmallViewContainer />
             {sessionUser && <h1>Home Logged In</h1>}
