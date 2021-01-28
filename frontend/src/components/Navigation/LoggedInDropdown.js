@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+// import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import BathroomCreateModal from '../BathroomCreateModal';
 import * as sessionActions from '../../store/session';
