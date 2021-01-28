@@ -1,6 +1,7 @@
 import './Bathroom.css';
 
 export default function BathroomHeader({ name, owner }) {
+  console.log((owner));
   return (
     <div className='bathroom-header'>
       <h1 className='bathroom-header__name'>{name}</h1>

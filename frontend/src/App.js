@@ -5,6 +5,7 @@ import * as sessionActions from './store/session';
 
 import Navigation from './components/Navigation';
 import Bathroom from './components/Bathroom';
+import BathroomSmallViewContainer from './components/Bathroom/BathroomSmallViewContainer';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function App() {
               src='./pictures/Bathroom-ocean-lng.png'
               alt='Ocean view from bathroom window'
             ></img>
+            {/* <BathroomSmallViewContainer /> */}
             {sessionUser && <h1>Home Logged In</h1>}
             {!sessionUser && <h1>Home Not Logged In</h1>}
           </Route>

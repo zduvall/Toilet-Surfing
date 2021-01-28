@@ -10,6 +10,8 @@
   }
 }
 
+/* Single Bathroom */
+
 .single-bathroom__image-container {
   overflow: hidden;
 }
@@ -24,6 +26,8 @@
   padding: 1.5rem;
 }
 
+/* Bathroom Header */
+
 .bathroom-header {
   display: flex;
   flex-direction: row;
@@ -37,4 +41,15 @@
 .bathroom-header__owner {
   font-size: 1rem;
   margin-left: 0.5rem;
+}
+
+/* Bathroom Small View */
+
+.bathroom-small-view-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+
+.bathroom-small-view {
+  border: black solid;
 }
