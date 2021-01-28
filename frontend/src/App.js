@@ -6,7 +6,7 @@ import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 import Bathroom from './components/Bathroom';
 import BathroomSmallViewContainer from './components/Bathroom/BathroomSmallViewContainer';
-import BathroomCreateModal from './components/BathroomCreateModal/BathroomCreateModal'
+import BathroomCreateModal from './components/BathroomCreateModal/BathroomCreateModal';
 
 function App() {
   const dispatch = useDispatch();
@@ -21,7 +21,6 @@ function App() {
 
   document.addEventListener('scroll', () => {
     setShowDownArrow(window.scrollY < 100);
-    console.log(showDownArrow);
   });
 
   return (
@@ -30,16 +29,29 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
-            <div>
+            <div className='home__background-container'>
               <img
                 className='home__background'
                 src='./pictures/Bathroom-ocean-lng.png'
                 alt='Ocean view from bathroom window'
               ></img>
+              <div className='home__greeting'>
+                <h1 className='home__greeting__text'>Need a toilet?</h1>
+                <h1 className='home__greeting__text'>Book a toilet.</h1>
+              </div>
               {showDownArrow && (
-                <span style={{ color: 'rgba(61, 92, 104, 0.8)' }}>
+                <button
+                  onClick={() => {
+                    const bathroomList = document.getElementById(
+                      'bathroom-small-view-container'
+                    );
+                    const rect = bathroomList.getBoundingClientRect();
+                    window.scrollBy({ top: rect.top, behavior: 'smooth' });
+                  }}
+                  style={{ color: 'rgba(61, 92, 104, 0.8)' }}
+                >
                   <i className='fas fa-chevron-down fa-3x'></i>
-                </span>
+                </button>
               )}
             </div>
             <BathroomSmallViewContainer />
@@ -50,7 +62,7 @@ function App() {
             <Bathroom />
           </Route>
           <Route path='/bathrooms/new'>
-            <BathroomCreateModal/>
+            <BathroomCreateModal />
           </Route>
           <Route>Page Not Found</Route>
         </Switch>

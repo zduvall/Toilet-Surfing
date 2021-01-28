@@ -21,7 +21,10 @@ export default function BathroomSmallViewContainer() {
   return (
     <>
       <h1>Bathrooms</h1>
-      <div className='bathroom-small-view-container'>
+      <div
+        id='bathroom-small-view-container'
+        className='bathroom-small-view-container'
+      >
         {bathroomsArray.map((bathroom) => (
           <BathroomSmallView
             key={bathroom.name}
