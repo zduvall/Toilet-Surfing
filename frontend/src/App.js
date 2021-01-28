@@ -23,11 +23,16 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
-            <img
-              className='home__background'
-              src='./pictures/Bathroom-ocean-lng.png'
-              alt='Ocean view from bathroom window'
-            ></img>
+            <div>
+              <img
+                className='home__background'
+                src='./pictures/Bathroom-ocean-lng2.png'
+                alt='Ocean view from bathroom window'
+              ></img>
+              <span style={{ color: 'rgba(61, 92, 104, 0.8)' }}>
+                <i class='fas fa-chevron-down fa-3x'></i>
+              </span>
+            </div>
             <BathroomSmallViewContainer />
             {sessionUser && <h1>Home Logged In</h1>}
             {!sessionUser && <h1>Home Not Logged In</h1>}
