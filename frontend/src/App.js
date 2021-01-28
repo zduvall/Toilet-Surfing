@@ -6,6 +6,7 @@ import * as sessionActions from './store/session';
 import Navigation from './components/Navigation';
 import Bathroom from './components/Bathroom';
 import BathroomSmallViewContainer from './components/Bathroom/BathroomSmallViewContainer';
+import BathroomCreateModal from './components/BathroomCreateModal/BathroomCreateModal'
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route path={`/bathrooms/:bathroomId(\\d+)`}>
             <Bathroom />
+          </Route>
+          <Route path='/bathrooms/new'>
+            <BathroomCreateModal/>
           </Route>
           <Route>Page Not Found</Route>
         </Switch>
