@@ -98,6 +98,7 @@ const BathroomCreateModal = () => {
           />
         </label>
         <label>
+          Image
           <input type='file' onChange={updateFile} />
         </label>
         <label>
@@ -176,7 +177,9 @@ const BathroomCreateModal = () => {
           Multiple Upload
           <input type='file' multiple onChange={updateFiles} />
         </label> */}
-        <button className='form__button' type='submit'>Create Bathroom</button>
+        <button className='form__button' type='submit'>
+          Create Bathroom
+        </button>
       </form>
       {errors.length > 0 &&
         errors.map((error) => <div key={error}>{error}</div>)}

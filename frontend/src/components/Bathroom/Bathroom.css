@@ -84,9 +84,12 @@
 }
 
 .bathroom-small-view__text {
-  margin: 0rem 0.25rem;
-  padding: 0.5rem;
-  
+  margin: 0rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.bathroom-small-view-container > p {
+  font-weight: 1000;
 }
 
 .bathroom-small-view__rating {
