@@ -50,14 +50,6 @@ export default function Map({ setSelectedBathroomId }) {
 
     function onGeolocateError(error) {
       console.warn(error.code, error.message);
-
-      if (error.code === 1) {
-        // they said no
-      } else if (error.code === 2) {
-        // position unavailable
-      } else if (error.code === 3) {
-        // timeout
-      }
     }
 
     geolocate();
@@ -69,8 +61,13 @@ export default function Map({ setSelectedBathroomId }) {
     setLng(e.latLng.lng());
   }
 
-  function handleMapLoad(currentMap) {
-    setMap(currentMap);
+  function handleMapLoad(e) {
+    setMap(e);
+    // const bounds = currentMap.getBounds();
+    // let shownBathrooms = bathroomsArray.filter((bathroom) =>
+    //   bounds.contains(bathroom)
+    // );
+    // setBathroomsInWindow(shownBathrooms);
   }
 
   function handleBoundsChanged() {
