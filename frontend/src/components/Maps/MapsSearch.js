@@ -3,11 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { getBathrooms } from '../../store/bathroom';
 
+// import { querySelectorAllRegex } from './mapsUtils';
+
 export default function Map({ setSelectedBathroomId }) {
   const dispatch = useDispatch();
 
   const [lat, setLat] = useState();
   const [lng, setLng] = useState();
+  // const [markersOnScreen, setMarkersOnScreen] = useState();
 
   const { bathrooms } = useSelector((state) => state);
   const bathroomsArray = Object.values(bathrooms);
@@ -54,22 +57,25 @@ export default function Map({ setSelectedBathroomId }) {
     geolocate();
   }, [lat, lng]);
 
+  // function findMarkersOnScreen(e) {
+  //   console.log(e);
+  // }
+
   return (
     <div>
       <LoadScript googleMapsApiKey={process.env.REACT_APP_MAPS_API_KEY}>
-        <GoogleMap id='search-map' mapContainerStyle={containerStyle} center={center} zoom={5}>
-          {/* <>
-            <Marker
-              position={hawaiiPosition}
-              // draggable={true}
-              onDragEnd={(e) => {
-                sendDataToParent([e.latLng.lat(), e.latLng.lng()]);
-              }}
-            />
-          </> */}
+        <GoogleMap
+          id='search-map'
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={5}
+          // onBoundsChanged={(e) => console.log(e)}
+          // onCenterChanged={(e) => console.log(e)}
+        >
           {bathroomsArray.map((bathroom) => {
             return (
               <Marker
+                className='marker'
                 key={bathroom.name}
                 position={{
                   lat: Number(bathroom.lat),
@@ -77,7 +83,7 @@ export default function Map({ setSelectedBathroomId }) {
                 }}
                 title={`"${bathroom.name}"\n${bathroom.locality}, ${bathroom.administrativeArea}`}
                 onClick={(e) => {
-                  setSelectedBathroomId(bathroom.id);
+                  // setSelectedBathroomId(bathroom.id);
                 }}
               />
             );

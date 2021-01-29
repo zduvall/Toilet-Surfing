@@ -32,7 +32,7 @@
 }
 
 .home__greeting__text {
-  color: rgb(242, 160, 84);
+  color: rgb(242, 160, 84, 0.9);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.521);
 }
 
@@ -52,7 +52,8 @@
   bottom: 0;
   z-index: 5;
   animation: updown 2s ease infinite;
-  color: rgba(61, 92, 104, 0.8);
+  color: rgba(242, 160, 84, 0.8);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.521);
 }
 
 @keyframes updown {

@@ -14,14 +14,14 @@ export default function HomeBackgroundImage() {
 
   window.addEventListener('resize', () => {
     setArrowMidScreen(window.innerWidth / 2 - 20);
-    console.log(arrowMidScreen)
+    console.log(arrowMidScreen);
   });
 
   function handleDownArrowClick() {
     let header = document.getElementsByClassName('site-header');
     let headerHeight = header[0].offsetHeight;
     const searchMap = document.getElementById('search-map');
-    const scrollDistance = searchMap.getBoundingClientRect().top - headerHeight;
+    const scrollDistance = searchMap.getBoundingClientRect().top - headerHeight - 10;
     console.log(scrollDistance);
     window.scrollBy({ top: scrollDistance, behavior: 'smooth' });
   }
@@ -33,10 +33,12 @@ export default function HomeBackgroundImage() {
         src='./pictures/Bathroom-ocean-lng.png'
         alt='Ocean view from bathroom window'
       ></img>
-      <div className='home__greeting' onClick={handleDownArrowClick}>
-        <h1 className='home__greeting__text'>Need a toilet?</h1>
-        <h1 className='home__greeting__text'>Book a toilet.</h1>
-      </div>
+      {showDownArrow && (
+        <div className='home__greeting' onClick={handleDownArrowClick}>
+          <h1 className='home__greeting__text'>Need a toilet?</h1>
+          <h1 className='home__greeting__text'>Book a toilet.</h1>
+        </div>
+      )}
       {showDownArrow && (
         <button id='down-arrow' onClick={handleDownArrowClick}>
           <i
