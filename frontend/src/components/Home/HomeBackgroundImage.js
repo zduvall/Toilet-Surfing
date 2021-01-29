@@ -9,6 +9,15 @@ export default function HomeBackgroundImage() {
     setShowDownArrow(window.scrollY < 100);
   });
 
+  function handleDownArrowClick() {
+    let header = document.getElementsByClassName('site-header');
+    let headerHeight = header[0].offsetHeight;
+    const searchMap = document.getElementById('search-map');
+    const scrollDistance = searchMap.getBoundingClientRect().top - headerHeight;
+    console.log(scrollDistance);
+    window.scrollBy({ top: scrollDistance, behavior: 'smooth' });
+  }
+
   return (
     <div className='home__background-container'>
       <img
@@ -22,13 +31,7 @@ export default function HomeBackgroundImage() {
       </div>
       {showDownArrow && (
         <button
-          onClick={() => {
-            const bathroomList = document.getElementById(
-              'bathroom-small-view-container'
-            );
-            const rect = bathroomList.getBoundingClientRect();
-            window.scrollBy({ top: rect.top, behavior: 'smooth' });
-          }}
+          onClick={handleDownArrowClick}
           style={{ color: 'rgba(61, 92, 104, 0.8)' }}
         >
           <i className='fas fa-chevron-down fa-3x'></i>

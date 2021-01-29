@@ -57,7 +57,7 @@ export default function Map({ setSelectedBathroomId }) {
   return (
     <div>
       <LoadScript googleMapsApiKey={process.env.REACT_APP_MAPS_API_KEY}>
-        <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={5}>
+        <GoogleMap id='search-map' mapContainerStyle={containerStyle} center={center} zoom={5}>
           {/* <>
             <Marker
               position={hawaiiPosition}
