@@ -5,7 +5,7 @@ import * as sessionActions from './store/session';
 
 import Navigation from './components/Navigation';
 import Home from './components/Home';
-import Bathroom from './components/Bathroom';
+import SingleBathroom from './components/Bathroom/SingleBathroom';
 import BathroomCreateModal from './components/BathroomCreateModal/BathroomCreateModal';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
             {!sessionUser && <h1>Home Not Logged In</h1>} */}
           </Route>
           <Route path={`/bathrooms/:bathroomId(\\d+)`}>
-            <Bathroom />
+            <SingleBathroom />
           </Route>
           <Route path='/bathrooms/new'>
             <BathroomCreateModal />

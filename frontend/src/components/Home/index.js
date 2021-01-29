@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import HomeBackgroundImage from './HomeBackgroundImage';
 import BathroomSmallViewContainer from '../Bathroom/BathroomSmallViewContainer';
-import Bathroom from '../Bathroom';
+import SingleBathroom from '../Bathroom/SingleBathroom';
 import MapsSearch from '../Maps/MapsSearch';
 import './Home.css';
 
@@ -14,7 +14,7 @@ export default function Home() {
       <HomeBackgroundImage />
       <MapsSearch setSelectedBathroomId={setSelectedBathroomId} />
       {selectedBathroomId ? (
-        <Bathroom propsBathroomId={selectedBathroomId} />
+        <SingleBathroom propsBathroomId={selectedBathroomId} />
       ) : (
         <BathroomSmallViewContainer />
       )}
