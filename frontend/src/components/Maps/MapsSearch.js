@@ -3,13 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { getBathrooms } from '../../store/bathroom';
 
-// import { querySelectorAllRegex } from './mapsUtils';
+import { querySelectorAllRegex } from './mapsUtils';
 
 export default function Map({ setSelectedBathroomId }) {
   const dispatch = useDispatch();
 
   const [lat, setLat] = useState();
   const [lng, setLng] = useState();
+  const [map, setMap] = useState();
   // const [markersOnScreen, setMarkersOnScreen] = useState();
 
   const { bathrooms } = useSelector((state) => state);
@@ -64,6 +65,10 @@ export default function Map({ setSelectedBathroomId }) {
     setLng(e.latLng.lng());
   }
 
+  function handleMapLoad(currentMap) {
+    setMap(currentMap);
+  }
+
   return (
     <div>
       <LoadScript googleMapsApiKey={process.env.REACT_APP_MAPS_API_KEY}>
@@ -72,11 +77,18 @@ export default function Map({ setSelectedBathroomId }) {
           mapContainerStyle={containerStyle}
           center={center}
           zoom={5}
-          // onBoundsChanged={() => console.log()}
+          onLoad={handleMapLoad}
+          onBoundsChanged={(e) => {
+            // const markers = querySelectorAllRegex(/marker/, 'class');
+            const bounds = map.getBounds();
+            // bounds.contains(marker.position())
+            debugger;
+          }}
         >
           {bathroomsArray.map((bathroom) => {
             return (
               <Marker
+                id={bathroom.id}
                 className='marker'
                 key={bathroom.name}
                 position={{
