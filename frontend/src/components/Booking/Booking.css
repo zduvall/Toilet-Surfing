@@ -52,8 +52,23 @@
   }
 }
 
-/* ind day block */
+/* individual day block */
+.ind-day-block-container {
+  flex-grow: 5;
+  flex-basis: 0;
+}
+
+.ind-day-block-container + .ind-day-block-container {
+  border-left: rgb(52, 168, 226) solid 2px;
+}
+
+/* .cover-ind-day-block-container {} */
+
 .ind-day-block {
+  flex-grow: 5;
+  flex-basis: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .date-header-container {
@@ -63,15 +78,32 @@
   justify-content: center;
   border: rgb(247, 253, 255) solid;
   border-radius: 1rem;
-  box-sizing: border-box;
   text-align: center;
-  flex-grow: 5;
   background-color: rgb(52, 168, 226);
-  flex-basis: 0;
+
+  position: relative;
+  z-index: 1;
 }
 
 .date-header {
   font-size: 1.5rem;
   text-shadow: none;
   color: white;
+}
+
+.ind-hour-block {
+  border: rgb(247, 253, 255) solid 0.25px;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex: 1 1 0px;
+}
+
+.time-selector-button {
+  border: rgb(247, 253, 255) solid;
+  border-radius: 0.5rem;
+  background: rgba(242, 160, 84, 0.8) !important;
+  flex: 1 1 0px;
+  padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;
 }

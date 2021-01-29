@@ -54,12 +54,15 @@ export default function Map({ setSelectedBathroomId }) {
         // timeout
       }
     }
+
     geolocate();
   }, [lat, lng]);
 
-  // function findMarkersOnScreen(e) {
-  //   console.log(e);
-  // }
+  function handleMarkerClick(e, bathroom) {
+    setSelectedBathroomId(bathroom.id);
+    setLat(e.latLng.lat());
+    setLng(e.latLng.lng());
+  }
 
   return (
     <div>
@@ -69,8 +72,7 @@ export default function Map({ setSelectedBathroomId }) {
           mapContainerStyle={containerStyle}
           center={center}
           zoom={5}
-          // onBoundsChanged={(e) => console.log(e)}
-          // onCenterChanged={(e) => console.log(e)}
+          // onBoundsChanged={() => console.log()}
         >
           {bathroomsArray.map((bathroom) => {
             return (
@@ -82,9 +84,7 @@ export default function Map({ setSelectedBathroomId }) {
                   lng: Number(bathroom.lng),
                 }}
                 title={`"${bathroom.name}"\n${bathroom.locality}, ${bathroom.administrativeArea}`}
-                onClick={(e) => {
-                  // setSelectedBathroomId(bathroom.id);
-                }}
+                onClick={(e) => handleMarkerClick(e, bathroom)}
               />
             );
           })}

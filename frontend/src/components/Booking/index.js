@@ -25,11 +25,24 @@ export default function Booking() {
         <div className='calendar'>
           <LeftArrow day1={day1} setDay1={setDay1} />
           <div className='calendar__days'>
-            <IndDayBlock day={day1} />
-            <IndDayBlock day={day2} />
-            <IndDayBlock day={day3} />
-            <IndDayBlock day={day4} />
-            <IndDayBlock day={day5} />
+            {/* <div>
+
+            </div> */}
+            <div className='ind-day-block-container'>
+              <IndDayBlock day={day1} />
+            </div>
+            <div className='ind-day-block-container'>
+              <IndDayBlock day={day2} />
+            </div>
+            <div className='ind-day-block-container'>
+              <IndDayBlock day={day3} />
+            </div>
+            <div className='ind-day-block-container'>
+              <IndDayBlock day={day4} />
+            </div>
+            <div className='ind-day-block-container'>
+              <IndDayBlock day={day5} />
+            </div>
           </div>
           <RightArrow day5={day5} setDay1={setDay1} />
         </div>
