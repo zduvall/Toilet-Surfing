@@ -7,6 +7,7 @@ import Navigation from './components/Navigation';
 import Home from './components/Home';
 import SingleBathroom from './components/Bathroom/SingleBathroom';
 import BathroomCreateModal from './components/BathroomCreateModal/BathroomCreateModal';
+import PageNotFound from './components/PageNotFound';
 
 function App() {
   const dispatch = useDispatch();
@@ -34,7 +35,9 @@ function App() {
           <Route path='/bathrooms/new'>
             <BathroomCreateModal />
           </Route>
-          <Route>Page Not Found</Route>
+          <Route>
+            <PageNotFound />
+          </Route>
         </Switch>
       )}
     </>

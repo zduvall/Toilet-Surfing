@@ -14,7 +14,6 @@ export default function HomeBackgroundImage() {
 
   window.addEventListener('resize', () => {
     setArrowMidScreen(window.innerWidth / 2 - 20);
-    console.log(arrowMidScreen);
   });
 
   function handleDownArrowClick() {
@@ -22,7 +21,6 @@ export default function HomeBackgroundImage() {
     let headerHeight = header[0].offsetHeight;
     const searchMap = document.getElementById('search-map');
     const scrollDistance = searchMap.getBoundingClientRect().top - headerHeight - 10;
-    console.log(scrollDistance);
     window.scrollBy({ top: scrollDistance, behavior: 'smooth' });
   }
 

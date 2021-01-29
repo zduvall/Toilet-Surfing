@@ -11,10 +11,7 @@ export default function Booking() {
   const [day4, setDay4] = useState();
   const [day5, setDay5] = useState();
 
-  console.log(isToday(day1));
-
   useEffect(() => {
-    console.log(day1);
     setDay2(new Date(day1.getTime() + 1000 * 60 * 60 * 24));
     setDay3(new Date(day1.getTime() + 2 * (1000 * 60 * 60 * 24)));
     setDay4(new Date(day1.getTime() + 3 * (1000 * 60 * 60 * 24)));
