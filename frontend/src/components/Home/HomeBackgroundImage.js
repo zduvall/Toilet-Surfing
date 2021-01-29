@@ -33,7 +33,7 @@ export default function HomeBackgroundImage() {
         src='./pictures/Bathroom-ocean-lng.png'
         alt='Ocean view from bathroom window'
       ></img>
-      <div className='home__greeting'>
+      <div className='home__greeting' onClick={handleDownArrowClick}>
         <h1 className='home__greeting__text'>Need a toilet?</h1>
         <h1 className='home__greeting__text'>Book a toilet.</h1>
       </div>
