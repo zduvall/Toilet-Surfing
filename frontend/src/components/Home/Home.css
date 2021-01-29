@@ -9,7 +9,7 @@
 .home__greeting {
   font-size: 1.2rem;
   position: absolute;
-  top: 50%;
+  top: 40%;
   text-align: center;
   width: 100%;
 }
@@ -22,6 +22,7 @@
   overflow: hidden;
   color: white;
   color: rgb(242, 160, 84);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.521);
 }
 
 /* @keyframes animated-text {
@@ -41,6 +42,13 @@
     border-right-color: transparent;
   }
 } */
+
+@media (max-width: 412px) {
+  .home__greeting__text {
+  font-size: 1.4rem;
+  top: 30%;
+  }
+}
 
 .fa-chevron-down {
   position: fixed;
