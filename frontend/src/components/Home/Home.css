@@ -1,0 +1,71 @@
+.home__background-container {
+  position: relative;
+}
+
+.home__background {
+  max-width: 100%;
+}
+
+.home__greeting {
+  font-size: 1.2rem;
+  position: absolute;
+  top: 40%;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+.home__greeting__text {
+  color: rgb(242, 160, 84, 0.9);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.521);
+}
+
+.home__greeting__text:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 412px) {
+  .home__greeting__text {
+    font-size: 1.4rem;
+    top: 30%;
+  }
+}
+
+.fa-chevron-down {
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+  animation: updown 2s ease infinite;
+  color: rgba(242, 160, 84, 0.8);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.521);
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-8%);
+  }
+
+  70% {
+    transform: translateY(8%);
+  }
+
+  100% {
+    transform: translateY(-8%);
+  }
+}

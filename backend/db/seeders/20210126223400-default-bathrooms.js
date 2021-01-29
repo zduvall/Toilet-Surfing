@@ -16,7 +16,8 @@ module.exports = {
           name: 'Bath with a view',
           description:
             'All are welcome to try this bathroom where you can enjoy a beautiful sunset over the green feilds after a long day.',
-          imageUrl: '/pictures/1-view-bathroom.jpg',
+          imageUrl:
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/1-view-bathroom.jpg',
           streetNumber: '1900',
           route: 'S River Bottom Rd',
           locality: 'Spanish Fork',
@@ -33,7 +34,8 @@ module.exports = {
           name: 'Potty in Paradise',
           description:
             'You will love how spacious this bathroom is, and we offer the best view out there. All amenities provided.',
-          imageUrl: '/pictures/2-paradise-bathroom.jpg',
+          imageUrl:
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/2-paradise-bathroom.jpg',
           streetNumber: '45-102',
           route: 'Pikonia Loop',
           locality: 'Honokaa',
@@ -50,7 +52,8 @@ module.exports = {
           name: 'Best Restroom on The Strip',
           description:
             'Come use our one of a kind bathroom with dark granite walls and mood lights to get you in the mood.',
-          imageUrl: '/pictures/3-vegas-bathroom.jpg',
+          imageUrl:
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/3-vegas-bathroom.jpg',
           streetNumber: '3595',
           route: 'East Flamingo Road',
           locality: 'Las Vegas',
@@ -67,7 +70,8 @@ module.exports = {
           name: 'Medibathroom',
           description:
             "Come relax in our bathroom designed to help calm your nerves and your bowels. You'll soon realize it's never been so easy to go.",
-          imageUrl: '/pictures/4-relaxing-bathroom.jpg',
+          imageUrl:
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/4-relaxing-bathroom.jpg',
           streetNumber: '73-4050',
           route: 'Hulikoa Dr',
           locality: 'Kailua-Kona',
@@ -84,7 +88,8 @@ module.exports = {
           name: "Lumberjack's Loo",
           description:
             'Please stop by our one-of-a-kind completely wooden bathroom, where even the porcelin is made of wood (completely de-splinterized!).',
-          imageUrl: '/pictures/5-log-bathroom.jpg',
+          imageUrl:
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/5-log-bathroom.jpg',
           streetNumber: '1490',
           route: 'Eagle Way',
           locality: 'Park City',

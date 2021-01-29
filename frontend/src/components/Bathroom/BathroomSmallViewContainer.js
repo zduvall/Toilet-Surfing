@@ -20,7 +20,6 @@ export default function BathroomSmallViewContainer() {
 
   return (
     <>
-      <h1>Bathrooms</h1>
       <div
         id='bathroom-small-view-container'
         className='bathroom-small-view-container'
