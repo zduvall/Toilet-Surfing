@@ -10,6 +10,7 @@ import { getBathrooms } from '../../store/bathroom';
 // import components
 import BathroomHeader from './BothroomHeader';
 import BathroomInfo from './BathroomInfo';
+import Booking from '../Booking';
 
 export default function Bathroom({ propsBathroomId }) {
   const dispatch = useDispatch();
@@ -25,22 +26,25 @@ export default function Bathroom({ propsBathroomId }) {
   return (
     <>
       {curBathroom && users[curBathroom.bathroomOwnerId] && (
-        <div className='single-bathroom'>
-          <section
-            className='single-bathroom__image-container'
-            style={{
-              background: `center / cover url(${curBathroom.imageUrl})`,
-            }}
-          ></section>
+        <>
+          <div className='single-bathroom'>
+            <section
+              className='single-bathroom__image-container'
+              style={{
+                background: `center / cover url(${curBathroom.imageUrl})`,
+              }}
+            ></section>
 
-          <section className='single-bathroom__text'>
-            <BathroomHeader
-              name={curBathroom.name}
-              owner={users[curBathroom.bathroomOwnerId].username}
-            />
-            <BathroomInfo curBathroom={curBathroom} />
-          </section>
-        </div>
+            <section className='single-bathroom__text'>
+              <BathroomHeader
+                name={curBathroom.name}
+                owner={users[curBathroom.bathroomOwnerId].username}
+              />
+              <BathroomInfo curBathroom={curBathroom} />
+            </section>
+          </div>
+          <Booking />
+        </>
       )}
     </>
   );
