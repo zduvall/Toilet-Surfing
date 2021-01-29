@@ -61,8 +61,8 @@ export default function Map({ setSelectedBathroomId }) {
     setLng(e.latLng.lng());
   }
 
-  function handleMapLoad(e) {
-    setMap(e);
+  function handleMapLoad(currentMap) {
+    setMap(currentMap);
     // const bounds = currentMap.getBounds();
     // let shownBathrooms = bathroomsArray.filter((bathroom) =>
     //   bounds.contains(bathroom)

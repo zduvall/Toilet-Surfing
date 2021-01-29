@@ -18,6 +18,13 @@ export default function IndDayBlock({ day }) {
         <IndHourBlock hour={'1'} />
         <IndHourBlock hour={'2'} />
         <IndHourBlock hour={'3'} />
+        <IndHourBlock hour={'4'} />
+        <IndHourBlock hour={'5'} />
+        <IndHourBlock hour={'6'} />
+        <IndHourBlock hour={'7'} />
+        <IndHourBlock hour={'8'} />
+        <IndHourBlock hour={'9'} />
+        <IndHourBlock hour={'10'} />
       </div>
     </div>
   );

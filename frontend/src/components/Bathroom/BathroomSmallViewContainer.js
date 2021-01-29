@@ -13,10 +13,11 @@ import { useBathroomsInWindowContext } from '../Home/index';
 
 export default function BathroomSmallViewContainer() {
   const dispatch = useDispatch();
-  const { bathrooms, users } = useSelector((state) => state);
+  const { users } = useSelector((state) => state);
+  // const { bathrooms, users } = useSelector((state) => state);
   const { bathroomsInWindow } = useBathroomsInWindowContext();
-  
-  const bathroomsArray = Object.values(bathrooms);
+
+  // const bathroomsArray = Object.values(bathrooms);
 
   useEffect(() => {
     dispatch(getUsers());

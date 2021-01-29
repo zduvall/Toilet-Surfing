@@ -1,10 +1,12 @@
+import IndHourBlockButton from './IndHourBlockButton';
+
 export default function IndHourBlock({ hour }) {
   return (
     <div className='ind-hour-block'>
-      <button className='time-selector-button'>{`${hour}:00`}</button>
-      <button className='time-selector-button'>{`${hour}:15`}</button>
-      <button className='time-selector-button'>{`${hour}:30`}</button>
-      <button className='time-selector-button'>{`${hour}:15`}</button>
+      <IndHourBlockButton time={`${hour}:00`} />
+      <IndHourBlockButton time={`${hour}:15`} />
+      <IndHourBlockButton time={`${hour}:30`} />
+      <IndHourBlockButton time={`${hour}:45`} />
     </div>
   );
 }

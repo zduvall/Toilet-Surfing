@@ -23,7 +23,9 @@ export default function Booking() {
     <div>
       {day5 && (
         <div className='calendar'>
-          <LeftArrow day1={day1} setDay1={setDay1} />
+          <div className='arrow-container'>
+            <LeftArrow day1={day1} setDay1={setDay1} />
+          </div>
           <div className='calendar__days'>
             {/* <div>
 
@@ -44,7 +46,9 @@ export default function Booking() {
               <IndDayBlock day={day5} />
             </div>
           </div>
-          <RightArrow day5={day5} setDay1={setDay1} />
+          <div className='arrow-container'>
+            <RightArrow day5={day5} setDay1={setDay1} />
+          </div>
         </div>
       )}
     </div>

@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: row;
   background: rgb(247, 253, 255);
+  border: rgb(52, 168, 226) solid 2px;
+  
 }
 
 .calendar__days {
@@ -11,10 +13,17 @@
   flex: 1 1 0px;
 }
 
+.arrow-container {
+  background-color: rgb(236, 250, 255);
+  display: flex;
+  align-content: center;
+}
+
 .fa-chevron-left,
 .fa-chevron-right {
   padding: 0.75rem;
   animation: leftRight 2s ease infinite;
+  background-color: transparent;
 }
 
 .arrow-left {
@@ -62,8 +71,6 @@
   border-left: rgb(52, 168, 226) solid 2px;
 }
 
-/* .cover-ind-day-block-container {} */
-
 .ind-day-block {
   flex-grow: 5;
   flex-basis: 0;
@@ -76,20 +83,22 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  border: rgb(247, 253, 255) solid;
-  border-radius: 1rem;
   text-align: center;
-  background-color: rgb(52, 168, 226);
-
-  position: relative;
-  z-index: 1;
+  background-color: rgb(236, 250, 255, 0.8);
 }
 
 .date-header {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   text-shadow: none;
-  color: white;
+  color: rgb(0, 102, 153);
 }
+
+.hours-block {
+  height: 250px;
+  overflow: scroll;
+}
+
+/* individual hour block */
 
 .ind-hour-block {
   border: rgb(247, 253, 255) solid 0.25px;
@@ -103,7 +112,11 @@
 .time-selector-button {
   border: rgb(247, 253, 255) solid;
   border-radius: 0.5rem;
-  background: rgba(242, 160, 84, 0.8) !important;
+  background: rgba(242, 160, 84, 0.514) !important;
   flex: 1 1 0px;
   padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;
+}
+
+.time-selector-button:hover {
+  background: rgb(242, 160, 84) !important;
 }
