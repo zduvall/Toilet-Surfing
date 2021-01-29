@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import IndDayBlock from './IndDayBlock';
-import { isToday, is2WeeksFromToday } from './bookingUtils';
+import LeftArrow from './LeftArrow';
+import RightArrow from './RightArrow';
 
 import './Booking.css';
 
@@ -22,45 +23,15 @@ export default function Booking() {
     <div>
       {day5 && (
         <div className='calendar'>
-          <button
-            disabled={isToday(day1)}
-            onClick={() => {
-              setDay1(
-                (prevDay1) => new Date(prevDay1.getTime() - 1000 * 60 * 60 * 24)
-              );
-            }}
-          >
-            <i
-              className='fas fa-chevron-left fa-3x arrow-left'
-              style={{
-                color: isToday(day1)
-                  ? 'transparent'
-                  : 'rgba(242, 160, 84, 0.8)',
-              }}
-            ></i>
-          </button>
-          <IndDayBlock day={day1} />
-          <IndDayBlock day={day2} />
-          <IndDayBlock day={day3} />
-          <IndDayBlock day={day4} />
-          <IndDayBlock day={day5} />
-          <button
-            disabled={is2WeeksFromToday(day5)}
-            onClick={() => {
-              setDay1(
-                (prevDay1) => new Date(prevDay1.getTime() + 1000 * 60 * 60 * 24)
-              );
-            }}
-          >
-            <i
-              className='fas fa-chevron-right fa-3x arrow-right'
-              style={{
-                color: is2WeeksFromToday(day5)
-                  ? 'transparent'
-                  : 'rgba(242, 160, 84, 0.8)',
-              }}
-            ></i>
-          </button>
+          <LeftArrow day1={day1} setDay1={setDay1} />
+          <div className='calendar__days'>
+            <IndDayBlock day={day1} />
+            <IndDayBlock day={day2} />
+            <IndDayBlock day={day3} />
+            <IndDayBlock day={day4} />
+            <IndDayBlock day={day5} />
+          </div>
+          <RightArrow day5={day5} setDay1={setDay1} />
         </div>
       )}
     </div>

@@ -1,15 +1,14 @@
 .calendar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  flex: 1 1 0px;
+  background: rgb(247, 253, 255);
 }
 
-.ind-day-block {
-  border: black solid;
-  box-sizing: border-box;
-  text-align: center;
-  flex-grow: 5;
+.calendar__days {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1 1 0px;
 }
 
 .fa-chevron-left,
@@ -51,4 +50,28 @@
   100% {
     transform: translateX(8%);
   }
+}
+
+/* ind day block */
+.ind-day-block {
+}
+
+.date-header-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  border: rgb(247, 253, 255) solid;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  flex-grow: 5;
+  background-color: rgb(52, 168, 226);
+  flex-basis: 0;
+}
+
+.date-header {
+  font-size: 1.5rem;
+  text-shadow: none;
+  color: white;
 }
