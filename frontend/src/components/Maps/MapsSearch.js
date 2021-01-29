@@ -2,19 +2,23 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { getBathrooms } from '../../store/bathroom';
-
-import { querySelectorAllRegex } from './mapsUtils';
+import { useBathroomsInWindowContext } from '../Home/index';
 
 export default function Map({ setSelectedBathroomId }) {
   const dispatch = useDispatch();
 
+  const { setBathroomsInWindow } = useBathroomsInWindowContext();
+
   const [lat, setLat] = useState();
   const [lng, setLng] = useState();
   const [map, setMap] = useState();
-  // const [markersOnScreen, setMarkersOnScreen] = useState();
 
   const { bathrooms } = useSelector((state) => state);
   const bathroomsArray = Object.values(bathrooms);
+  bathroomsArray.forEach((bathroom) => {
+    bathroom.lng = Number(bathroom.lng);
+    bathroom.lat = Number(bathroom.lat);
+  });
 
   useEffect(() => {
     dispatch(getBathrooms());
@@ -69,6 +73,17 @@ export default function Map({ setSelectedBathroomId }) {
     setMap(currentMap);
   }
 
+  function handleBoundsChanged() {
+    const bounds = map.getBounds();
+    const center = bounds.getCenter();
+    setLat(center.lat());
+    setLng(center.lng());
+    let shownBathrooms = bathroomsArray.filter((bathroom) =>
+      bounds.contains(bathroom)
+    );
+    setBathroomsInWindow(shownBathrooms);
+  }
+
   return (
     <div>
       <LoadScript googleMapsApiKey={process.env.REACT_APP_MAPS_API_KEY}>
@@ -78,12 +93,9 @@ export default function Map({ setSelectedBathroomId }) {
           center={center}
           zoom={5}
           onLoad={handleMapLoad}
-          onBoundsChanged={(e) => {
-            // const markers = querySelectorAllRegex(/marker/, 'class');
-            const bounds = map.getBounds();
-            // bounds.contains(marker.position())
-            debugger;
-          }}
+          // onZoomChanged={handleBoundsChanged}
+          onDragEnd={handleBoundsChanged}
+          // onBoundsChanged={handleBoundsChanged}
         >
           {bathroomsArray.map((bathroom) => {
             return (
