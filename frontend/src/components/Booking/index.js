@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import IndDayBlock from './IndDayBlock';
+import { isToday, is2WeeksFromToday } from './bookingUtils';
 
 import './Booking.css';
 
@@ -9,7 +10,8 @@ export default function Booking() {
   const [day3, setDay3] = useState();
   const [day4, setDay4] = useState();
   const [day5, setDay5] = useState();
-  const [dayShift, setDayShift] = useState();
+
+  console.log(isToday(day1));
 
   useEffect(() => {
     console.log(day1);
@@ -24,6 +26,7 @@ export default function Booking() {
       {day5 && (
         <div className='calendar'>
           <button
+            disabled={isToday(day1)}
             onClick={() => {
               setDay1(
                 (prevDay1) => new Date(prevDay1.getTime() - 1000 * 60 * 60 * 24)
@@ -31,10 +34,12 @@ export default function Booking() {
             }}
           >
             <i
-              class='fas fa-chevron-left fa-3x arrow-left'
-              color={
-                day1 === new Date() ? 'transparent' : 'rgba(242, 160, 84, 0.8)'
-              }
+              className='fas fa-chevron-left fa-3x arrow-left'
+              style={{
+                color: isToday(day1)
+                  ? 'transparent'
+                  : 'rgba(242, 160, 84, 0.8)',
+              }}
             ></i>
           </button>
           <IndDayBlock day={day1} />
@@ -43,13 +48,21 @@ export default function Booking() {
           <IndDayBlock day={day4} />
           <IndDayBlock day={day5} />
           <button
+            disabled={is2WeeksFromToday(day5)}
             onClick={() => {
               setDay1(
                 (prevDay1) => new Date(prevDay1.getTime() + 1000 * 60 * 60 * 24)
               );
             }}
           >
-            <i class='fas fa-chevron-right fa-3x arrow-right'></i>
+            <i
+              className='fas fa-chevron-right fa-3x arrow-right'
+              style={{
+                color: is2WeeksFromToday(day5)
+                  ? 'transparent'
+                  : 'rgba(242, 160, 84, 0.8)',
+              }}
+            ></i>
           </button>
         </div>
       )}

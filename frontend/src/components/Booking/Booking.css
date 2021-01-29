@@ -14,7 +14,6 @@
 
 .fa-chevron-left,
 .fa-chevron-right {
-  /* color: rgba(242, 160, 84, 0.8); */
   padding: 0.75rem;
   animation: leftRight 2s ease infinite;
 }
