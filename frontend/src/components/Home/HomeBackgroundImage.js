@@ -4,9 +4,17 @@ import './Home.css';
 
 export default function HomeBackgroundImage() {
   const [showDownArrow, setShowDownArrow] = useState(true);
+  const [arrowMidScreen, setArrowMidScreen] = useState(
+    window.innerWidth / 2 - 20
+  );
 
   document.addEventListener('scroll', () => {
     setShowDownArrow(window.scrollY < 100);
+  });
+
+  window.addEventListener('resize', () => {
+    setArrowMidScreen(window.innerWidth / 2 - 20);
+    console.log(arrowMidScreen)
   });
 
   function handleDownArrowClick() {
@@ -30,11 +38,12 @@ export default function HomeBackgroundImage() {
         <h1 className='home__greeting__text'>Book a toilet.</h1>
       </div>
       {showDownArrow && (
-        <button
-          onClick={handleDownArrowClick}
-          style={{ color: 'rgba(61, 92, 104, 0.8)' }}
-        >
-          <i className='fas fa-chevron-down fa-3x'></i>
+        <button id='down-arrow' onClick={handleDownArrowClick}>
+          <i
+            className='fas fa-chevron-down fa-3x'
+            id='down-arrow'
+            style={{ left: `${arrowMidScreen}px` }}
+          ></i>
         </button>
       )}
     </div>

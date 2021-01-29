@@ -45,9 +45,9 @@
 .fa-chevron-down {
   position: fixed;
   bottom: 0;
-  left: 49%;
   z-index: 5;
   animation: updown 2s ease infinite;
+  color: rgba(61, 92, 104, 0.8);
 }
 
 @keyframes updown {
