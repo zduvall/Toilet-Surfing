@@ -1,3 +1,55 @@
 .calendar {
-  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1 1 0px;
+}
+
+.ind-day-block {
+  border: black solid;
+  box-sizing: border-box;
+  text-align: center;
+  flex-grow: 5;
+}
+
+.fa-chevron-left,
+.fa-chevron-right {
+  /* color: rgba(242, 160, 84, 0.8); */
+  padding: 0.75rem;
+  animation: leftRight 2s ease infinite;
+}
+
+.arrow-left {
+  animation: leftRight 2s ease infinite;
+}
+@keyframes leftRight {
+  0% {
+    transform: translateX(-8%);
+  }
+
+  50% {
+    transform: translateX(8%);
+  }
+
+  100% {
+    transform: translateX(-8%);
+  }
+}
+
+.arrow-right {
+  animation: rightLeft 2s ease infinite;
+}
+
+@keyframes rightLeft {
+  0% {
+    transform: translateX(8%);
+  }
+
+  50% {
+    transform: translateX(-8%);
+  }
+
+  100% {
+    transform: translateX(8%);
+  }
 }
