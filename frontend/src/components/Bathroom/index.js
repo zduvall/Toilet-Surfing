@@ -11,11 +11,11 @@ import { getBathrooms } from '../../store/bathroom';
 import BathroomHeader from './BothroomHeader';
 import BathroomInfo from './BathroomInfo';
 
-export default function Bathroom() {
+export default function Bathroom({ propsBathroomId }) {
   const dispatch = useDispatch();
   const { bathroomId } = useParams();
   const { bathrooms, users } = useSelector((state) => state);
-  const curBathroom = bathrooms[bathroomId];
+  const curBathroom = bathrooms[bathroomId || propsBathroomId];
 
   useEffect(() => {
     dispatch(getUsers());
@@ -24,15 +24,14 @@ export default function Bathroom() {
 
   return (
     <>
-      {curBathroom && (
+      {curBathroom && users[curBathroom.bathroomOwnerId] && (
         <div className='single-bathroom'>
           <section
             className='single-bathroom__image-container'
             style={{
               background: `center / cover url(${curBathroom.imageUrl})`,
             }}
-          >
-          </section>
+          ></section>
 
           <section className='single-bathroom__text'>
             <BathroomHeader

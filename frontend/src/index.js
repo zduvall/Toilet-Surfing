@@ -15,6 +15,11 @@ import * as sessionActions from './store/session';
 //   defer
 // ></script>
 
+  // mapsApi: {
+  //   key: process.env.MAPS_API_KEY,
+  //   url: `https://maps.googleapis.com/maps/api/js?key=${process.env.MAPS_API_KEY}&callback=initMap&libraries=&v=weekly`,
+  // },
+
 const store = configureStore();
 
 if (process.env.NODE_ENV !== 'production') {

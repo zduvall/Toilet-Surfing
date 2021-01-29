@@ -1,23 +1,23 @@
-const AWS = require("aws-sdk");
+const AWS = require('aws-sdk');
 
-const NAME_OF_BUCKET = "toilet-surfing";
+const NAME_OF_BUCKET = 'toilet-surfing';
 
-const multer = require("multer");
+const multer = require('multer');
 
-const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
+const s3 = new AWS.S3({ apiVersion: '2006-03-01' });
 
 // --------------------------- Public UPLOAD ------------------------
 
 const singlePublicFileUpload = async (file) => {
   const { originalname, mimetype, buffer } = await file;
-  const path = require("path");
+  const path = require('path');
   // name of the file in your S3 bucket will be the date in ms plus the extension name
   const Key = new Date().getTime().toString() + path.extname(originalname);
   const uploadParams = {
     Bucket: NAME_OF_BUCKET,
     Key,
     Body: buffer,
-    ACL: "public-read",
+    ACL: 'public-read',
   };
   const result = await s3.upload(uploadParams).promise();
 
@@ -37,7 +37,7 @@ const multiplePublicFileUpload = async (files) => {
 
 const singlePrivateFileUpload = async (file) => {
   const { originalname, mimetype, buffer } = await file;
-  const path = require("path");
+  const path = require('path');
   // name of the file in your S3 bucket will be the date in ms plus the extension name
   const Key = new Date().getTime().toString() + path.extname(originalname);
   const uploadParams = {
@@ -62,7 +62,7 @@ const multiplePrivateFileUpload = async (files) => {
 const retrievePrivateFile = (key) => {
   let fileUrl;
   if (key) {
-    fileUrl = s3.getSignedUrl("getObject", {
+    fileUrl = s3.getSignedUrl('getObject', {
       Bucket: NAME_OF_BUCKET,
       Key: key,
     });
@@ -74,14 +74,16 @@ const retrievePrivateFile = (key) => {
 
 const storage = multer.memoryStorage({
   destination: function (req, file, callback) {
-    callback(null, "");
+    callback(null, '');
   },
 });
 
 const singleMulterUpload = (nameOfKey) =>
   multer({ storage: storage }).single(nameOfKey);
+// const singleMulterUpload = (nameOfKey) =>
+//   multer({ storage: storage, limits: { fileSize: 2097152 } }).single(nameOfKey);  // figure out how to limit file size
 const multipleMulterUpload = (nameOfKey) =>
-  multer({ storage: storage }).array(nameOfKey);
+  multer({ storage: storage, limits: { fileSize: 2097152 } }).array(nameOfKey);
 
 module.exports = {
   s3,
