@@ -1,24 +1,20 @@
 // Action Types
-const SET_CURBATHROOM = 'curBathroom/SET_CURBATHROOM';
+const SET_CURBATHROOM_ID = 'curBathroom/SET_CURBATHROOM_ID';
 
 // action
-export const setCurBathroomAction = (bathroom) => {
+export const setCurBathroomIdAction = (bathroomId) => {
+  console.log(bathroomId)
   return {
-    type: SET_CURBATHROOM,
-    bathroom,
+    type: SET_CURBATHROOM_ID,
+    bathroomId,
   };
-};
-
-// Thunk
-export const setCurBathroom = (bathroom) => async (dispatch) => {
-  dispatch(setCurBathroomAction(bathroom));
 };
 
 // Reducer
 const curBathroomReducer = (state = null, action) => {
   switch (action.type) {
-    case SET_CURBATHROOM:
-      return action.bathroom;
+    case SET_CURBATHROOM_ID:
+      return action.bathroomId;
     default:
       return state;
   }

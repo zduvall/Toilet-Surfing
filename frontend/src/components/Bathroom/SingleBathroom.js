@@ -6,44 +6,43 @@ import './Bathroom.css';
 // import thunks
 import { getUsers } from '../../store/user';
 import { getBathrooms } from '../../store/bathroom';
-import { setCurBathroomAction } from '../../store/curBathroom';
 
 // import components
 import BathroomHeader from './BothroomHeader';
 import BathroomInfo from './BathroomInfo';
 import Booking from '../Booking';
 
-export default function Bathroom({ propsBathroomId }) {
+export default function Bathroom() {
   const dispatch = useDispatch();
   const { bathroomId } = useParams();
   const { bathrooms, users } = useSelector((state) => state);
-  const curSingleBathroom = bathrooms[bathroomId || propsBathroomId];
+  // const { bathrooms, users, curBathroomId } = useSelector((state) => state);
+  const curBathroom = bathrooms[bathroomId];
+  // const curBathroom = bathrooms[curBathroomId || paramsBathroomId];
 
   useEffect(() => {
     dispatch(getBathrooms());
     dispatch(getUsers());
-    const curBathroomPlaceHolder = bathrooms[bathroomId || propsBathroomId];
-    dispatch(setCurBathroomAction(curBathroomPlaceHolder));
-  }, [dispatch, bathroomId, propsBathroomId]);
+  }, [dispatch]);
 
   return (
     <>
-      {curSingleBathroom && users[curSingleBathroom.bathroomOwnerId] && (
+      {curBathroom && users[curBathroom.bathroomOwnerId] && (
         <>
           <div className='single-bathroom'>
             <section
               className='single-bathroom__image-container'
               style={{
-                background: `center / cover url(${curSingleBathroom.imageUrl})`,
+                background: `center / cover url(${curBathroom.imageUrl})`,
               }}
             ></section>
 
             <section className='single-bathroom__text'>
               <BathroomHeader
-                name={curSingleBathroom.name}
-                owner={users[curSingleBathroom.bathroomOwnerId].username}
+                name={curBathroom.name}
+                owner={users[curBathroom.bathroomOwnerId].username}
               />
-              <BathroomInfo curBathroom={curSingleBathroom} />
+              <BathroomInfo curBathroom={curBathroom} />
             </section>
           </div>
           <Booking />

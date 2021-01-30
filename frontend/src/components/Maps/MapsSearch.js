@@ -4,10 +4,15 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { getBathrooms } from '../../store/bathroom';
 import { useBathroomsInWindowContext } from '../Home/index';
 
-export default function Map({ setSelectedBathroomId }) {
+import { setCurBathroomIdAction } from '../../store/curBathroom';
+
+export default function Map() {
   const dispatch = useDispatch();
 
-  const { setBathroomsInWindow } = useBathroomsInWindowContext();
+  const {
+    setBathroomsInWindow,
+    setBathroomClicked,
+  } = useBathroomsInWindowContext();
 
   const [lat, setLat] = useState();
   const [lng, setLng] = useState();
@@ -56,7 +61,8 @@ export default function Map({ setSelectedBathroomId }) {
   }, [lat, lng]);
 
   function handleMarkerClick(e, bathroom) {
-    setSelectedBathroomId(bathroom.id);
+    dispatch(setCurBathroomIdAction(bathroom.id));
+    setBathroomClicked(true);
     setLat(e.latLng.lat());
     setLng(e.latLng.lng());
   }
