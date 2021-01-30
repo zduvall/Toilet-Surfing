@@ -14,17 +14,16 @@ export const useBathroomsInWindowContext = () =>
 
 export default function Home() {
   const [bathroomsInWindow, setBathroomsInWindow] = useState([]);
-  const [bathroomClicked, setBathroomClicked] = useState(false)
   const { curBathroomId } = useSelector((state) => state);
 
   return (
     <div>
       <BathroomsInWindowContext.Provider
-        value={{ bathroomsInWindow, setBathroomsInWindow, setBathroomClicked }}
+        value={{ bathroomsInWindow, setBathroomsInWindow }}
       >
         <HomeBackgroundImage />
         <MapsSearch />
-        {bathroomClicked ? <SingleBathroom /> : <BathroomSmallViewContainer />}
+        {curBathroomId ? <SingleBathroom /> : <BathroomSmallViewContainer />}
       </BathroomsInWindowContext.Provider>
     </div>
   );

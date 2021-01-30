@@ -6,6 +6,7 @@ import './Bathroom.css';
 // import thunks
 import { getUsers } from '../../store/user';
 import { getBathrooms } from '../../store/bathroom';
+// import { getCurBathroomIdAction } from '../../store/curBathroom';
 
 // import components
 import BathroomHeader from './BothroomHeader';
@@ -14,16 +15,17 @@ import Booking from '../Booking';
 
 export default function Bathroom() {
   const dispatch = useDispatch();
-  const { bathroomId } = useParams();
-  const { bathrooms, users } = useSelector((state) => state);
-  // const { bathrooms, users, curBathroomId } = useSelector((state) => state);
-  const curBathroom = bathrooms[bathroomId];
-  // const curBathroom = bathrooms[curBathroomId || paramsBathroomId];
-
   useEffect(() => {
     dispatch(getBathrooms());
     dispatch(getUsers());
+    // dispatch(getCurBathroomIdAction());
   }, [dispatch]);
+
+  const { paramsBathroomId } = useParams();
+  const { bathrooms, users, curBathroomId } = useSelector((state) => state);
+  console.log('curBathroomId', curBathroomId);
+  // console.log('users', users);
+  const curBathroom = bathrooms[curBathroomId || paramsBathroomId];
 
   return (
     <>
