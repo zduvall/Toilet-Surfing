@@ -1,17 +1,17 @@
 import { fetch } from './csrf';
 
 // Action types
-const LOAD_BATHROOMS = '/bathrooms/LOAD_BATHROOMS';
-const CREATE_BATHROOM = '/bathrooms/CREATE_BATHROOM';
+const LOAD_BOOKING = '/bathrooms/LOAD_BOOKING';
+const CREATE_BOOKING = '/bathrooms/CREATE_BATHROOM';
 
 // Action creators
 const load = (bathrooms) => ({
-  type: LOAD_BATHROOMS,
+  type: LOAD_BOOKING,
   bathrooms,
 });
 
 const create = (bathroom) => ({
-  type: CREATE_BATHROOM,
+  type: CREATE_BOOKING,
   bathroom,
 });
 
@@ -98,12 +98,12 @@ const bathroomReducer = (state = initState, action) => {
   const newState = { ...state };
 
   switch (action.type) {
-    case LOAD_BATHROOMS:
+    case LOAD_BOOKING:
       for (let bathroom of action.bathrooms) {
         newState[bathroom.id] = bathroom;
       }
       return newState;
-    case CREATE_BATHROOM:
+    case CREATE_BOOKING:
       // return { ...newState, bathroom: action.bathroom }
       newState[action.bathroom.id] = action.bathroom;
       return newState;
