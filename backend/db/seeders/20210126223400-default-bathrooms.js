@@ -13,6 +13,23 @@ module.exports = {
       [
         {
           bathroomOwnerId: 1,
+          name: 'Welcome to Toilet Surfing',
+          description:
+            'Where chill people share their toilets with other chill people.',
+          imageUrl: './pictures/toilet-surfer.png',
+          streetNumber: '',
+          route: ' ',
+          locality: 'Click/drag the map above to being your search',
+          administrativeArea: 'Happy Surfing!',
+          postalCode: ' ',
+          country: 'from Toilet Surfing HQ',
+          lat: 40.7608,
+          lng: -111.891,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          bathroomOwnerId: 2,
           name: 'Bath with a view',
           description:
             'All are welcome to try this bathroom where you can enjoy a beautiful sunset over the green feilds after a long day.',
@@ -30,7 +47,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          bathroomOwnerId: 2,
+          bathroomOwnerId: 3,
           name: 'Potty in Paradise',
           description:
             'You will love how spacious this bathroom is, and we offer the best view out there. All amenities provided.',
@@ -42,13 +59,13 @@ module.exports = {
           administrativeArea: 'HI',
           postalCode: 96727,
           country: 'United States',
-          lat: 20.089261,
+          lat: 30.089261,
           lng: -155.467314,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          bathroomOwnerId: 3,
+          bathroomOwnerId: 4,
           name: 'Best Restroom on The Strip',
           description:
             'Come use our one of a kind bathroom with dark granite walls and mood lights to get you in the mood.',
@@ -66,7 +83,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          bathroomOwnerId: 2,
+          bathroomOwnerId: 3,
           name: 'Medibathroom',
           description:
             "Come relax in our bathroom designed to help calm your nerves and your bowels. You'll soon realize it's never been so easy to go.",
@@ -78,13 +95,13 @@ module.exports = {
           administrativeArea: 'HI',
           postalCode: 96740,
           country: 'United States',
-          lat: 19.700328,
+          lat: 29.700328,
           lng: -156.027843,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          bathroomOwnerId: 1,
+          bathroomOwnerId: 2,
           name: "Lumberjack's Loo",
           description:
             'Please stop by our one-of-a-kind completely wooden bathroom, where even the porcelin is made of wood (completely de-splinterized!).',

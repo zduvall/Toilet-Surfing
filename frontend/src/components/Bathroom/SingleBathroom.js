@@ -44,7 +44,7 @@ export default function Bathroom() {
               <BathroomInfo curBathroom={curBathroom} />
             </section>
           </div>
-          <Booking />
+          {curBathroomId !== 1 && <Booking />}
         </>
       )}
     </>
