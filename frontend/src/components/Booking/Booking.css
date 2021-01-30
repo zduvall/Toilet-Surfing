@@ -1,0 +1,122 @@
+.calendar {
+  display: flex;
+  flex-direction: row;
+  background: rgb(247, 253, 255);
+  border: rgb(52, 168, 226) solid 2px;
+  
+}
+
+.calendar__days {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1 1 0px;
+}
+
+.arrow-container {
+  background-color: rgb(236, 250, 255);
+  display: flex;
+  align-content: center;
+}
+
+.fa-chevron-left,
+.fa-chevron-right {
+  padding: 0.75rem;
+  animation: leftRight 2s ease infinite;
+  background-color: transparent;
+}
+
+.arrow-left {
+  animation: leftRight 2s ease infinite;
+}
+@keyframes leftRight {
+  0% {
+    transform: translateX(-8%);
+  }
+
+  50% {
+    transform: translateX(8%);
+  }
+
+  100% {
+    transform: translateX(-8%);
+  }
+}
+
+.arrow-right {
+  animation: rightLeft 2s ease infinite;
+}
+
+@keyframes rightLeft {
+  0% {
+    transform: translateX(8%);
+  }
+
+  50% {
+    transform: translateX(-8%);
+  }
+
+  100% {
+    transform: translateX(8%);
+  }
+}
+
+/* individual day block */
+.ind-day-block-container {
+  flex-grow: 5;
+  flex-basis: 0;
+}
+
+.ind-day-block-container + .ind-day-block-container {
+  border-left: rgb(52, 168, 226) solid 2px;
+}
+
+.ind-day-block {
+  flex-grow: 5;
+  flex-basis: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.date-header-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(236, 250, 255, 0.8);
+}
+
+.date-header {
+  font-size: 1.1rem;
+  text-shadow: none;
+  color: rgb(0, 102, 153);
+}
+
+.hours-block {
+  height: 250px;
+  overflow: scroll;
+}
+
+/* individual hour block */
+
+.ind-hour-block {
+  border: rgb(247, 253, 255) solid 0.25px;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex: 1 1 0px;
+}
+
+.time-selector-button {
+  border: rgb(247, 253, 255) solid;
+  border-radius: 0.5rem;
+  background: rgba(242, 160, 84, 0.514) !important;
+  flex: 1 1 0px;
+  padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;
+}
+
+.time-selector-button:hover {
+  background: rgb(242, 160, 84) !important;
+}

@@ -9,16 +9,16 @@ module.exports = (sequelize, DataTypes) => {
         references: { model: 'Users' },
       },
       name: { type: DataTypes.STRING(50), unique: true, allowNull: false },
-      description: { type: DataTypes.STRING(200) },
-      imageUrl: { type: DataTypes.STRING(2083) },
-      streetNumber: { type: DataTypes.STRING(255) },
-      route: { type: DataTypes.STRING(255) },
-      locality: { type: DataTypes.STRING(255) },
-      administrativeArea: { type: DataTypes.STRING(255) },
-      postalCode: { type: DataTypes.STRING(15) },
-      country: { type: DataTypes.STRING(255) },
-      lat: { type: DataTypes.DECIMAL(10, 8) },
-      lng: { type: DataTypes.DECIMAL(10, 8) },
+      description: { type: DataTypes.STRING(200), allowNull: false },
+      imageUrl: { type: DataTypes.STRING(2083), allowNull: false },
+      streetNumber: { type: DataTypes.STRING(255), allowNull: false },
+      route: { type: DataTypes.STRING(255), allowNull: false },
+      locality: { type: DataTypes.STRING(255), allowNull: false },
+      administrativeArea: { type: DataTypes.STRING(255), allowNull: false },
+      postalCode: { type: DataTypes.STRING(15), allowNull: false },
+      country: { type: DataTypes.STRING(255), allowNull: false },
+      lat: { type: DataTypes.DECIMAL(10, 8), allowNull: false },
+      lng: { type: DataTypes.DECIMAL(10, 8), allowNull: false },
     },
     {}
   );
@@ -26,6 +26,12 @@ module.exports = (sequelize, DataTypes) => {
   Bathroom.associate = function (models) {
     // associations can be defined here
     Bathroom.belongsTo(models.User, { foreignKey: 'bathroomOwnerId' });
+    Bathroom.belongsToMany(models.User, {
+      through: 'UserBookBathroom',
+      otherKey: 'userId',
+      foreignKey: 'bathroomId',
+      as: 'userBookBathrooms',
+    });
   };
   return Bathroom;
 };

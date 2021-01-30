@@ -2,18 +2,28 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { getBathrooms } from '../../store/bathroom';
+import { useBathroomsInWindowContext } from '../Home/index';
 
-// import { querySelectorAllRegex } from './mapsUtils';
+import { setCurBathroomIdAction } from '../../store/curBathroom';
 
-export default function Map({ setSelectedBathroomId }) {
+export default function Map() {
   const dispatch = useDispatch();
+
+  const {
+    setBathroomsInWindow,
+    setBathroomClicked,
+  } = useBathroomsInWindowContext();
 
   const [lat, setLat] = useState();
   const [lng, setLng] = useState();
-  // const [markersOnScreen, setMarkersOnScreen] = useState();
+  const [map, setMap] = useState();
 
   const { bathrooms } = useSelector((state) => state);
   const bathroomsArray = Object.values(bathrooms);
+  bathroomsArray.forEach((bathroom) => {
+    bathroom.lng = Number(bathroom.lng);
+    bathroom.lat = Number(bathroom.lat);
+  });
 
   useEffect(() => {
     dispatch(getBathrooms());
@@ -45,21 +55,37 @@ export default function Map({ setSelectedBathroomId }) {
 
     function onGeolocateError(error) {
       console.warn(error.code, error.message);
-
-      if (error.code === 1) {
-        // they said no
-      } else if (error.code === 2) {
-        // position unavailable
-      } else if (error.code === 3) {
-        // timeout
-      }
     }
+
     geolocate();
   }, [lat, lng]);
 
-  // function findMarkersOnScreen(e) {
-  //   console.log(e);
-  // }
+  function handleMarkerClick(e, bathroom) {
+    dispatch(setCurBathroomIdAction(bathroom.id));
+    setBathroomClicked(true);
+    setLat(e.latLng.lat());
+    setLng(e.latLng.lng());
+  }
+
+  function handleMapLoad(currentMap) {
+    setMap(currentMap);
+    // const bounds = currentMap.getBounds();
+    // let shownBathrooms = bathroomsArray.filter((bathroom) =>
+    //   bounds.contains(bathroom)
+    // );
+    // setBathroomsInWindow(shownBathrooms);
+  }
+
+  function handleBoundsChanged() {
+    const bounds = map.getBounds();
+    const center = bounds.getCenter();
+    setLat(center.lat());
+    setLng(center.lng());
+    let shownBathrooms = bathroomsArray.filter((bathroom) =>
+      bounds.contains(bathroom)
+    );
+    setBathroomsInWindow(shownBathrooms);
+  }
 
   return (
     <div>
@@ -69,12 +95,15 @@ export default function Map({ setSelectedBathroomId }) {
           mapContainerStyle={containerStyle}
           center={center}
           zoom={5}
-          // onBoundsChanged={(e) => console.log(e)}
-          // onCenterChanged={(e) => console.log(e)}
+          onLoad={handleMapLoad}
+          // onZoomChanged={handleBoundsChanged}
+          onDragEnd={handleBoundsChanged}
+          // onBoundsChanged={handleBoundsChanged}
         >
           {bathroomsArray.map((bathroom) => {
             return (
               <Marker
+                id={bathroom.id}
                 className='marker'
                 key={bathroom.name}
                 position={{
@@ -82,9 +111,7 @@ export default function Map({ setSelectedBathroomId }) {
                   lng: Number(bathroom.lng),
                 }}
                 title={`"${bathroom.name}"\n${bathroom.locality}, ${bathroom.administrativeArea}`}
-                onClick={(e) => {
-                  // setSelectedBathroomId(bathroom.id);
-                }}
+                onClick={(e) => handleMarkerClick(e, bathroom)}
               />
             );
           })}

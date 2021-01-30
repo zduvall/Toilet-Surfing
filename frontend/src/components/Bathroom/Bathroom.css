@@ -23,7 +23,7 @@
 }
 
 .single-bathroom__text {
-  background-color: rgb(247, 253, 255);
+  background-color: 2;
   padding: 1.5rem;
 }
 
@@ -80,7 +80,12 @@
 
 .bathroom-small-view__text-container {
   height: 100%;
-  background: rgba(255, 255, 255, 0.438);
+  background: rgba(255, 255, 255, 0.473);
+}
+
+.bathroom-small-view__text-container h1 {
+  background: rgba(0, 0, 0, 0.137);
+  text-align: center;
 }
 
 .bathroom-small-view__text {
@@ -88,7 +93,7 @@
   padding: 0.5rem 0 0.5rem 0.5rem;
 }
 
-.bathroom-small-view-container > p {
+.bathroom-small-view__text-container p {
   font-weight: 1000;
 }
 

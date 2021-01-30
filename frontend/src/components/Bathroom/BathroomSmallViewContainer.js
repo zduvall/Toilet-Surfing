@@ -8,10 +8,16 @@ import { getBathrooms } from '../../store/bathroom';
 // import components
 import BathroomSmallView from './BathroomSmallView';
 
+// import context
+import { useBathroomsInWindowContext } from '../Home/index';
+
 export default function BathroomSmallViewContainer() {
   const dispatch = useDispatch();
-  const { bathrooms, users } = useSelector((state) => state);
-  const bathroomsArray = Object.values(bathrooms);
+  const { users } = useSelector((state) => state);
+  // const { bathrooms, users } = useSelector((state) => state);
+  const { bathroomsInWindow } = useBathroomsInWindowContext();
+
+  // const bathroomsArray = Object.values(bathrooms);
 
   useEffect(() => {
     dispatch(getUsers());
@@ -24,7 +30,7 @@ export default function BathroomSmallViewContainer() {
         id='bathroom-small-view-container'
         className='bathroom-small-view-container'
       >
-        {bathroomsArray.map((bathroom) => (
+        {bathroomsInWindow.map((bathroom) => (
           <BathroomSmallView
             key={bathroom.name}
             bathroom={bathroom}

@@ -4,11 +4,13 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import bathroomReducer from './bathroom';
 import userReducer from './user';
+import curBathroomReducer from './curBathroom';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   bathrooms: bathroomReducer,
   users: userReducer,
+  curBathroom: curBathroomReducer,
 });
 let enhancer;
 
