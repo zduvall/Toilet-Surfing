@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import BookingFormModal from './BookingFormModal';
 
-export default function IndHourBlockButton({ hour, time }) {
+export default function IndHourBlockButton({ day, hour, time }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -26,7 +26,7 @@ export default function IndHourBlockButton({ hour, time }) {
             setShowModal(false);
           }}
         >
-          <BookingFormModal />
+          <BookingFormModal day={day} time={time} />
         </Modal>
       )}
     </>

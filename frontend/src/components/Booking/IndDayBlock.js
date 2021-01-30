@@ -8,23 +8,23 @@ export default function IndDayBlock({ day }) {
         <h1 className='date-header'>{curDay.toString().slice(0, 11)}</h1>
       </div>
       <div className='hours-block'>
-        <IndHourBlock hour={'6'} />
-        <IndHourBlock hour={'7'} />
-        <IndHourBlock hour={'8'} />
-        <IndHourBlock hour={'9'} />
-        <IndHourBlock hour={'10'} />
-        <IndHourBlock hour={'11'} />
-        <IndHourBlock hour={'12'} />
-        <IndHourBlock hour={'1'} />
-        <IndHourBlock hour={'2'} />
-        <IndHourBlock hour={'3'} />
-        <IndHourBlock hour={'4'} />
-        <IndHourBlock hour={'5'} />
-        <IndHourBlock hour={'6'} />
-        <IndHourBlock hour={'7'} />
-        <IndHourBlock hour={'8'} />
-        <IndHourBlock hour={'9'} />
-        <IndHourBlock hour={'10'} />
+        <IndHourBlock day={day} hour={'6'} />
+        <IndHourBlock day={day} hour={'7'} />
+        <IndHourBlock day={day} hour={'8'} />
+        <IndHourBlock day={day} hour={'9'} />
+        <IndHourBlock day={day} hour={'10'} />
+        <IndHourBlock day={day} hour={'11'} />
+        <IndHourBlock day={day} hour={'12'} />
+        <IndHourBlock day={day} hour={'1'} />
+        <IndHourBlock day={day} hour={'2'} />
+        <IndHourBlock day={day} hour={'3'} />
+        <IndHourBlock day={day} hour={'4'} />
+        <IndHourBlock day={day} hour={'5'} />
+        <IndHourBlock day={day} hour={'6'} />
+        <IndHourBlock day={day} hour={'7'} />
+        <IndHourBlock day={day} hour={'8'} />
+        <IndHourBlock day={day} hour={'9'} />
+        <IndHourBlock day={day} hour={'10'} />
       </div>
     </div>
   );
