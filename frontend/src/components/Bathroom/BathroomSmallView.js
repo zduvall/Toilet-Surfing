@@ -26,9 +26,9 @@ export default function BathroomSmallView({ bathroom, user }) {
                 {bathroom.locality}, {bathroom.administrativeArea},{' '}
                 {bathroom.country}
               </p>
-              <p className='bathroom-small-view__text bathroom-small-view__rating'>
+              {/* <p className='bathroom-small-view__text bathroom-small-view__rating'>
                 Average Rating
-              </p>
+              </p> */}
             </div>
           </div>
           <div
