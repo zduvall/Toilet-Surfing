@@ -9,13 +9,6 @@ export const setCurBathroomIdAction = (bathroomId) => {
   };
 };
 
-// export const getCurBathroomIdAction = () => {
-//   return {
-//     type: 'default',
-//     payload: '',
-//   };
-// };
-
 // Reducer
 const curBathroomReducer = (state = 1, action) => {
   switch (action.type) {
