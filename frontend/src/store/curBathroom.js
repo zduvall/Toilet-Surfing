@@ -3,15 +3,21 @@ const SET_CURBATHROOM_ID = 'curBathroom/SET_CURBATHROOM_ID';
 
 // action
 export const setCurBathroomIdAction = (bathroomId) => {
-  console.log(bathroomId)
   return {
     type: SET_CURBATHROOM_ID,
     bathroomId,
   };
 };
 
+// export const getCurBathroomIdAction = () => {
+//   return {
+//     type: 'default',
+//     payload: '',
+//   };
+// };
+
 // Reducer
-const curBathroomReducer = (state = null, action) => {
+const curBathroomReducer = (state = 1, action) => {
   switch (action.type) {
     case SET_CURBATHROOM_ID:
       return action.bathroomId;

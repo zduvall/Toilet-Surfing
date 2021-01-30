@@ -6,13 +6,10 @@ import { useBathroomsInWindowContext } from '../Home/index';
 
 import { setCurBathroomIdAction } from '../../store/curBathroom';
 
-export default function Map() {
+export default function Map({ setBathroomClicked }) {
   const dispatch = useDispatch();
 
-  const {
-    setBathroomsInWindow,
-    setBathroomClicked,
-  } = useBathroomsInWindowContext();
+  const { setBathroomsInWindow } = useBathroomsInWindowContext();
 
   const [lat, setLat] = useState();
   const [lng, setLng] = useState();
@@ -38,27 +35,27 @@ export default function Map() {
     lng: lng || -99.329509,
   };
 
-  useEffect(() => {
-    function geolocate() {
-      if (window.navigator && window.navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          onGeolocateSuccess,
-          onGeolocateError
-        );
-      }
-    }
+  // useEffect(() => {
+  //   function geolocate() {
+  //     if (window.navigator && window.navigator.geolocation) {
+  //       navigator.geolocation.getCurrentPosition(
+  //         onGeolocateSuccess,
+  //         onGeolocateError
+  //       );
+  //     }
+  //   }
 
-    function onGeolocateSuccess(coordinates) {
-      setLat(coordinates.coords.latitude);
-      setLng(coordinates.coords.longitude);
-    }
+  //   function onGeolocateSuccess(coordinates) {
+  //     setLat(coordinates.coords.latitude);
+  //     setLng(coordinates.coords.longitude);
+  //   }
 
-    function onGeolocateError(error) {
-      console.warn(error.code, error.message);
-    }
+  //   function onGeolocateError(error) {
+  //     console.warn(error.code, error.message);
+  //   }
 
-    geolocate();
-  }, [lat, lng]);
+  //   geolocate();
+  // }, [lat, lng]);
 
   function handleMarkerClick(e, bathroom) {
     dispatch(setCurBathroomIdAction(bathroom.id));
