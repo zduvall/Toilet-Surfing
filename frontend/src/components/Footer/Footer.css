@@ -21,3 +21,9 @@
   color: rgb(0, 102, 153);
   padding: 0 0.25rem;
 }
+
+.footer__icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+}
