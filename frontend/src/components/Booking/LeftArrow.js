@@ -12,9 +12,11 @@ export default function LeftArrow({ day1, setDay1 }) {
     >
       <i
         className='fas fa-chevron-left fa-3x arrow-left'
-        style={{
-          color: isToday(day1) ? 'transparent' : 'rgba(242, 160, 84, 0.8)',
-        }}
+        style={
+          isToday(day1)
+            ? { color: 'rgba(242, 160, 84, 0.2)' }
+            : { color: 'rgba(242, 160, 84, 0.8)' }
+        }
       ></i>
     </button>
   );

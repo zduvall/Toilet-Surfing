@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   background: rgb(247, 253, 255);
-  border: rgb(52, 168, 226) solid 2px;
+  border: rgba(52, 168, 226, 0.459) solid 1px;
   
 }
 
@@ -14,7 +14,7 @@
 }
 
 .arrow-container {
-  background-color: rgb(236, 250, 255);
+  background-color: rgb(220, 246, 255);
   display: flex;
   align-content: center;
 }
@@ -26,9 +26,9 @@
   background-color: transparent;
 }
 
-.arrow-left {
+/* .arrow-left {
   animation: leftRight 2s ease infinite;
-}
+} */
 @keyframes leftRight {
   0% {
     transform: translateX(-8%);
@@ -43,9 +43,9 @@
   }
 }
 
-.arrow-right {
+/* .arrow-right {
   animation: rightLeft 2s ease infinite;
-}
+} */
 
 @keyframes rightLeft {
   0% {
@@ -68,7 +68,7 @@
 }
 
 .ind-day-block-container + .ind-day-block-container {
-  border-left: rgb(52, 168, 226) solid 2px;
+  border-left: rgba(52, 168, 226, 0.459) solid 1px;
 }
 
 .ind-day-block {
