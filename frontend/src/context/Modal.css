@@ -35,7 +35,8 @@
   padding: 0;
 }
 
-input, textarea {
+input,
+textarea {
   margin: 0 0 0.5rem 0.5rem;
   box-shadow: none;
   background-color: rgba(236, 236, 236, 0.753);
@@ -46,4 +47,8 @@ input, textarea {
 
 .form__button {
   color: rgb(52, 168, 226);
+}
+
+.image-upload {
+  color: rgb(117, 117, 117);
 }

@@ -100,7 +100,7 @@ const BathroomCreateModal = () => {
         />
         <label>
           Image
-          <input type='file' onChange={updateFile} />
+          <input className='image-upload' type='file' onChange={updateFile} />
         </label>
         <label>
           Street Number

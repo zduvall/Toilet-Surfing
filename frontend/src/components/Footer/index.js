@@ -10,12 +10,12 @@ export default function Footer() {
             (window.location = 'https://www.linkedin.com/in/zachary-duvall/')
           }
         >
-          <i class='fab fa-linkedin fa-2x footer__icon'></i>
+          <i class='fab fa-linkedin fa-lg footer__icon'></i>
         </button>
         <button
           onClick={() => (window.location = 'https://github.com/zduvall')}
         >
-          <i class='fab fa-github-square fa-2x footer__icon'></i>
+          <i class='fab fa-github-square fa-lg footer__icon'></i>
         </button>
       </div>
     </footer>
