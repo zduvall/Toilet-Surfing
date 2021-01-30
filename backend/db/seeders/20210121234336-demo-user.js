@@ -28,6 +28,13 @@ module.exports = {
 
     const hardCodedUsers = [
       {
+        email: 'toiletsurfing.info@gmail.com',
+        username: 'Zachary Duvall',
+        hashedPassword: bcrypt.hashSync('password'),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
         email: 'demo-lition@gmail.io',
         username: 'PottyTrainer',
         hashedPassword: bcrypt.hashSync('password'),
@@ -35,16 +42,16 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        email: '1234@gmail.io',
-        username: '1234',
-        hashedPassword: bcrypt.hashSync('123456'),
+        email: faker.internet.email(),
+        username: 'UseMyToilets',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        email: faker.internet.email(),
-        username: 'UseMyToilets',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+        email: '1234@gmail.io',
+        username: '1234',
+        hashedPassword: bcrypt.hashSync('123456'),
         createdAt: new Date(),
         updatedAt: new Date(),
       },

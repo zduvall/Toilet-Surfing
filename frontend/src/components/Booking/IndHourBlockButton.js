@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import BookingFormModal from './BookingFormModal';
 
-export default function IndHourBlockButton({ time }) {
+export default function IndHourBlockButton({ day, hour, time }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -12,7 +12,11 @@ export default function IndHourBlockButton({ time }) {
           setShowModal(true);
           e.stopPropagation();
         }}
-        className='time-selector-button'
+        className={
+          hour % 2 === 0
+            ? 'time-selector-button-even'
+            : 'time-selector-button-odd'
+        }
       >
         {time}
       </button>
@@ -22,7 +26,7 @@ export default function IndHourBlockButton({ time }) {
             setShowModal(false);
           }}
         >
-          <BookingFormModal />
+          <BookingFormModal day={day} time={time} />
         </Modal>
       )}
     </>

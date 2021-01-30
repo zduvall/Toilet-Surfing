@@ -12,11 +12,11 @@ export default function RightArrow({ day5, setDay1 }) {
     >
       <i
         className='fas fa-chevron-right fa-3x arrow-right'
-        style={{
-          color: is2WeeksFromToday(day5)
-            ? 'transparent'
-            : 'rgba(242, 160, 84, 0.8)',
-        }}
+        style={
+          is2WeeksFromToday(day5)
+            ? { color: 'rgba(242, 160, 84, 0.2)' }
+            : { color: 'rgba(242, 160, 84, 0.8)' }
+        }
       ></i>
     </button>
   );

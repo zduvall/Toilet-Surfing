@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+
+import { useWindowWidth } from '../customHooks';
 import IndDayBlock from './IndDayBlock';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
@@ -11,6 +13,8 @@ export default function Booking() {
   const [day3, setDay3] = useState();
   const [day4, setDay4] = useState();
   const [day5, setDay5] = useState();
+
+  const width = useWindowWidth();
 
   useEffect(() => {
     setDay2(new Date(day1.getTime() + 1000 * 60 * 60 * 24));
@@ -27,24 +31,29 @@ export default function Booking() {
             <LeftArrow day1={day1} setDay1={setDay1} />
           </div>
           <div className='calendar__days'>
-            {/* <div>
-
-            </div> */}
             <div className='ind-day-block-container'>
               <IndDayBlock day={day1} />
             </div>
+            {width > 590 && (
             <div className='ind-day-block-container'>
               <IndDayBlock day={day2} />
             </div>
+            )}
+            {width > 850 && (
             <div className='ind-day-block-container'>
               <IndDayBlock day={day3} />
             </div>
-            <div className='ind-day-block-container'>
-              <IndDayBlock day={day4} />
-            </div>
-            <div className='ind-day-block-container'>
-              <IndDayBlock day={day5} />
-            </div>
+            )}
+            {width > 1110 && (
+              <div className='ind-day-block-container'>
+                <IndDayBlock day={day4} />
+              </div>
+            )}
+            {width > 1370 && (
+              <div className='ind-day-block-container'>
+                <IndDayBlock day={day5} />
+              </div>
+            )}
           </div>
           <div className='arrow-container'>
             <RightArrow day5={day5} setDay1={setDay1} />

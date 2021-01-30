@@ -90,14 +90,14 @@ const BathroomCreateModal = () => {
             onChange={(e) => setName(e.target.value)}
           />
         </label>
-        Description
-        <label>
-          <textarea
-            placeholder="I was dreamin' when I wrote this, forgive me if it goes astray, but when you wake up in the morning, you'll be glad this room began your day 🎶🎵 Please stop by and use this bathroom ;)"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
+        <label>Description</label>
+        <textarea
+          placeholder="I was dreamin' when I wrote this, forgive me if it goes astray, but when you wake up in the morning, you'll be glad this room began your day. Please stop by and use this bathroom ;)"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          cols='37'
+          rows='5.5'
+        />
         <label>
           Image
           <input type='file' onChange={updateFile} />

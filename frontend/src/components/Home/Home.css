@@ -4,6 +4,7 @@
 
 .home__background {
   max-width: 100%;
+  vertical-align: bottom;
 }
 
 .home__greeting {

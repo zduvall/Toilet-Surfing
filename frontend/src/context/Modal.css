@@ -35,7 +35,7 @@
   padding: 0;
 }
 
-input {
+input, textarea {
   margin: 0 0 0.5rem 0.5rem;
   box-shadow: none;
   background-color: rgba(236, 236, 236, 0.753);

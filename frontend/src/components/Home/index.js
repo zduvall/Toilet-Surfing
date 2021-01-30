@@ -2,9 +2,10 @@ import { useState, useContext, createContext } from 'react';
 import { useSelector } from 'react-redux';
 
 import HomeBackgroundImage from './HomeBackgroundImage';
+import MapsSearch from '../Maps/MapsSearch';
 import BathroomSmallViewContainer from '../Bathroom/BathroomSmallViewContainer';
 import SingleBathroom from '../Bathroom/SingleBathroom';
-import MapsSearch from '../Maps/MapsSearch';
+import Footer from '../Footer';
 import './Home.css';
 
 const BathroomsInWindowContext = createContext();
@@ -25,6 +26,7 @@ export default function Home() {
         <MapsSearch />
         {curBathroomId ? <SingleBathroom /> : <BathroomSmallViewContainer />}
       </BathroomsInWindowContext.Provider>
+      <Footer />
     </div>
   );
 }

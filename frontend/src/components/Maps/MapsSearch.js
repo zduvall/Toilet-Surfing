@@ -94,8 +94,9 @@ export default function Map() {
           zoom={5}
           onLoad={handleMapLoad}
           // onZoomChanged={handleBoundsChanged}
-          onDragEnd={handleBoundsChanged}
           // onBoundsChanged={handleBoundsChanged}
+          onDragEnd={handleBoundsChanged}
+          onClick={handleBoundsChanged}
         >
           {bathroomsArray.map((bathroom) => {
             return (
