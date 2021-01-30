@@ -44,42 +44,23 @@ export const createBooking = (booking) => async (dispatch) => {
 };
 
 // Reducer
-const initState = {
-  1: {
-    id: 1,
-    bathroomOwnerId: 1,
-    name: '',
-    description: '',
-    imageUrl: '',
-    streetNumber: '',
-    route: '',
-    locality: '',
-    administrativeArea: '',
-    postalCode: 1,
-    country: '',
-    lat: 1,
-    lng: 1,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-};
+const initState = null;
 
-const bathroomReducer = (state = initState, action) => {
+const bookingReducer = (state = initState, action) => {
   const newState = { ...state };
 
   switch (action.type) {
-    case LOAD_BOOKING:
-      for (let bathroom of action.bathrooms) {
-        newState[bathroom.id] = bathroom;
-      }
-      return newState;
+    // case LOAD_BOOKING:
+    //   for (let booking of action.bookings) {
+    //     newState[booking.id] = booking;
+    //   }
+    //   return newState;
     case CREATE_BOOKING:
-      // return { ...newState, bathroom: action.bathroom }
-      newState[action.bathroom.id] = action.bathroom;
+      // newState[action.booking.id] = action.booking;
       return newState;
     default:
       return newState;
   }
 };
 
-export default bathroomReducer;
+export default bookingReducer;
