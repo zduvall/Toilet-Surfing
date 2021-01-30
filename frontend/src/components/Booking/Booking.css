@@ -3,7 +3,6 @@
   flex-direction: row;
   background: rgb(247, 253, 255);
   border: rgba(52, 168, 226, 0.459) solid 1px;
-  
 }
 
 .calendar__days {
@@ -43,9 +42,9 @@
   }
 }
 
-/* .arrow-right {
+.arrow-right {
   animation: rightLeft 2s ease infinite;
-} */
+}
 
 @keyframes rightLeft {
   0% {
@@ -67,9 +66,9 @@
   flex-basis: 0;
 }
 
-.ind-day-block-container + .ind-day-block-container {
+/* .ind-day-block-container + .ind-day-block-container {
   border-left: rgba(52, 168, 226, 0.459) solid 1px;
-}
+} */
 
 .ind-day-block {
   flex-grow: 5;
@@ -96,27 +95,37 @@
 .hours-block {
   height: 250px;
   overflow: scroll;
+  padding: 0 0.5rem;
 }
 
 /* individual hour block */
 
 .ind-hour-block {
-  border: rgb(247, 253, 255) solid 0.25px;
   border-radius: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex: 1 1 0px;
+  /* border-bottom: rgba(52, 168, 226, 0.459) solid 1px; */
 }
 
-.time-selector-button {
+.time-selector-button-even {
   border: rgb(247, 253, 255) solid;
   border-radius: 0.5rem;
-  background: rgba(242, 160, 84, 0.514) !important;
+  background: rgba(242, 160, 84, 0.664) !important;
   flex: 1 1 0px;
   padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;
 }
 
-.time-selector-button:hover {
-  background: rgb(242, 160, 84) !important;
+.time-selector-button-odd {
+  border: rgb(247, 253, 255) solid;
+  border-radius: 0.5rem;
+  background: rgba(242, 160, 84, 0.432) !important;
+  flex: 1 1 0px;
+  padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;
+}
+
+.time-selector-button-odd:hover,
+.time-selector-button-even:hover {
+  background: rgb(104, 217, 255) !important;
 }
