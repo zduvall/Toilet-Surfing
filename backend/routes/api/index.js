@@ -8,6 +8,6 @@ const bookingsRouter = require('./booking.js');
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/bathrooms', bathroomsRouter);
-router.use('/bookings', bathroomsRouter);
+router.use('/bookings', bookingsRouter);
 
 module.exports = router;

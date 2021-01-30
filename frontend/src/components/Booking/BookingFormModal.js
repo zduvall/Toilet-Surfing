@@ -49,7 +49,7 @@ export default function BookingFormModal({ day, time, amPm }) {
     // dispatch data
     return dispatch(
       createBooking({
-        userId: session.id,
+        userId: session.user.id,
         bathroomId: curBathroomId,
         dateTimeStart,
         dateTimeEnd,

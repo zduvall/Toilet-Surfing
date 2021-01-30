@@ -26,25 +26,22 @@ export const getBookings = () => async (dispatch) => {
 export const createBooking = (booking) => async (dispatch) => {
   const { userId, bathroomId, dateTimeStart, dateTimeEnd } = booking;
 
-  console.log('userId', userId);
-  console.log('bathroomId', bathroomId);
-  console.log('dateTimeStart', dateTimeStart);
-  console.log('dateTimeEnd', dateTimeEnd);
-  // const response = await fetch('/api/bookings', {
-  //   method: 'POST',
-  //   body: JSON.stringify({
-  //     userId,
-  //     bathroomId,
-  //     dateTimeStart,
-  //     dateTimeEnd,
-  //   }),
-  // });
-  // dispatch(create(response.data.booking));
+  const response = await fetch('/api/bookings', {
+    method: 'POST',
+    body: JSON.stringify({
+      userId,
+      bathroomId,
+      dateTimeStart,
+      dateTimeEnd,
+    }),
+  });
+  console.log('here');
+  dispatch(create(response.data.booking));
   // return response;
 };
 
 // Reducer
-const initState = null;
+const initState = {};
 
 const bookingReducer = (state = initState, action) => {
   const newState = { ...state };
@@ -56,7 +53,7 @@ const bookingReducer = (state = initState, action) => {
     //   }
     //   return newState;
     case CREATE_BOOKING:
-      // newState[action.booking.id] = action.booking;
+      newState[action.booking.id] = action.booking;
       return newState;
     default:
       return newState;

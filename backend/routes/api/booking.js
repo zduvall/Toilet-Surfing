@@ -40,36 +40,15 @@ router.post(
   requireAuth,
   validateCreateBooking,
   asyncHandler(async (req, res) => {
-    const {
-      bathroomOwnerId,
-      name,
-      description,
-      streetNumber,
-      route,
-      locality,
-      administrativeArea,
-      postalCode,
-      country,
-      lat,
-      lng,
-    } = req.body;
-    const imageUrl = await singlePublicFileUpload(req.file);
-    const bathroom = await UserBookBathroom.create({
-      bathroomOwnerId,
-      name,
-      description,
-      imageUrl,
-      streetNumber,
-      route,
-      locality,
-      administrativeArea,
-      postalCode,
-      country,
-      lat,
-      lng,
+    const { userId, bathroomId, dateTimeStart, dateTimeEnd } = req.body;
+    const booking = await UserBookBathroom.create({
+      userId,
+      bathroomId,
+      dateTimeStart,
+      dateTimeEnd,
     });
     return res.json({
-      bathroom,
+      booking,
     });
   })
 );
