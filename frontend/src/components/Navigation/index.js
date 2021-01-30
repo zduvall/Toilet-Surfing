@@ -6,7 +6,7 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignUpFormModal from '../SignUpFormModal';
 import BathroomCreateModal from '../BathroomCreateModal';
-import LoggedInDropdown from './LoggedInDropdown'
+import LoggedInDropdown from './LoggedInDropdown';
 import SessionLinksDropdown from './LoggedOutDropdown';
 
 import './Navigation.css';
@@ -57,7 +57,9 @@ export default function Navigation({ isLoaded }) {
       }}
     >
       <div className='site-header__wrapper'>
-        <a href='/'>Toilet Surfing</a>
+        <a className='site-header__title' href='/'>
+          Toilet Surfing
+        </a>
         <nav className='nav'>
           <ul className='nav__wrapper'>{isLoaded && sessionLinks}</ul>
         </nav>

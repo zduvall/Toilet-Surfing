@@ -23,6 +23,11 @@
   text-decoration: none;
 }
 
+.site-header__title {
+  font-size: 1.4rem;
+  font-weight: 650;
+}
+
 .nav {
   display: block;
 }
