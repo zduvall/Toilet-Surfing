@@ -6,7 +6,7 @@ import { useBathroomsInWindowContext } from '../Home/index';
 
 import { setCurBathroomIdAction } from '../../store/curBathroom';
 
-export default function Map({ setBathroomClicked }) {
+export default function Map() {
   const dispatch = useDispatch();
 
   const { setBathroomsInWindow } = useBathroomsInWindowContext();
@@ -59,7 +59,6 @@ export default function Map({ setBathroomClicked }) {
 
   function handleMarkerClick(e, bathroom) {
     dispatch(setCurBathroomIdAction(bathroom.id));
-    setBathroomClicked(true);
     setLat(e.latLng.lat());
     setLng(e.latLng.lng());
   }
@@ -76,6 +75,7 @@ export default function Map({ setBathroomClicked }) {
   function handleBoundsChanged() {
     const bounds = map.getBounds();
     const center = bounds.getCenter();
+    dispatch(setCurBathroomIdAction(null));
     setLat(center.lat());
     setLng(center.lng());
     let shownBathrooms = bathroomsArray.filter((bathroom) =>
