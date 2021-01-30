@@ -5,72 +5,42 @@ const LOAD_BOOKING = '/bathrooms/LOAD_BOOKING';
 const CREATE_BOOKING = '/bathrooms/CREATE_BATHROOM';
 
 // Action creators
-const load = (bathrooms) => ({
+const load = (bookings) => ({
   type: LOAD_BOOKING,
-  bathrooms,
+  bookings,
 });
 
-const create = (bathroom) => ({
+const create = (booking) => ({
   type: CREATE_BOOKING,
-  bathroom,
+  booking,
 });
 
 // Thunks
-export const getBathrooms = () => async (dispatch) => {
-  const res = await fetch('/api/bathrooms');
+export const getBookings = () => async (dispatch) => {
+  const res = await fetch('/api/bookings');
   if (res.ok) {
     dispatch(load(res.data));
   }
 };
 
-export const createBathroom = (bathroom) => async (dispatch) => {
-  const {
-    images,
-    image,
-    bathroomOwnerId,
-    name,
-    description,
-    streetNumber,
-    route,
-    locality,
-    administrativeArea,
-    postalCode,
-    country,
-    lat,
-    lng,
-  } = bathroom;
-  const formData = new FormData();
-  formData.append('bathroomOwnerId', bathroomOwnerId);
-  formData.append('name', name);
-  formData.append('description', description);
-  formData.append('streetNumber', streetNumber);
-  formData.append('route', route);
-  formData.append('locality', locality);
-  formData.append('administrativeArea', administrativeArea);
-  formData.append('postalCode', postalCode);
-  formData.append('country', country);
-  formData.append('lat', lat);
-  formData.append('lng', lng);
+export const createBooking = (booking) => async (dispatch) => {
+  const { userId, bathroomId, dateTimeStart, dateTimeEnd } = booking;
 
-  // for multiple files
-  if (images && images.length !== 0) {
-    for (var i = 0; i < images.length; i++) {
-      formData.append('images', images[i]);
-    }
-  }
-
-  // for single file
-  if (image) formData.append('image', image);
-
-  const res = await fetch(`/api/bathrooms`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-    body: formData,
-  });
-
-  dispatch(create(res.data.bathroom));
+  console.log('userId', userId);
+  console.log('bathroomId', bathroomId);
+  console.log('dateTimeStart', dateTimeStart);
+  console.log('dateTimeEnd', dateTimeEnd);
+  // const response = await fetch('/api/bookings', {
+  //   method: 'POST',
+  //   body: JSON.stringify({
+  //     userId,
+  //     bathroomId,
+  //     dateTimeStart,
+  //     dateTimeEnd,
+  //   }),
+  // });
+  // dispatch(create(response.data.booking));
+  // return response;
 };
 
 // Reducer

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 // import { useDispatch } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
+import createBooking from '../../store/booking'
 
 export default function BookingFormModal({ day, time, amPm }) {
   const { bathrooms, curBathroomId, session } = useSelector((state) => state);
@@ -38,16 +39,15 @@ export default function BookingFormModal({ day, time, amPm }) {
     if (dateTimeEnd > dateTimeLimit) {
       setErrors((prevErrors) => [
         ...prevErrors,
-        'Booking cannot end after 11:00pm',
+        'Booking cannot end after 11:00pm.',
       ]);
       return;
     }
 
     // dispatch data
-    // return dispatch(createBooking({userId: session.id, bathroomId: curBathroomId, dateTimeStart, timeLength}))
-    // return dispatch(sessionActions.login({ credential })).catch((res) => {
-    //   if (res.data && res.data.errors) setErrors(res.data.errors);
-    // });
+    return dispatch(createBooking({userId: session.id, bathroomId: curBathroomId, dateTimeStart, dateTimeEnd})).catch((res) => {
+      if (res.data && res.data.errors) setErrors(res.data.errors);
+    });
   };
 
   return (
