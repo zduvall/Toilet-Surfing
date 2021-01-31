@@ -1,11 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import './Bathroom.css';
-
-// import thunks
-import { getUsers } from '../../store/user';
-import { getBathrooms } from '../../store/bathroom';
 
 // import components
 import BathroomHeader from './BothroomHeader';
@@ -13,16 +7,8 @@ import BathroomInfo from './BathroomInfo';
 import Booking from '../Booking';
 
 export default function Bathroom() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getBathrooms());
-    dispatch(getUsers());
-  }, [dispatch]);
-
-  const { paramsBathroomId } = useParams();
   const { bathrooms, users, curBathroomId } = useSelector((state) => state);
-  console.log('curBathroomId', curBathroomId);
-  const curBathroom = bathrooms[curBathroomId || paramsBathroomId];
+  const curBathroom = bathrooms[curBathroomId];
 
   return (
     <>

@@ -1,9 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-
-// import thunks
-import { getUsers } from '../../store/user';
-import { getBathrooms } from '../../store/bathroom';
+import { useSelector } from 'react-redux';
 
 // import components
 import BathroomSmallView from './BathroomSmallView';
@@ -12,17 +7,8 @@ import BathroomSmallView from './BathroomSmallView';
 import { useBathroomsInWindowContext } from '../Home/index';
 
 export default function BathroomSmallViewContainer() {
-  const dispatch = useDispatch();
   const { users } = useSelector((state) => state);
-  // const { bathrooms, users } = useSelector((state) => state);
   const { bathroomsInWindow } = useBathroomsInWindowContext();
-
-  // const bathroomsArray = Object.values(bathrooms);
-
-  useEffect(() => {
-    dispatch(getUsers());
-    dispatch(getBathrooms());
-  }, [dispatch]);
 
   return (
     <>

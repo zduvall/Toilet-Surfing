@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Modal } from '../../context/Modal';
-import BathroomCreateModal from './BathroomCreateModal';
+import { Modal } from '../../../context/Modal';
+import MyBookings from './MyBookings';
 
-export default function SignUpFormModal({ openMenu }) {
+export default function MyBookingsModal({ openMenu }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -13,16 +13,16 @@ export default function SignUpFormModal({ openMenu }) {
           e.stopPropagation();
         }}
       >
-        Add Toilet
+        My Bookings
       </button>
       {showModal && (
         <Modal
           onClose={() => {
             setShowModal(false);
-            if(openMenu) openMenu();
+            if (openMenu) openMenu();
           }}
         >
-          <BathroomCreateModal />
+          <MyBookings setShowModal={setShowModal} />
         </Modal>
       )}
     </>

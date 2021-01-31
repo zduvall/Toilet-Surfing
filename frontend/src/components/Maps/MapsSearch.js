@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import { getBathrooms } from '../../store/bathroom';
 import { useBathroomsInWindowContext } from '../Home/index';
-
 import { setCurBathroomIdAction } from '../../store/curBathroom';
 
 export default function Map() {
@@ -22,10 +20,6 @@ export default function Map() {
     bathroom.lat = Number(bathroom.lat);
   });
 
-  useEffect(() => {
-    dispatch(getBathrooms());
-  }, [dispatch]);
-
   const containerStyle = {
     width: '100%',
     height: '420px',
@@ -35,27 +29,27 @@ export default function Map() {
     lng: lng || -99.329509,
   };
 
-  // useEffect(() => {
-  //   function geolocate() {
-  //     if (window.navigator && window.navigator.geolocation) {
-  //       navigator.geolocation.getCurrentPosition(
-  //         onGeolocateSuccess,
-  //         onGeolocateError
-  //       );
-  //     }
-  //   }
+  useEffect(() => {
+    function geolocate() {
+      if (window.navigator && window.navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          onGeolocateSuccess,
+          onGeolocateError
+        );
+      }
+    }
 
-  //   function onGeolocateSuccess(coordinates) {
-  //     setLat(coordinates.coords.latitude);
-  //     setLng(coordinates.coords.longitude);
-  //   }
+    function onGeolocateSuccess(coordinates) {
+      setLat(coordinates.coords.latitude);
+      setLng(coordinates.coords.longitude);
+    }
 
-  //   function onGeolocateError(error) {
-  //     console.warn(error.code, error.message);
-  //   }
+    function onGeolocateError(error) {
+      console.warn(error.code, error.message);
+    }
 
-  //   geolocate();
-  // }, [lat, lng]);
+    geolocate();
+  }, [lat, lng]);
 
   function handleMarkerClick(e, bathroom) {
     dispatch(setCurBathroomIdAction(bathroom.id));
@@ -65,11 +59,6 @@ export default function Map() {
 
   function handleMapLoad(currentMap) {
     setMap(currentMap);
-    // const bounds = currentMap.getBounds();
-    // let shownBathrooms = bathroomsArray.filter((bathroom) =>
-    //   bounds.contains(bathroom)
-    // );
-    // setBathroomsInWindow(shownBathrooms);
   }
 
   function handleBoundsChanged() {
@@ -91,7 +80,8 @@ export default function Map() {
           id='search-map'
           mapContainerStyle={containerStyle}
           center={center}
-          zoom={5}
+          zoom={4
+          }
           onLoad={handleMapLoad}
           // onZoomChanged={handleBoundsChanged}
           // onBoundsChanged={handleBoundsChanged}

@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
-// import { NavLink } from 'react-router-dom';
 import { useWindowWidth } from '../customHooks';
 
+// import components
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignUpFormModal from '../SignUpFormModal';
 import BathroomCreateModal from '../BathroomCreateModal';
+import MyBookingsModal from '../Booking/MyBookingsModal'
 import LoggedInDropdown from './LoggedInDropdown';
 import SessionLinksDropdown from './LoggedOutDropdown';
 
@@ -23,6 +24,9 @@ export default function Navigation({ isLoaded }) {
         <>
           <li className='nav__item'>
             <BathroomCreateModal />
+          </li>
+          <li className='nav__item'>
+            <MyBookingsModal />
           </li>
           <li className='nav__item'>
             <ProfileButton user={sessionUser} />

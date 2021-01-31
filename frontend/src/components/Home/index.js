@@ -1,15 +1,18 @@
 import { useState, useContext, createContext } from 'react';
 import { useSelector } from 'react-redux';
 
+// import components
 import HomeBackgroundImage from './HomeBackgroundImage';
 import MapsSearch from '../Maps/MapsSearch';
 import BathroomSmallViewContainer from '../Bathroom/BathroomSmallViewContainer';
 import SingleBathroom from '../Bathroom/SingleBathroom';
 import Footer from '../Footer';
+
+// import css
 import './Home.css';
 
+// create context
 const BathroomsInWindowContext = createContext();
-
 export const useBathroomsInWindowContext = () =>
   useContext(BathroomsInWindowContext);
 

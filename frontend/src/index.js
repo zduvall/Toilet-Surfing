@@ -10,16 +10,6 @@ import configureStore from './store';
 import { restoreCSRF, fetch } from './store/csrf';
 import * as sessionActions from './store/session';
 
-// <script
-//   src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
-//   defer
-// ></script>
-
-  // mapsApi: {
-  //   key: process.env.MAPS_API_KEY,
-  //   url: `https://maps.googleapis.com/maps/api/js?key=${process.env.MAPS_API_KEY}&callback=initMap&libraries=&v=weekly`,
-  // },
-
 const store = configureStore();
 
 if (process.env.NODE_ENV !== 'production') {

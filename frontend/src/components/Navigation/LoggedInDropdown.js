@@ -1,8 +1,10 @@
 import { useState } from 'react';
-// import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import BathroomCreateModal from '../BathroomCreateModal';
 import * as sessionActions from '../../store/session';
+
+//import components
+import BathroomCreateModal from '../BathroomCreateModal';
+import MyBookingsModal from '../Booking/MyBookingsModal';
 
 export default function LoggedInDropdown() {
   const dispatch = useDispatch();
@@ -12,19 +14,8 @@ export default function LoggedInDropdown() {
   const openMenu = () => {
     let show = true;
     if (showMenu) show = false;
-    // if (showMenu) return; // delete two lines above, comment in this line and the stuff below to allow click anywhere close, but that prevents clicking into the form
     setShowMenu(show);
   };
-
-  // const closeMenu = () => {
-  //   setShowMenu(false);
-  // };
-
-  // useEffect(() => {
-  //   if (!showMenu) return;
-  //   document.addEventListener('click', closeMenu);
-  //   return () => document.removeEventListener('click', closeMenu);
-  // }, [showMenu]);
 
   const logout = (e) => {
     e.preventDefault();
@@ -46,6 +37,9 @@ export default function LoggedInDropdown() {
           <li className='navbar__dropdown__info'>{sessionUser.email}</li>
           <li className='navbar__dropdown__button'>
             <BathroomCreateModal openMenu={openMenu} />
+          </li>
+          <li className='navbar__dropdown__button'>
+            <MyBookingsModal openMenu={openMenu} />
           </li>
           <li>
             <button className='navbar__dropdown__button' onClick={logout}>

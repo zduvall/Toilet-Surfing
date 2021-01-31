@@ -5,12 +5,6 @@ export async function fetch(url, options = {}) {
   options.method = options.method || 'GET';
   options.headers = options.headers || {};
 
-  // if (options.method.toUpperCase() !== 'GET') {
-  //   options.headers['Content-Type'] =
-  //     options.headers['Content-Type'] || 'application/json';
-  //   options.headers['XSRF-Token'] = Cookies.get('XSRF-TOKEN');
-  // }
-
   if (options.method.toUpperCase() !== 'GET') {
     if (options.headers['Content-Type'] === 'multipart/form-data') {
       delete options.headers['Content-Type'];

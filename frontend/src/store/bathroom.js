@@ -2,7 +2,7 @@ import { fetch } from './csrf';
 
 // Action types
 const LOAD_BATHROOMS = '/bathrooms/LOAD_BATHROOMS';
-const CREATE_BATHROOM = '/bathrooms/CREATE_BATROOM';
+const CREATE_BATHROOM = '/bathrooms/CREATE_BATHROOM';
 
 // Action creators
 const load = (bathrooms) => ({
@@ -104,7 +104,6 @@ const bathroomReducer = (state = initState, action) => {
       }
       return newState;
     case CREATE_BATHROOM:
-      // return { ...newState, bathroom: action.bathroom }
       newState[action.bathroom.id] = action.bathroom;
       return newState;
     default:

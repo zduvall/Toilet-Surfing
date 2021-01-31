@@ -5,12 +5,14 @@ import sessionReducer from './session';
 import bathroomReducer from './bathroom';
 import userReducer from './user';
 import curBathroomIdReducer from './curBathroom';
+import bookingReducer from './booking';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   bathrooms: bathroomReducer,
   users: userReducer,
   curBathroomId: curBathroomIdReducer,
+  bookings: bookingReducer,
 });
 let enhancer;
 

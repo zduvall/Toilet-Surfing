@@ -16,12 +16,12 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      dateTime: {
+      dateTimeStart: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      timeLength: {
-        type: Sequelize.INTEGER,
+      dateTimeEnd: {
+        type: Sequelize.DATE,
         allowNull: false,
       },
       createdAt: {
@@ -36,5 +36,5 @@ module.exports = {
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('UserBookBathrooms');
-  }
+  },
 };

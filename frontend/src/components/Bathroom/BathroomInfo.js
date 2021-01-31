@@ -10,8 +10,10 @@ export default function BathroomInfo({ curBathroom }) {
       </p>
       <p>{curBathroom.postalCode}</p>
       <p>{curBathroom.country}</p>
-      <p>{curBathroom.lat}</p>
-      <p>{curBathroom.lng}</p>
+      <p className='lat-lng'>
+        {`Lat: ${curBathroom.lat} \u00A0 - \u00A0 Lng: ${curBathroom.lng}`}
+      </p>
+      {/* <p className='lat-lng'>Longitude: {curBathroom.lng}</p> */}
     </>
   );
 }
