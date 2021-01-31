@@ -14,7 +14,6 @@ router.get(
   '/',
   asyncHandler(async (_req, res) => {
     const bookings = await UserBookBathroom.findAll();
-    console.log(bookings);
     return res.json(bookings);
   })
 );

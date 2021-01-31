@@ -18,9 +18,6 @@ const create = (booking) => ({
 // Thunks
 export const getBookings = () => async (dispatch) => {
   const res = await fetch('/api/bookings');
-
-  console.log(res.data);
-
   if (res.ok) {
     dispatch(load(res.data));
   }

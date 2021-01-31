@@ -37,12 +37,12 @@ function App() {
             {/* {sessionUser && <h1>Home Logged In</h1>}
             {!sessionUser && <h1>Home Not Logged In</h1>} */}
           </Route>
-          <Route path={`/bathrooms/:paramsBathroomId(\\d+)`}>
+          {/* <Route path={`/bathrooms/:paramsBathroomId(\\d+)`}>
             <SingleBathroom />
-          </Route>
-          <Route path='/bathrooms/new'>
+          </Route> */}
+          {/* <Route path='/bathrooms/new'>
             <BathroomCreateModal />
-          </Route>
+          </Route> */}
           <Route>
             <PageNotFound />
           </Route>
