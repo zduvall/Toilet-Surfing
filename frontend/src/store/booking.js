@@ -40,22 +40,16 @@ export const createBooking = (booking) => async (dispatch) => {
 };
 
 // Reducer
-const initState = {};
+const initState = [];
 
 const bookingReducer = (state = initState, action) => {
-  const newState = { ...state };
-
   switch (action.type) {
     case LOAD_BOOKING:
-      for (let booking of action.bookings) {
-        newState[booking.id] = booking;
-      }
-      return newState;
+      return [...action.bookings];
     case CREATE_BOOKING:
-      newState[action.booking.id] = action.booking;
-      return newState;
+      return [...state, action.booking];
     default:
-      return newState;
+      return state;
   }
 };
 
