@@ -18,6 +18,9 @@ const create = (booking) => ({
 // Thunks
 export const getBookings = () => async (dispatch) => {
   const res = await fetch('/api/bookings');
+
+  console.log(res.data);
+
   if (res.ok) {
     dispatch(load(res.data));
   }
@@ -35,9 +38,8 @@ export const createBooking = (booking) => async (dispatch) => {
       dateTimeEnd,
     }),
   });
-  console.log('here');
   dispatch(create(response.data.booking));
-  // return response;
+  return response;
 };
 
 // Reducer
@@ -47,11 +49,11 @@ const bookingReducer = (state = initState, action) => {
   const newState = { ...state };
 
   switch (action.type) {
-    // case LOAD_BOOKING:
-    //   for (let booking of action.bookings) {
-    //     newState[booking.id] = booking;
-    //   }
-    //   return newState;
+    case LOAD_BOOKING:
+      for (let booking of action.bookings) {
+        newState[booking.id] = booking;
+      }
+      return newState;
     case CREATE_BOOKING:
       newState[action.booking.id] = action.booking;
       return newState;

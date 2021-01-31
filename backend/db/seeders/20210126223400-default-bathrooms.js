@@ -19,7 +19,7 @@ module.exports = {
           imageUrl: './pictures/toilet-surfer.png',
           streetNumber: '',
           route: ' ',
-          locality: 'Click/drag the map above to begin surfing.',
+          locality: 'Click/drag the map above to begin your search',
           administrativeArea: 'and happy surfing!',
           postalCode: ' ',
           country: '- from Toilet Surfing HQ',

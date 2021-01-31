@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-import { getBathrooms } from '../../store/bathroom';
 import { useBathroomsInWindowContext } from '../Home/index';
-
 import { setCurBathroomIdAction } from '../../store/curBathroom';
 
 export default function Map() {
@@ -21,10 +19,6 @@ export default function Map() {
     bathroom.lng = Number(bathroom.lng);
     bathroom.lat = Number(bathroom.lat);
   });
-
-  useEffect(() => {
-    dispatch(getBathrooms());
-  }, [dispatch]);
 
   const containerStyle = {
     width: '100%',
