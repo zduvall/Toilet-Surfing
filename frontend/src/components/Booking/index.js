@@ -47,7 +47,9 @@ export default function Booking() {
   return (
     <div>
       {day5 && (
-        <CurBRBookingsContext.Provider value={curBRBookings}>
+        <CurBRBookingsContext.Provider
+          value={{ curBRBookings, setCurBRBookings }}
+        >
           <div className='calendar'>
             <div className='arrow-container'>
               <LeftArrow day1={day1} setDay1={setDay1} />

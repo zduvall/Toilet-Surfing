@@ -5,10 +5,10 @@ import { createBooking } from '../../store/booking';
 // import context for bookings on this bathroom
 import { useCurBRBookingsContext } from './index';
 
-export default function BookingFormModal({ day, time, amPm }) {
+export default function BookingFormModal({ day, time, amPm, setShowModal }) {
   const dispatch = useDispatch();
   const { bathrooms, curBathroomId, session } = useSelector((state) => state);
-  const curBRBookings = useCurBRBookingsContext();
+  const { curBRBookings, setCurBRBookings } = useCurBRBookingsContext();
 
   // defene state for this form
   const [timeLength, setTimeLength] = useState('h0m15');
@@ -18,6 +18,7 @@ export default function BookingFormModal({ day, time, amPm }) {
     e.preventDefault();
     setErrors([]);
     let newErrors = [];
+
     // set beginning time for booking
     const dateTimeStart = new Date(day);
     let hours = Number(time.slice(0, time.indexOf(':')));
@@ -43,15 +44,11 @@ export default function BookingFormModal({ day, time, amPm }) {
     dateTimeLimit.setHours(23, 0, 0);
 
     if (dateTimeEnd > dateTimeLimit) {
-      // setErrors((prevErrors) => [
-      //   ...prevErrors,
-      //   'Booking cannot end after 11:00pm.',
-      // ]);
       newErrors.push('Booking cannot end after 11:00pm.');
     }
 
     //check if booking overlaps with another booking
-    let anyRepeats = false;
+    let anyConflicts = false;
     curBRBookings.forEach((booking) => {
       const testBookingStart = new Date(booking.dateTimeStart);
       const testBookingEnd = new Date(booking.dateTimeEnd);
@@ -64,22 +61,19 @@ export default function BookingFormModal({ day, time, amPm }) {
         (dateTimeStart < testBookingStart && testBookingStart < dateTimeEnd) ||
         (dateTimeStart < testBookingEnd && testBookingEnd < dateTimeEnd)
       ) {
-        anyRepeats = true;
+        anyConflicts = true;
       }
     });
-    if (anyRepeats) {
-      // setErrors((prevErrors) => [
-      //   ...prevErrors,
-      //   'Booking cannot overlap with another booking.',
-      // ]);
+    if (anyConflicts) {
       newErrors.push('Booking cannot overlap with another booking.');
     }
 
     // if no errors dispatch data
     if (newErrors.length > 0) {
-      setErrors(newErrors)
+      setErrors(newErrors);
     } else {
-      return dispatch(
+      setShowModal(false);
+      const curBooking = dispatch(
         createBooking({
           userId: session.user.id,
           bathroomId: curBathroomId,
@@ -89,6 +83,8 @@ export default function BookingFormModal({ day, time, amPm }) {
       ).catch((res) => {
         if (res.data && res.data.errors) setErrors(res.data.errors);
       });
+      setCurBRBookings((prevBookings) => [...prevBookings, curBooking]);
+      return curBooking;
     }
   };
 
