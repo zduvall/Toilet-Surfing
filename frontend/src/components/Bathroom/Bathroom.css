@@ -33,6 +33,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: rgb(0, 102, 153);
 }
 
 .bathroom-header__name {
@@ -42,6 +43,12 @@
 .bathroom-header__owner {
   font-size: 1rem;
   margin-left: 0.5rem;
+}
+
+/* Bathroom Info */
+
+.lat-lng {
+  color: rgba(0, 0, 0, 0.466);
 }
 
 /* Bathroom Small View */
