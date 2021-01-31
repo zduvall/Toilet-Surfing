@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
-const MyBookingsModal = () => {
-  const { bookings } = useSelector((state) => state);
+const MyBookingsModal = ({ openMenu }) => {
+  const { session, bookings } = useSelector((state) => state);
 
   return (
     <div>
