@@ -13,7 +13,15 @@ const router = express.Router();
 router.get(
   '/',
   asyncHandler(async (_req, res) => {
-    const bookings = await UserBookBathroom.findAll();
+    const bookings = await UserBookBathroom.findAll({
+      attributes: [
+        'id',
+        'userId',
+        'bathroomId',
+        'dateTimeStart',
+        'dateTimeEnd',
+      ],
+    });
     return res.json(bookings);
   })
 );
@@ -49,6 +57,24 @@ router.post(
     });
     return res.json({
       booking,
+    });
+  })
+);
+
+// Delete booking // for some reason I wasn't able to get the bookings to come through with the PK id attribute on get, so I'm having to delete using a body through put (can't do with delete)
+
+router.delete(
+  '/',
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const { userId, bathroomId, dateTimeStart, dateTimeEnd } = req.body;
+    await UserBookBathroom.destroy({
+      where: {
+        userId,
+        bathroomId,
+        dateTimeStart,
+        dateTimeEnd,
+      },
     });
   })
 );

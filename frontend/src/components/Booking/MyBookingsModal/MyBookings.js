@@ -45,7 +45,9 @@ const MyBookingsModal = ({ setShowModal }) => {
               >
                 {bathrooms[booking.bathroomId].name}
               </h3>
-              <button className='mybookings__cancel-button'>Cancel</button>
+              <button className='mybookings__cancel-button' onClick={() => {}}>
+                Cancel
+              </button>
             </div>
             <p className='mybookings__time'>
               {timeStart.toTimeString().slice(0, 9)} {amPmStart} -{' '}
