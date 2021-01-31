@@ -16,9 +16,9 @@ const create = (booking) => ({
   booking,
 });
 
-const cancel = (booking) => ({
+const cancel = (bookingId) => ({
   type: CANCEL_BOOKING,
-  booking,
+  bookingId,
 });
 
 // Thunks
@@ -45,13 +45,13 @@ export const createBooking = (booking) => async (dispatch) => {
   return res;
 };
 
-// for some reason I wasn't able to get the bookings to come through with the PK id attribute on get, so I'm having to delete using a body through put (can't do with delete)
-export const deleteBooking = (booking) => async (dispatch) => {
-  const res = await fetch(`/api/bookings/${booking.id}`, {
+export const deleteBooking = (bookingId) => async (dispatch) => {
+  const res = await fetch(`/api/bookings/${bookingId}`, {
     method: 'DELETE',
   });
-  dispatch(cancel(res.data.booking));
-  return res;
+  if (res.ok) {
+    dispatch(cancel(bookingId));
+  }
 };
 
 // Reducer
@@ -64,7 +64,8 @@ const bookingReducer = (state = initState, action) => {
     case CREATE_BOOKING:
       return [...state, action.booking];
     case CANCEL_BOOKING:
-      return [...state, action.booking];
+      // console.log(bookingId);
+      return state;
     default:
       return state;
   }

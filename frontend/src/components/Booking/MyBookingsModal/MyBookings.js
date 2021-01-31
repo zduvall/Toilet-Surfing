@@ -2,6 +2,9 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setCurBathroomIdAction } from '../../../store/curBathroom';
 
+// import thunk
+import { deleteBooking } from '../../../store/booking';
+
 const MyBookingsModal = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const { session, bookings, bathrooms } = useSelector((state) => state);
@@ -33,7 +36,7 @@ const MyBookingsModal = ({ setShowModal }) => {
         timeEnd.setHours(hoursEnd);
 
         return (
-          <div className='mybookings-container'>
+          <div key={booking.id} className='mybookings-container'>
             <div className='mybookings__name-and-button'>
               <h3
                 className='mybookings__br-name'
@@ -45,7 +48,13 @@ const MyBookingsModal = ({ setShowModal }) => {
               >
                 {bathrooms[booking.bathroomId].name}
               </h3>
-              <button className='mybookings__cancel-button' onClick={() => {}}>
+              <button
+                className='mybookings__cancel-button'
+                onClick={() => {
+                  dispatch(deleteBooking(booking.id));
+                  setShowModal(false);
+                }}
+              >
                 Cancel
               </button>
             </div>
