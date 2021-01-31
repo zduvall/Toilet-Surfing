@@ -61,21 +61,18 @@ router.post(
   })
 );
 
-// Delete booking // for some reason I wasn't able to get the bookings to come through with the PK id attribute on get, so I'm having to delete using a body through put (can't do with delete)
+// Delete booking
 
 router.delete(
-  '/',
+  '/:bookingId(\\d+)',
   requireAuth,
   asyncHandler(async (req, res) => {
-    const { userId, bathroomId, dateTimeStart, dateTimeEnd } = req.body;
-    await UserBookBathroom.destroy({
-      where: {
-        userId,
-        bathroomId,
-        dateTimeStart,
-        dateTimeEnd,
-      },
+    const bookingId = Number(req.params.bookingId);
+    const booking = await UserBookBathroom.findOne({
+      where: { id: bookingId },
     });
+    const numDestroyed = booking.destroy();
+    return res.json(numDestroyed);
   })
 );
 
