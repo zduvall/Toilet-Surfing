@@ -1,8 +1,5 @@
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import './Bathroom.css';
-
-// import thunks
 
 // import components
 import BathroomHeader from './BothroomHeader';
@@ -10,9 +7,8 @@ import BathroomInfo from './BathroomInfo';
 import Booking from '../Booking';
 
 export default function Bathroom() {
-  const { paramsBathroomId } = useParams();
   const { bathrooms, users, curBathroomId } = useSelector((state) => state);
-  const curBathroom = bathrooms[curBathroomId || paramsBathroomId];
+  const curBathroom = bathrooms[curBathroomId];
 
   return (
     <>

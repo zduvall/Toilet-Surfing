@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 // import store items
 import * as sessionActions from './store/session';
@@ -34,18 +34,15 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <Home />
-            {/* {sessionUser && <h1>Home Logged In</h1>}
-            {!sessionUser && <h1>Home Not Logged In</h1>} */}
           </Route>
-          {/* <Route path={`/bathrooms/:paramsBathroomId(\\d+)`}>
-            <SingleBathroom />
-          </Route> */}
-          {/* <Route path='/bathrooms/new'>
-            <BathroomCreateModal />
-          </Route> */}
-          <Route>
+          <Route exact path='/out-of-order'>
             <PageNotFound />
           </Route>
+          <Route
+            render={() => {
+              return <Redirect to='/' />;
+            }}
+          />
         </Switch>
       )}
     </>
