@@ -20,13 +20,14 @@
 }
 
 #modal-content {
-  /* width: min-content; */
   color: rgb(202, 202, 202);
   position: absolute;
   background-color: rgba(0, 29, 41, 0.719);
   backdrop-filter: blur(6px);
   border-radius: 2rem 0.25rem 2rem 0.25rem;
   padding: 1.5rem;
+  max-height: 525px;
+  overflow: scroll;
 }
 
 #modal-content ul {
