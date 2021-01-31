@@ -66,10 +66,6 @@
   flex-basis: 0;
 }
 
-/* .ind-day-block-container + .ind-day-block-container {
-  border-left: rgba(52, 168, 226, 0.459) solid 1px;
-} */
-
 .ind-day-block {
   flex-grow: 5;
   flex-basis: 0;
@@ -111,7 +107,7 @@
 
 .time-selector-button-even {
   border: rgb(247, 253, 255) solid;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   background: rgba(242, 160, 84, 0.664) !important;
   flex: 1 1 0px;
   padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;
@@ -119,7 +115,7 @@
 
 .time-selector-button-odd {
   border: rgb(247, 253, 255) solid;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   background: rgba(242, 160, 84, 0.432) !important;
   flex: 1 1 0px;
   padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;

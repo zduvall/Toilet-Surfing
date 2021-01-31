@@ -12,7 +12,7 @@ export default function IndHourBlockButton({ day, hour, time, amPm }) {
   // find out time for this button
   const thisButtonTime = new Date(day);
   let hours = Number(time.slice(0, time.indexOf(':')));
-  hours = amPm === 'pm' ? hours + 12 : hours;
+  hours = amPm === 'pm' && hours !== 12 ? hours + 12 : hours;
   let minutes = Number(time.slice(time.indexOf(':') + 1));
   thisButtonTime.setHours(hours, minutes, 0);
 
@@ -28,10 +28,10 @@ export default function IndHourBlockButton({ day, hour, time, amPm }) {
   curBRBookings.forEach((booking) => {
     const testBookingStart = new Date(booking.dateTimeStart);
     const testBookingEnd = new Date(booking.dateTimeEnd);
-    // debugger
 
     if (
-      thisButtonTime === testBookingStart ||
+      (thisButtonTime.toDateString() === testBookingStart.toDateString() &&
+        thisButtonTime.toTimeString() === testBookingStart.toTimeString()) ||
       (testBookingStart < thisButtonTime && thisButtonTime < testBookingEnd)
     ) {
       anyConflicts = true;
@@ -53,7 +53,11 @@ export default function IndHourBlockButton({ day, hour, time, amPm }) {
         disabled={anyConflicts || inThePast}
         style={
           anyConflicts || inThePast
-            ? { color: 'rgba(242, 160, 84, 0.8)', cursor: 'not-allowed' }
+            ? {
+                color: 'rgba(242, 160, 84, 0.8)',
+                cursor: 'not-allowed',
+                backgroundColor: 'white !important',
+              }
             : {}
         }
         title={anyConflicts ? 'Already booked' : inThePast ? 'In the past' : ''}

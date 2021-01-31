@@ -22,7 +22,7 @@ export default function BookingFormModal({ day, time, amPm, setShowModal }) {
     // set beginning time for booking
     const dateTimeStart = new Date(day);
     let hours = Number(time.slice(0, time.indexOf(':')));
-    hours = amPm === 'pm' ? hours + 12 : hours;
+    hours = amPm === 'pm' && hours !== 12 ? hours + 12 : hours;
     let minutes = Number(time.slice(time.indexOf(':') + 1));
     dateTimeStart.setHours(hours, minutes, 0);
 
@@ -54,8 +54,10 @@ export default function BookingFormModal({ day, time, amPm, setShowModal }) {
       const testBookingEnd = new Date(booking.dateTimeEnd);
 
       if (
-        testBookingStart === dateTimeStart ||
-        testBookingEnd === dateTimeEnd ||
+        (testBookingStart.toDateString() === dateTimeStart.toDateString() &&
+          testBookingStart.toTimeString() === dateTimeStart.toTimeString()) ||
+        (testBookingEnd.toDateString() === dateTimeEnd.toDateString() &&
+          testBookingEnd.toTimeString() === dateTimeEnd.toTimeString()) ||
         (testBookingStart < dateTimeStart && dateTimeStart < testBookingEnd) ||
         (testBookingStart < dateTimeEnd && dateTimeEnd < testBookingEnd) ||
         (dateTimeStart < testBookingStart && testBookingStart < dateTimeEnd) ||
