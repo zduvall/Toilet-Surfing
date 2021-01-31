@@ -2,10 +2,17 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createBooking } from '../../store/booking';
 
-export default function BookingFormModal({ day, time, amPm }) {
-  const { bathrooms, curBathroomId, session } = useSelector((state) => state);
+// import context for bookings on this bathroom
+import { useCurBRBookingsContext } from './index';
 
+export default function BookingFormModal({ day, time, amPm }) {
   const dispatch = useDispatch();
+  const { bathrooms, curBathroomId, session } = useSelector((state) => state);
+  const curBRBookings = useCurBRBookingsContext();
+
+  console.log(curBRBookings);
+
+  // defene state for this form
   const [timeLength, setTimeLength] = useState('h0m15');
   const [errors, setErrors] = useState([]);
 
@@ -32,7 +39,7 @@ export default function BookingFormModal({ day, time, amPm }) {
     }
     dateTimeEnd.setHours(hours, minutes, 0);
 
-    // check if ending time is outside of allowed times
+    // check if ending time is past 11:00pm
     const dateTimeLimit = new Date(day);
     dateTimeLimit.setHours(23, 0, 0);
 
@@ -43,6 +50,26 @@ export default function BookingFormModal({ day, time, amPm }) {
       ]);
       return;
     }
+
+    //check if booking overlaps with another booking
+    curBRBookings.forEach((booking) => {
+      if (
+        (booking.dateTimeStart < dateTimeStart &&
+          dateTimeStart < booking.dateTimeEnd) ||
+        (booking.dateTimeStart < dateTimeEnd &&
+          dateTimeEnd < booking.dateTimeEnd) ||
+        (dateTimeStart < booking.dateTimeStart &&
+          booking.dateTimeStart < dateTimeEnd) ||
+        (dateTimeStart < booking.dateTimeEnd &&
+          booking.dateTimeEnd < dateTimeEnd)
+      ) {
+        setErrors((prevErrors) => [
+          ...prevErrors,
+          'Booking cannot overlap with another booking.',
+        ]);
+        return;
+      }
+    });
 
     // dispatch data
     return dispatch(

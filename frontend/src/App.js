@@ -10,8 +10,6 @@ import { getBookings } from './store/booking';
 
 import Navigation from './components/Navigation';
 import Home from './components/Home';
-import SingleBathroom from './components/Bathroom/SingleBathroom';
-import BathroomCreateModal from './components/BathroomCreateModal/BathroomCreateModal';
 import PageNotFound from './components/PageNotFound';
 
 function App() {

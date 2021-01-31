@@ -1,13 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
+import { useSelector } from 'react-redux';
 
+// import utils
 import { useWindowWidth } from '../customHooks';
+
+//import components
 import IndDayBlock from './IndDayBlock';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
 
+//import css
 import './Booking.css';
 
+const CurBRBookingsContext = createContext();
+export const useCurBRBookingsContext = () => useContext(CurBRBookingsContext);
+
 export default function Booking() {
+  // identify all bookings associated with this bathroom to use in context
+  const { curBathroomId, bookings } = useSelector((state) => state);
+  // create state for context
+  const [curBRBookings, setCurBRBookings] = useState([]);
+
+  // create all other state variables
   const [day1, setDay1] = useState(new Date());
   const [day2, setDay2] = useState();
   const [day3, setDay3] = useState();
@@ -15,6 +29,13 @@ export default function Booking() {
   const [day5, setDay5] = useState();
 
   const width = useWindowWidth();
+
+  useEffect(() => {
+    const filterCurBRBookings = bookings.filter(
+      (booking) => booking.bathroomId === curBathroomId
+    );
+    setCurBRBookings(filterCurBRBookings);
+  }, [bookings, curBathroomId]);
 
   useEffect(() => {
     setDay2(new Date(day1.getTime() + 1000 * 60 * 60 * 24));
@@ -26,39 +47,41 @@ export default function Booking() {
   return (
     <div>
       {day5 && (
-        <div className='calendar'>
-          <div className='arrow-container'>
-            <LeftArrow day1={day1} setDay1={setDay1} />
-          </div>
-          <div className='calendar__days'>
-            <div className='ind-day-block-container'>
-              <IndDayBlock day={day1} />
+        <CurBRBookingsContext.Provider value={curBRBookings}>
+          <div className='calendar'>
+            <div className='arrow-container'>
+              <LeftArrow day1={day1} setDay1={setDay1} />
             </div>
-            {width > 590 && (
-            <div className='ind-day-block-container'>
-              <IndDayBlock day={day2} />
-            </div>
-            )}
-            {width > 850 && (
-            <div className='ind-day-block-container'>
-              <IndDayBlock day={day3} />
-            </div>
-            )}
-            {width > 1110 && (
+            <div className='calendar__days'>
               <div className='ind-day-block-container'>
-                <IndDayBlock day={day4} />
+                <IndDayBlock day={day1} />
               </div>
-            )}
-            {width > 1370 && (
-              <div className='ind-day-block-container'>
-                <IndDayBlock day={day5} />
-              </div>
-            )}
+              {width > 590 && (
+                <div className='ind-day-block-container'>
+                  <IndDayBlock day={day2} />
+                </div>
+              )}
+              {width > 850 && (
+                <div className='ind-day-block-container'>
+                  <IndDayBlock day={day3} />
+                </div>
+              )}
+              {width > 1110 && (
+                <div className='ind-day-block-container'>
+                  <IndDayBlock day={day4} />
+                </div>
+              )}
+              {width > 1370 && (
+                <div className='ind-day-block-container'>
+                  <IndDayBlock day={day5} />
+                </div>
+              )}
+            </div>
+            <div className='arrow-container'>
+              <RightArrow day5={day5} setDay1={setDay1} />
+            </div>
           </div>
-          <div className='arrow-container'>
-            <RightArrow day5={day5} setDay1={setDay1} />
-          </div>
-        </div>
+        </CurBRBookingsContext.Provider>
       )}
     </div>
   );
