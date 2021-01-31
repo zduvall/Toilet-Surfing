@@ -23,8 +23,6 @@ export default function BookingFormModal({ day, time, amPm }) {
     const dateTimeEnd = new Date(day);
     const addHours = Number(timeLength.slice(1, timeLength.indexOf('m')));
     const addMinutes = Number(timeLength.slice(timeLength.indexOf('m') + 1));
-
-    // const timeLengthParsed = JSON.parse(timeLength);
     hours = hours + addHours;
     minutes = minutes + addMinutes;
 
