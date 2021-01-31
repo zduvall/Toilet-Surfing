@@ -13,7 +13,7 @@ export default function SignUpFormModal({ openMenu }) {
           e.stopPropagation();
         }}
       >
-        Add Toilet
+        List Toilet
       </button>
       {showModal && (
         <Modal

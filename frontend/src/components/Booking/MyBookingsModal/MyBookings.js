@@ -16,6 +16,7 @@ const MyBookingsModal = ({ setShowModal }) => {
   return (
     <div>
       <h1>My Bookings</h1>
+      {!curUserBookings.length && <p>No toilets currently booked.</p>}
       {curUserBookings.map((booking) => {
         let now = new Date();
 
