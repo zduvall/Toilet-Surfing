@@ -71,6 +71,7 @@ router.delete(
     const booking = await UserBookBathroom.findOne({
       where: { id: bookingId },
     });
+    // const booking = await UserBookBathroom.findbyPk(bookingId); // for some reason this doesn't work, same reason why I had to specifically require id in attributes above, I'm guessing
     const numDestroyed = booking.destroy();
     return res.json(numDestroyed);
   })
