@@ -75,7 +75,7 @@ const BathroomCreateModal = () => {
 
   return (
     <div>
-      <h1>Create Bathroom</h1>
+      <h1>Add Toilet</h1>
       <form
         encType='multipart/form-data'
         style={{ display: 'flex', flexFlow: 'column' }}
@@ -178,10 +178,15 @@ const BathroomCreateModal = () => {
           Multiple Upload
           <input type='file' multiple onChange={updateFiles} />
         </label> */}
-        <button className='form__button' type='submit'>
-          Create Bathroom
+        <button className='form__button' type='submit' disabled={!user}>
+          Add Toilet
         </button>
       </form>
+      {!user && (
+        <ul>
+          <li>Must be logged in to add a toilet.</li>
+        </ul>
+      )}
       {errors.length > 0 &&
         errors.map((error) => <div key={error}>{error}</div>)}
     </div>

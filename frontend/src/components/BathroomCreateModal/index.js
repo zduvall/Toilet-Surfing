@@ -13,7 +13,7 @@ export default function SignUpFormModal({ openMenu }) {
           e.stopPropagation();
         }}
       >
-        Add Bathroom
+        Add Toilet
       </button>
       {showModal && (
         <Modal
