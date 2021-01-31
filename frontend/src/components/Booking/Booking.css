@@ -135,3 +135,18 @@
   border-radius: 0.15rem;
   background-color: rgb(202, 202, 202);
 }
+
+/* my bookings */
+.mybookings-container {
+}
+
+.mybookings__br-name {
+  text-decoration: underline solid;
+  color: rgb(0, 142, 212);
+  margin: 0;
+}
+
+.mybookings__time {
+  font-weight: 400;
+  margin: 0.5rem 0 1rem 0.25rem;
+}

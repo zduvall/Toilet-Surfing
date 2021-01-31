@@ -22,7 +22,7 @@ export default function MyBookingsModal({ openMenu }) {
             if (openMenu) openMenu();
           }}
         >
-          <MyBookings />
+          <MyBookings setShowModal={setShowModal} />
         </Modal>
       )}
     </>
