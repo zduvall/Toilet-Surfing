@@ -1,8 +1,7 @@
 .calendar {
   display: flex;
   flex-direction: row;
-  background: rgb(247, 253, 255);
-  /* border: rgba(52, 168, 226, 0.459) solid 1px; */
+  background: rgb(232, 248, 255);
 }
 
 .calendar__days {
@@ -13,7 +12,6 @@
 }
 
 .arrow-container {
-  background-color: rgb(220, 246, 255);
   display: flex;
   align-content: center;
 }
@@ -79,7 +77,6 @@
   align-content: center;
   justify-content: center;
   text-align: center;
-  background-color: rgb(236, 250, 255, 0.8);
 }
 
 .date-header {
@@ -105,16 +102,16 @@
 }
 
 .time-selector-button-even {
-  border: rgb(247, 253, 255) solid;
-  border-radius: 0.8rem 0.25rem 0.8rem 0.25rem;
+  border: rgba(247, 253, 255, 0.863) solid;
+  border-radius: 1rem 0.25rem 1rem 0.25rem;
   background: rgba(242, 160, 84, 0.664) !important;
   flex: 1 1 0px;
   padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;
 }
 
 .time-selector-button-odd {
-  border: rgb(247, 253, 255) solid;
-  border-radius: 0.8rem 0.25rem 0.8rem 0.25rem;
+  border: rgba(247, 253, 255, 0.801) solid;
+  border-radius: 0.25rem 1rem 0.25rem 1rem;
   background: rgba(242, 160, 84, 0.432) !important;
   flex: 1 1 0px;
   padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;
