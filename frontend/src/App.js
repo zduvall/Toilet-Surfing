@@ -14,8 +14,6 @@ import PageNotFound from './components/PageNotFound';
 
 function App() {
   const dispatch = useDispatch();
-  // const sessionUser = useSelector((state) => state.session.user);
-
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {

@@ -63,14 +63,14 @@ const bookingReducer = (state = initState, action) => {
   switch (action.type) {
     case LOAD_BOOKING:
       for (let booking of action.bookings) {
-        newState[booking.id] = booking;
+        newState[Number(booking.id)] = booking;
       }
       return newState;
     case CREATE_BOOKING:
-      newState[action.booking.id] = action.booking
+      newState[Number(action.booking.id)] = action.booking
       return newState;
     case CANCEL_BOOKING:
-      delete newState[action.bookingId];
+      delete newState[Number(action.bookingId)];
       return newState;
     default:
       return newState;

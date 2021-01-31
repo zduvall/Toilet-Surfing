@@ -97,13 +97,6 @@ const validateCreateBathroom = [
     .withMessage('Longitude cannot be empty.')
     .isLength({ max: 255 })
     .withMessage('Country required (less than 255 chars).'),
-  // check('name').custom((value) => {
-  //   return Bathroom.findOne({ where: { name: value } }).then((name) => {
-  //     if (name) {
-  //       return Promise.reject('Name already in use by another bathroom.');
-  //     }
-  //   });
-  // }),
   handleValidationErrors,
 ];
 

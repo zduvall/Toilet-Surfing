@@ -104,7 +104,6 @@ const bathroomReducer = (state = initState, action) => {
       }
       return newState;
     case CREATE_BATHROOM:
-      // return { ...newState, bathroom: action.bathroom }
       newState[action.bathroom.id] = action.bathroom;
       return newState;
     default:

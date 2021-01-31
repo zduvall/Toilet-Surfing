@@ -68,11 +68,9 @@ router.delete(
   requireAuth,
   asyncHandler(async (req, res) => {
     const bookingId = Number(req.params.bookingId);
-    const booking = await UserBookBathroom.findOne({
+    const numDestroyed = await UserBookBathroom.destroy({
       where: { id: bookingId },
     });
-    // const booking = await UserBookBathroom.findbyPk(bookingId); // for some reason this doesn't work, same reason why I had to specifically require id in attributes above, I'm guessing
-    const numDestroyed = booking.destroy();
     return res.json(numDestroyed);
   })
 );

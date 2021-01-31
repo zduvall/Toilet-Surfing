@@ -8,10 +8,7 @@ import { useBathroomsInWindowContext } from '../Home/index';
 
 export default function BathroomSmallViewContainer() {
   const { users } = useSelector((state) => state);
-  // const { bathrooms, users } = useSelector((state) => state);
   const { bathroomsInWindow } = useBathroomsInWindowContext();
-
-  // const bathroomsArray = Object.values(bathrooms);
 
   return (
     <>

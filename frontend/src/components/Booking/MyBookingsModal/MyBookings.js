@@ -53,7 +53,6 @@ const MyBookingsModal = ({ setShowModal }) => {
                 className='mybookings__cancel-button'
                 onClick={() => {
                   dispatch(deleteBooking(booking.id));
-                  // setShowModal(false);
                 }}
               >
                 Cancel
