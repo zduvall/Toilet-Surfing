@@ -1,8 +1,8 @@
 import { fetch } from './csrf';
 
 // Action types
-const LOAD_BOOKING = '/bathrooms/LOAD_BOOKING';
-const CREATE_BOOKING = '/bathrooms/CREATE_BATHROOM';
+const LOAD_BOOKING = '/bookings/LOAD_BOOKING';
+const CREATE_BOOKING = '/bookings/CREATE_BOOKING';
 
 // Action creators
 const load = (bookings) => ({

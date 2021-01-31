@@ -10,8 +10,6 @@ export default function BookingFormModal({ day, time, amPm }) {
   const { bathrooms, curBathroomId, session } = useSelector((state) => state);
   const curBRBookings = useCurBRBookingsContext();
 
-  console.log(curBRBookings);
-
   // defene state for this form
   const [timeLength, setTimeLength] = useState('h0m15');
   const [errors, setErrors] = useState([]);
@@ -19,6 +17,7 @@ export default function BookingFormModal({ day, time, amPm }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
+    let newErrors = [];
     // set beginning time for booking
     const dateTimeStart = new Date(day);
     let hours = Number(time.slice(0, time.indexOf(':')));
@@ -44,10 +43,11 @@ export default function BookingFormModal({ day, time, amPm }) {
     dateTimeLimit.setHours(23, 0, 0);
 
     if (dateTimeEnd > dateTimeLimit) {
-      setErrors((prevErrors) => [
-        ...prevErrors,
-        'Booking cannot end after 11:00pm.',
-      ]);
+      // setErrors((prevErrors) => [
+      //   ...prevErrors,
+      //   'Booking cannot end after 11:00pm.',
+      // ]);
+      newErrors.push('Booking cannot end after 11:00pm.');
     }
 
     //check if booking overlaps with another booking
@@ -68,26 +68,28 @@ export default function BookingFormModal({ day, time, amPm }) {
       }
     });
     if (anyRepeats) {
-      setErrors((prevErrors) => [
-        ...prevErrors,
-        'Booking cannot overlap with another booking.',
-      ]);
+      // setErrors((prevErrors) => [
+      //   ...prevErrors,
+      //   'Booking cannot overlap with another booking.',
+      // ]);
+      newErrors.push('Booking cannot overlap with another booking.');
     }
 
-    // if errors return early
-    if (!!errors.length) return;
-
     // if no errors dispatch data
-    return dispatch(
-      createBooking({
-        userId: session.user.id,
-        bathroomId: curBathroomId,
-        dateTimeStart,
-        dateTimeEnd,
-      })
-    ).catch((res) => {
-      if (res.data && res.data.errors) setErrors(res.data.errors);
-    });
+    if (newErrors.length > 0) {
+      setErrors(newErrors)
+    } else {
+      return dispatch(
+        createBooking({
+          userId: session.user.id,
+          bathroomId: curBathroomId,
+          dateTimeStart,
+          dateTimeEnd,
+        })
+      ).catch((res) => {
+        if (res.data && res.data.errors) setErrors(res.data.errors);
+      });
+    }
   };
 
   return (
