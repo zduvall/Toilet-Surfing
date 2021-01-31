@@ -102,12 +102,11 @@
   flex-direction: row;
   justify-content: space-around;
   flex: 1 1 0px;
-  /* border-bottom: rgba(52, 168, 226, 0.459) solid 1px; */
 }
 
 .time-selector-button-even {
   border: rgb(247, 253, 255) solid;
-  border-radius: 0.3rem;
+  border-radius: 0.8rem 0.25rem 0.8rem 0.25rem;
   background: rgba(242, 160, 84, 0.664) !important;
   flex: 1 1 0px;
   padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;
@@ -115,7 +114,7 @@
 
 .time-selector-button-odd {
   border: rgb(247, 253, 255) solid;
-  border-radius: 0.3rem;
+  border-radius: 0.8rem 0.25rem 0.8rem 0.25rem;
   background: rgba(242, 160, 84, 0.432) !important;
   flex: 1 1 0px;
   padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;
@@ -138,6 +137,16 @@
 
 /* my bookings */
 .mybookings-container {
+  background-color: rgba(0, 29, 41, 0.719);
+  padding: 0.8rem 0.5rem 0.5rem 0.8rem;
+  margin-bottom: 0.25rem;
+  border-radius: 2rem 0.25rem 2rem 0.25rem;
+}
+
+.mybookings__name-and-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .mybookings__br-name {
@@ -145,8 +154,15 @@
   color: rgb(0, 142, 212);
   margin: 0;
 }
+.mybookings__br-name:hover {
+  cursor: pointer;
+}
+
+.mybookings__cancel-button {
+  color: rgb(216, 67, 67);
+}
 
 .mybookings__time {
   font-weight: 400;
-  margin: 0.5rem 0 1rem 0.25rem;
+  margin: 0.5rem 0 0 0.25rem;
 }

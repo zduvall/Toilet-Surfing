@@ -34,16 +34,19 @@ const MyBookingsModal = ({ setShowModal }) => {
 
         return (
           <div className='mybookings-container'>
-            <h3
-              className='mybookings__br-name'
-              onClick={(e) => {
-                dispatch(setCurBathroomIdAction(booking.bathroomId));
-                setShowModal(false);
-                return false;
-              }}
-            >
-              {bathrooms[booking.bathroomId].name}
-            </h3>
+            <div className='mybookings__name-and-button'>
+              <h3
+                className='mybookings__br-name'
+                onClick={(e) => {
+                  dispatch(setCurBathroomIdAction(booking.bathroomId));
+                  setShowModal(false);
+                  return false;
+                }}
+              >
+                {bathrooms[booking.bathroomId].name}
+              </h3>
+              <button className='mybookings__cancel-button'>Cancel</button>
+            </div>
             <p className='mybookings__time'>
               {timeStart.toTimeString().slice(0, 9)} {amPmStart} -{' '}
               {timeEnd.toTimeString().slice(0, 9)} {amPmEnd}
