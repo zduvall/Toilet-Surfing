@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 
 //import components
-import BathroomCreateModal from '../BathroomCreateModal';
+import BathroomCreateModal from '../Bathroom/BathroomCreateModal';
 import MyBookingsModal from '../Booking/MyBookingsModal';
 
 export default function LoggedInDropdown() {

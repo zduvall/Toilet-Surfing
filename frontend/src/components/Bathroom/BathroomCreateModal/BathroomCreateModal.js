@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createBathroom } from '../../store/bathroom';
+import { createBathroom } from '../../../store/bathroom';
 import { useDispatch, useSelector } from 'react-redux';
 
 const BathroomCreateModal = () => {

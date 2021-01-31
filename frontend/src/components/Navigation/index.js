@@ -5,7 +5,7 @@ import { useWindowWidth } from '../customHooks';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignUpFormModal from '../SignUpFormModal';
-import BathroomCreateModal from '../BathroomCreateModal';
+import BathroomCreateModal from '../Bathroom/BathroomCreateModal';
 import MyBookingsModal from '../Booking/MyBookingsModal'
 import LoggedInDropdown from './LoggedInDropdown';
 import SessionLinksDropdown from './LoggedOutDropdown';
