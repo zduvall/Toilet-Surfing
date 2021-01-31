@@ -48,30 +48,36 @@ export default function BookingFormModal({ day, time, amPm }) {
         ...prevErrors,
         'Booking cannot end after 11:00pm.',
       ]);
-      return;
     }
 
     //check if booking overlaps with another booking
+    let anyRepeats = false;
     curBRBookings.forEach((booking) => {
+      const testBookingStart = new Date(booking.dateTimeStart);
+      const testBookingEnd = new Date(booking.dateTimeEnd);
+
       if (
-        (booking.dateTimeStart < dateTimeStart &&
-          dateTimeStart < booking.dateTimeEnd) ||
-        (booking.dateTimeStart < dateTimeEnd &&
-          dateTimeEnd < booking.dateTimeEnd) ||
-        (dateTimeStart < booking.dateTimeStart &&
-          booking.dateTimeStart < dateTimeEnd) ||
-        (dateTimeStart < booking.dateTimeEnd &&
-          booking.dateTimeEnd < dateTimeEnd)
+        testBookingStart === dateTimeStart ||
+        testBookingEnd === dateTimeEnd ||
+        (testBookingStart < dateTimeStart && dateTimeStart < testBookingEnd) ||
+        (testBookingStart < dateTimeEnd && dateTimeEnd < testBookingEnd) ||
+        (dateTimeStart < testBookingStart && testBookingStart < dateTimeEnd) ||
+        (dateTimeStart < testBookingEnd && testBookingEnd < dateTimeEnd)
       ) {
-        setErrors((prevErrors) => [
-          ...prevErrors,
-          'Booking cannot overlap with another booking.',
-        ]);
-        return;
+        anyRepeats = true;
       }
     });
+    if (anyRepeats) {
+      setErrors((prevErrors) => [
+        ...prevErrors,
+        'Booking cannot overlap with another booking.',
+      ]);
+    }
 
-    // dispatch data
+    // if errors return early
+    if (!!errors.length) return;
+
+    // if no errors dispatch data
     return dispatch(
       createBooking({
         userId: session.user.id,
