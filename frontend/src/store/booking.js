@@ -55,19 +55,25 @@ export const deleteBooking = (bookingId) => async (dispatch) => {
 };
 
 // Reducer
-const initState = [];
+const initState = {};
 
 const bookingReducer = (state = initState, action) => {
+  const newState = { ...state };
+
   switch (action.type) {
     case LOAD_BOOKING:
-      return [...action.bookings];
+      for (let booking of action.bookings) {
+        newState[booking.id] = booking;
+      }
+      return newState;
     case CREATE_BOOKING:
-      return [...state, action.booking];
+      newState[action.booking.id] = action.booking
+      return newState;
     case CANCEL_BOOKING:
-      // console.log(bookingId);
-      return state;
+      delete newState[action.bookingId];
+      return newState;
     default:
-      return state;
+      return newState;
   }
 };
 

@@ -8,7 +8,8 @@ import { deleteBooking } from '../../../store/booking';
 const MyBookingsModal = ({ setShowModal }) => {
   const dispatch = useDispatch();
   const { session, bookings, bathrooms } = useSelector((state) => state);
-  const curUserBookings = bookings.filter(
+  const bookingsArray = [...Object.values(bookings)];
+  const curUserBookings = bookingsArray.filter(
     (booking) => booking.userId === session.user.id
   );
 
@@ -52,7 +53,7 @@ const MyBookingsModal = ({ setShowModal }) => {
                 className='mybookings__cancel-button'
                 onClick={() => {
                   dispatch(deleteBooking(booking.id));
-                  setShowModal(false);
+                  // setShowModal(false);
                 }}
               >
                 Cancel

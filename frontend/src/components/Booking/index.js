@@ -16,8 +16,8 @@ const CurBRBookingsContext = createContext();
 export const useCurBRBookingsContext = () => useContext(CurBRBookingsContext);
 
 export default function Booking() {
-  // identify all bookings associated with this bathroom to use in context
   const { curBathroomId, bookings } = useSelector((state) => state);
+
   // create state for context
   const [curBRBookings, setCurBRBookings] = useState([]);
 
@@ -30,8 +30,10 @@ export default function Booking() {
 
   const width = useWindowWidth();
 
+  // identify all bookings associated with this bathroom to use in context
   useEffect(() => {
-    const filterCurBRBookings = bookings.filter(
+    const bookingsArray = [...Object.values(bookings)];
+    const filterCurBRBookings = bookingsArray.filter(
       (booking) => booking.bathroomId === curBathroomId
     );
     setCurBRBookings(filterCurBRBookings);
