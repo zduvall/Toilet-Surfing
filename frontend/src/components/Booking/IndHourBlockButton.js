@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import BookingFormModal from './BookingFormModal';
+
 // import context for bookings on this bathroom
 import { useCurBRBookingsContext } from './index';
 
@@ -17,27 +18,25 @@ export default function IndHourBlockButton({ day, hour, time, amPm }) {
 
   // check for conflicts
   let anyConflicts = false;
+  let inThePast = false;
 
   // check if button time is in the past
   const curTime = new Date();
-  if (thisButtonTime < curTime) anyConflicts = true;
+  if (thisButtonTime < curTime) inThePast = true;
 
   //check if button time overlaps with another booking
   curBRBookings.forEach((booking) => {
     const testBookingStart = new Date(booking.dateTimeStart);
     const testBookingEnd = new Date(booking.dateTimeEnd);
+    // debugger
 
     if (
       thisButtonTime === testBookingStart ||
-      thisButtonTime === testBookingEnd ||
       (testBookingStart < thisButtonTime && thisButtonTime < testBookingEnd)
     ) {
       anyConflicts = true;
     }
   });
-  if (anyConflicts) {
-    // newErrors.push('Booking cannot overlap with another booking.');
-  }
 
   return (
     <>
@@ -51,9 +50,13 @@ export default function IndHourBlockButton({ day, hour, time, amPm }) {
             ? 'time-selector-button-even'
             : 'time-selector-button-odd'
         }
-        disabled={anyConflicts}
-        style={anyConflicts ? { color:  'rgba(242, 160, 84, 0.8)', cursor: 'not-allowed'} : {}}
-        title={anyConflicts ? 'Already booked' : ''}
+        disabled={anyConflicts || inThePast}
+        style={
+          anyConflicts || inThePast
+            ? { color: 'rgba(242, 160, 84, 0.8)', cursor: 'not-allowed' }
+            : {}
+        }
+        title={anyConflicts ? 'Already booked' : inThePast ? 'In the past' : ''}
       >
         {time}
       </button>
