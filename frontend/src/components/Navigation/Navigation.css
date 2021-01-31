@@ -47,8 +47,6 @@
   list-style: none;
   position: absolute;
   right: 0;
-  left: auto;
-  padding-inline-start: 0;
   background-color: rgba(0, 29, 41, 0.719);
   margin-top: 0.1rem;
   padding: 1rem 0.5rem 0.5rem 0.5rem;
@@ -58,7 +56,8 @@
 
 .navbar__dropdown-collapse {
   /* right: auto; */
-  margin-top: 1.3rem;
+  margin-top: 1.5rem;
+  margin-right: 1rem;
 }
 
 .navbar__dropdown__info {
