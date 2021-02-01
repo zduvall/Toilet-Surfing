@@ -5,7 +5,6 @@ import BathroomCreateModal from './BathroomCreateModal';
 export default function BathroomCreate({
   openMenu,
   bathroomToUpdate,
-  setUpdatedOrCreatedBR,
 }) {
   const [showModal, setShowModal] = useState(false);
 
@@ -34,7 +33,6 @@ export default function BathroomCreate({
           <BathroomCreateModal
             bathroomToUpdate={bathroomToUpdate}
             setShowModal={setShowModal}
-            setUpdatedOrCreatedBR={setUpdatedOrCreatedBR}
           />
         </Modal>
       )}

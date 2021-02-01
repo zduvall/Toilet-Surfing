@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 
 //import components
-import BathroomCreateModal from '../Bathroom/BathroomCreateModal';
 import MyBookingsModal from '../Booking/MyBookingsModal';
 import MyBathroomsModal from '../Bathroom/MyBathroomsModal';
 

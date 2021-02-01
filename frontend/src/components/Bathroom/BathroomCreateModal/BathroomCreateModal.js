@@ -7,7 +7,6 @@ import { createBathroom } from '../../../store/bathroom';
 const BathroomCreateModal = ({
   bathroomToUpdate,
   setShowModal,
-  setUpdatedOrCreatedBR,
 }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -81,6 +80,8 @@ const BathroomCreateModal = ({
         setCountry('');
         setLat('');
         setLng('');
+
+        setShowModal(false);
       })
       .catch((res) => {
         if (res.data && res.data.errors) {
@@ -91,7 +92,6 @@ const BathroomCreateModal = ({
 
     // close form
     // if (!newErrors.length) {
-    //   setUpdatedOrCreatedBR(true);
     //   setShowModal(false);
     // }
   };
