@@ -87,12 +87,13 @@
 
 .bathroom-small-view__text-container {
   height: 100%;
-  background: rgba(255, 255, 255, 0.473);
+  background: rgba(255, 255, 255, 0.24);
 }
 
 .bathroom-small-view__text-container h1 {
-  background: rgba(0, 0, 0, 0.137);
+  background: rgba(0, 0, 0, 0.452);
   text-align: center;
+  color: rgb(242, 160, 84);
 }
 
 .bathroom-small-view__text {
