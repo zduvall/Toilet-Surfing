@@ -30,14 +30,14 @@ module.exports = {
       {
         email: 'toiletsurfing.info@gmail.com',
         username: 'Zachary Duvall',
-        hashedPassword: bcrypt.hashSync('pAssword543'),
+        hashedPassword: bcrypt.hashSync('pAssword987!'),
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         email: 'demo-surfer@gmail.io',
-        username: 'PottyTrainer',
-        hashedPassword: bcrypt.hashSync('password'),
+        username: 'PottyTraining',
+        hashedPassword: bcrypt.hashSync('pAssw@rd543'),
         createdAt: new Date(),
         updatedAt: new Date(),
       },

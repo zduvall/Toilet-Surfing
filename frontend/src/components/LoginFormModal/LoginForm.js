@@ -52,6 +52,20 @@ function LoginForm() {
           </button>
         </div>
 
+        <div>
+          <button
+            className='form__button'
+            style={{marginTop: '.65rem'}}
+            onClick={(e) => {
+              e.preventDefault();
+              setCredential('PottyTraining');
+              setPassword('pAssw@rd543');
+            }}
+          >
+            Demo Credentials
+          </button>
+        </div>
+
         {!!errors.length && (
           <div>
             <ul>
