@@ -104,7 +104,7 @@ const BathroomCreateModal = ({ bathroomToUpdate, setShowModal }) => {
 
   return (
     <div>
-      <h1> {!!bathroomToUpdate ? 'Update Toilet' : 'List Toilet'}</h1>
+      <h1> {!!bathroomToUpdate ? 'Update Toilet' : 'New Toilet Listing'}</h1>
       <form
         encType='multipart/form-data'
         style={{ display: 'flex', flexFlow: 'column' }}

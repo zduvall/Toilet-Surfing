@@ -18,7 +18,7 @@ export default function BathroomCreate({ openMenu, bathroomToUpdate }) {
             : { color: 'rgb(52, 168, 226)' }
         }
       >
-        {!!bathroomToUpdate ? 'Update' : 'List Toilet'}
+        {!!bathroomToUpdate ? 'Update' : 'New Toilet Listing'}
       </button>
       {showModal && (
         <Modal
