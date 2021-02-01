@@ -50,7 +50,7 @@ const validateCreateBathroom = [
     })
     .custom((_value, { req }) => {
       const regex = new RegExp(/.*\/(apng|avif|jpe?g|png|svg|webp)$/i);
-      if (!regex.test(req.file.mimetype)) {
+      if (!!req.file && !regex.test(req.file.mimetype)) {
         throw new Error(
           'Upload must be an image (apng, avif, jpeg/jpg, png, svg, webp).'
         );
