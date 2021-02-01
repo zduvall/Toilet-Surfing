@@ -153,6 +153,7 @@
 }
 .myBathrooms__delete-button {
   color: rgb(216, 67, 67);
+  margin-left: 0.5rem;
 }
 
 .myBathrooms__location {

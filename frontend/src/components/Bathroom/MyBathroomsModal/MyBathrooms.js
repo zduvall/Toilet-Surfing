@@ -36,26 +36,21 @@ const MyBathroomsModal = ({ setShowModal }) => {
               >
                 {bathroom.name}
               </h3>
-              {/* <button
-                className='myBathrooms__update-button'
-                onClick={() => {
-                  // dispatch(deleteBathroom(bathroom.id));
-                }}
-              >
-                Update
-              </button> */}
-              <BathroomCreateModal
-                style={{ color: 'rgb(242, 160, 84, 0.9)' }}
-                bathroomToUpdate={bathroom}
-              />
-              <button
-                className='myBathrooms__delete-button'
-                onClick={() => {
-                  // dispatch(deleteBathroom(bathroom.id));
-                }}
-              >
-                Delete
-              </button>
+
+              <div>
+                <BathroomCreateModal
+                  style={{ color: 'rgb(242, 160, 84, 0.9)' }}
+                  bathroomToUpdate={bathroom}
+                />
+                <button
+                  className='myBathrooms__delete-button'
+                  onClick={() => {
+                    // dispatch(deleteBathroom(bathroom.id));
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
             <p className='myBathrooms__location'>
               {bathroom.locality}, {bathroom.administrativeArea}

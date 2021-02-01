@@ -80,10 +80,10 @@ const BathroomCreateModal = ({ bathroomToUpdate, setShowModal }) => {
       })
       .catch((res) => {
         if (res.data && res.data.errors) {
-          if (!res.data.errors) setShowModal(false);
+          // close form
+          if (!res.data.errors.length) setShowModal(false);
           newErrors = res.data.errors;
           setErrors(newErrors);
-          // close form
         }
       });
 
