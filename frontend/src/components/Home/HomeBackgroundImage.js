@@ -20,7 +20,7 @@ export default function HomeBackgroundImage() {
     let header = document.getElementsByClassName('site-header');
     let headerHeight = header[0].offsetHeight;
     const searchMap = document.getElementById('search-map');
-    const scrollDistance = searchMap.getBoundingClientRect().top - headerHeight;
+    const scrollDistance = searchMap.getBoundingClientRect().top;
     window.scrollBy({ top: scrollDistance, behavior: 'smooth' });
   }
 

@@ -123,3 +123,36 @@
   ~ .bathroom-small-view__image-container {
   transform: scale(1.1);
 }
+
+/* my bathrooms */
+.myBathrooms-container {
+  background-color: rgba(0, 29, 41, 0.719);
+  padding: 0.8rem 0.5rem 0.5rem 0.8rem;
+  margin-bottom: 0.25rem;
+  border-radius: 2rem 0.25rem 2rem 0.25rem;
+}
+
+.myBathrooms__name-and-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.myBathrooms__br-name {
+  text-decoration: underline solid;
+  color: rgb(0, 142, 212);
+  margin: 0;
+  margin-right: 1rem;
+}
+.myBathrooms__br-name:hover {
+  cursor: pointer;
+}
+
+.myBathrooms__update-button {
+  color: rgb(216, 67, 67);
+}
+
+.myBathrooms__location {
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+}

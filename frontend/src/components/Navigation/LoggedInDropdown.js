@@ -5,6 +5,7 @@ import * as sessionActions from '../../store/session';
 //import components
 import BathroomCreateModal from '../Bathroom/BathroomCreateModal';
 import MyBookingsModal from '../Booking/MyBookingsModal';
+import MyBathroomsModal from '../Bathroom/MyBathroomsModal'
 
 export default function LoggedInDropdown() {
   const dispatch = useDispatch();
@@ -40,6 +41,9 @@ export default function LoggedInDropdown() {
           </li>
           <li className='navbar__dropdown__button'>
             <MyBookingsModal openMenu={openMenu} />
+          </li>
+          <li className='navbar__dropdown__button'>
+            <MyBathroomsModal openMenu={openMenu} />
           </li>
           <li>
             <button className='navbar__dropdown__button' onClick={logout}>

@@ -45,6 +45,10 @@ const MyBookingsModal = ({ setShowModal }) => {
                 onClick={(e) => {
                   dispatch(setCurBathroomIdAction(booking.bathroomId));
                   setShowModal(false);
+                  window.scrollBy({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth',
+                  });
                   return false;
                 }}
               >
