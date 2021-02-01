@@ -1,6 +1,11 @@
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { setCurBathroomIdAction } from '../../../store/curBathroom';
+
+// import store items
+import { getBathrooms } from '../../../store/bathroom';
+
+// import components
 import BathroomCreateModal from '../BathroomCreateModal';
 
 // import thunk
@@ -8,11 +13,18 @@ import BathroomCreateModal from '../BathroomCreateModal';
 
 const MyBathroomsModal = ({ setShowModal }) => {
   const dispatch = useDispatch();
+
   const { session, bathrooms } = useSelector((state) => state);
   const bathroomsArray = [...Object.values(bathrooms)];
   const curUserBathrooms = bathroomsArray.filter(
     (bathroom) => bathroom.bathroomOwnerId === session.user.id
   );
+
+  // trigger get all bathrooms
+  useEffect(() => {
+    // debugger;
+    dispatch(getBathrooms());
+  }, [dispatch]);
 
   return (
     <div>

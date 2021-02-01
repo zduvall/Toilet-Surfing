@@ -17,8 +17,8 @@ export default function HomeBackgroundImage() {
   });
 
   function handleDownArrowClick() {
-    let header = document.getElementsByClassName('site-header');
-    let headerHeight = header[0].offsetHeight;
+    // let header = document.getElementsByClassName('site-header');
+    // let headerHeight = header[0].offsetHeight;
     const searchMap = document.getElementById('search-map');
     const scrollDistance = searchMap.getBoundingClientRect().top;
     window.scrollBy({ top: scrollDistance, behavior: 'smooth' });

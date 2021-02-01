@@ -65,7 +65,7 @@ const BathroomCreateModal = ({ bathroomToUpdate, setShowModal }) => {
         ? createBathroom(bathroomObj, bathroomToUpdate.id) // if you pass in a bathroom id, it updates instead
         : createBathroom(bathroomObj)
     )
-      .then(() => {
+      .then((res) => {
         setName('');
         setDescription('');
         setImage(null);
@@ -80,13 +80,15 @@ const BathroomCreateModal = ({ bathroomToUpdate, setShowModal }) => {
       })
       .catch((res) => {
         if (res.data && res.data.errors) {
-          // close form
-          if (!res.data.errors.length) setShowModal(false);
           newErrors = res.data.errors;
           setErrors(newErrors);
         }
       });
 
+    // close form
+    if (!newErrors.length) {
+      setShowModal(false);
+    }
   };
 
   const updateFile = (e) => {

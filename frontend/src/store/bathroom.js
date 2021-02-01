@@ -2,8 +2,7 @@ import { fetch } from './csrf';
 
 // Action types
 const LOAD_BATHROOMS = '/bathrooms/LOAD_BATHROOMS';
-const CREATE_BATHROOM = '/bathrooms/CREATE_BATHROOM';
-const UPDATE_BATHROOM = '/bathrooms/UPDATE_BATHROOM';
+const CREATE_BATHROOM = '/bathrooms/CREATE_BATHROOM'; // also used for update
 
 // Action creators
 const load = (bathrooms) => ({
@@ -12,12 +11,8 @@ const load = (bathrooms) => ({
 });
 
 const create = (bathroom) => ({
+  // also used for update
   type: CREATE_BATHROOM,
-  bathroom,
-});
-
-const update = (bathroom) => ({
-  type: UPDATE_BATHROOM,
   bathroom,
 });
 
@@ -29,7 +24,7 @@ export const getBathrooms = () => async (dispatch) => {
   }
 };
 
-// this one is used to update if bathroomId is passed in
+// create is also used to update if bathroomId is passed in as second argument
 export const createBathroom = (bathroom, bathroomId = null) => async (
   dispatch
 ) => {
@@ -81,7 +76,7 @@ export const createBathroom = (bathroom, bathroomId = null) => async (
       body: formData,
     });
 
-    dispatch(update(res.data.bathroom));
+    dispatch(create(res.data.bathroom));
   } else {
     // for creating bathroom
     const res = await fetch(`/api/bathrooms`, {
@@ -127,9 +122,6 @@ const bathroomReducer = (state = initState, action) => {
       }
       return newState;
     case CREATE_BATHROOM:
-      newState[action.bathroom.id] = action.bathroom;
-      return newState;
-    case UPDATE_BATHROOM:
       newState[action.bathroom.id] = action.bathroom;
       return newState;
     default:
