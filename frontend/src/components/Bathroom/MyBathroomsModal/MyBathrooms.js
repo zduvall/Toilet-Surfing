@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurBathroomIdAction } from '../../../store/curBathroom';
 
@@ -9,7 +9,7 @@ import { getBathrooms } from '../../../store/bathroom';
 import BathroomCreateModal from '../BathroomCreateModal';
 
 // import thunk
-// import { deletebathroom } from '../../../store/bathroom';
+import { deleteBathroom } from '../../../store/bathroom';
 
 const MyBathroomsModal = ({ setShowModal }) => {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ const MyBathroomsModal = ({ setShowModal }) => {
                 <button
                   className='myBathrooms__delete-button'
                   onClick={() => {
-                    // dispatch(deleteBathroom(bathroom.id));
+                    dispatch(deleteBathroom(bathroom.id));
                   }}
                 >
                   Delete

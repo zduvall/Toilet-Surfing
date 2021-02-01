@@ -3,6 +3,7 @@ import { fetch } from './csrf';
 // Action types
 const LOAD_BATHROOMS = '/bathrooms/LOAD_BATHROOMS';
 const CREATE_BATHROOM = '/bathrooms/CREATE_BATHROOM'; // also used for update
+const REMOVE_BATHROOM = '/bathrooms/REMOVE_BATHROOM'; // also used for update
 
 // Action creators
 const load = (bathrooms) => ({
@@ -14,6 +15,12 @@ const create = (bathroom) => ({
   // also used for update
   type: CREATE_BATHROOM,
   bathroom,
+});
+
+const remove = (bathroomId) => ({
+  // also used for update
+  type: REMOVE_BATHROOM,
+  bathroomId,
 });
 
 // Thunks
@@ -76,7 +83,7 @@ export const createBathroom = (bathroom, bathroomId = null) => async (
       body: formData,
     });
 
-    dispatch(create(res.data.bathroom));
+    if (res.ok) dispatch(create(res.data.bathroom));
   } else {
     // for creating bathroom
     const res = await fetch(`/api/bathrooms`, {
@@ -87,7 +94,16 @@ export const createBathroom = (bathroom, bathroomId = null) => async (
       body: formData,
     });
 
-    dispatch(create(res.data.bathroom));
+    if (res.ok) dispatch(create(res.data.bathroom));
+  }
+};
+
+export const deleteBathroom = (bathroomId) => async (dispatch) => {
+  const res = await fetch(`/api/bathrooms/${bathroomId}`, {
+    method: 'DELETE',
+  });
+  if (res.ok) {
+    dispatch(remove(bathroomId));
   }
 };
 
@@ -123,6 +139,9 @@ const bathroomReducer = (state = initState, action) => {
       return newState;
     case CREATE_BATHROOM:
       newState[action.bathroom.id] = action.bathroom;
+      return newState;
+    case REMOVE_BATHROOM:
+      delete newState[Number(action.bathroomId)];
       return newState;
     default:
       return newState;

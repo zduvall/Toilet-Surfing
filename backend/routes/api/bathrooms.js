@@ -258,4 +258,17 @@ router.patch(
   })
 );
 
+// delete bathroom
+router.delete(
+  '/:bathroomId(\\d+)',
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const bookingId = Number(req.params.bathroomId);
+    const numDestroyed = await Bathroom.destroy({
+      where: { id: bookingId },
+    });
+    return res.json(numDestroyed);
+  })
+);
+
 module.exports = router;
