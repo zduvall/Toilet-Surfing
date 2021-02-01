@@ -72,7 +72,8 @@ export const createBathroom = (bathroom, bathroomId = null) => async (
   if (image) formData.append('image', image);
 
   if (bathroomId) {
-    const res = await fetch(`/api/bathrooms`, {
+    // for updating bathroom
+    const res = await fetch(`/api/bathrooms/${bathroomId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -82,6 +83,7 @@ export const createBathroom = (bathroom, bathroomId = null) => async (
 
     dispatch(update(res.data.bathroom));
   } else {
+    // for creating bathroom
     const res = await fetch(`/api/bathrooms`, {
       method: 'POST',
       headers: {
@@ -125,6 +127,9 @@ const bathroomReducer = (state = initState, action) => {
       }
       return newState;
     case CREATE_BATHROOM:
+      newState[action.bathroom.id] = action.bathroom;
+      return newState;
+    case UPDATE_BATHROOM:
       newState[action.bathroom.id] = action.bathroom;
       return newState;
     default:

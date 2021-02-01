@@ -140,4 +140,52 @@ router.post(
   })
 );
 
+router.patch(
+  '/:bathroomId(\\d+)',
+  requireAuth,
+  singleMulterUpload('image'),
+  validateCreateBathroom,
+  asyncHandler(async (req, res) => {
+    const bathroomId = Number(req.params.bathroomId);
+
+    const {
+      bathroomOwnerId,
+      name,
+      description,
+      streetNumber,
+      route,
+      locality,
+      administrativeArea,
+      postalCode,
+      country,
+      lat,
+      lng,
+    } = req.body;
+    const imageUrl = await singlePublicFileUpload(req.file);
+
+    const bathroomToUpdate = await Bathroom.findByPk(bathroomId);
+
+    await bathroomToUpdate.update({
+      bathroomOwnerId,
+      name,
+      description,
+      imageUrl,
+      streetNumber,
+      route,
+      locality,
+      administrativeArea,
+      postalCode,
+      country,
+      lat,
+      lng,
+    });
+
+    const updatedBathroom = await Bathroom.findByPk(bathroomId);
+
+    return res.json({
+      updatedBathroom,
+    });
+  })
+);
+
 module.exports = router;
