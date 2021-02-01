@@ -34,7 +34,7 @@ module.exports = {
           description:
             'All are welcome to try this bathroom where you can enjoy a beautiful sunset over the green feilds after a long day.',
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/1-view-bathroom.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/001-view-bathroom.jpg',
           streetNumber: '1900',
           route: 'S River Bottom Rd',
           locality: 'Spanish Fork',
@@ -52,7 +52,7 @@ module.exports = {
           description:
             'You will love how spacious this bathroom is, and we offer the best view out there. All amenities provided.',
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/2-paradise-bathroom.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/002-paradise-bathroom.jpg',
           streetNumber: '45-102',
           route: 'Pikonia Loop',
           locality: 'Honokaa',
@@ -70,7 +70,7 @@ module.exports = {
           description:
             'Come use our one of a kind bathroom with dark granite walls and mood lights to get you in the mood.',
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/3-vegas-bathroom.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/003-vegas-bathroom.jpg',
           streetNumber: '3595',
           route: 'East Flamingo Road',
           locality: 'Las Vegas',
@@ -88,7 +88,7 @@ module.exports = {
           description:
             "Come relax in our bathroom designed to help calm your nerves and your bowels. You'll soon realize it's never been so easy to go.",
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/4-relaxing-bathroom.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/004-relaxing-bathroom.jpg',
           streetNumber: '73-4050',
           route: 'Hulikoa Dr',
           locality: 'Kailua-Kona',
@@ -106,7 +106,7 @@ module.exports = {
           description:
             'Please stop by our one-of-a-kind completely wooden bathroom, where even the porcelin is made of wood (completely de-splinterized!).',
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/5-log-bathroom.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/005-log-bathroom.jpg',
           streetNumber: '1490',
           route: 'Eagle Way',
           locality: 'Park City',
@@ -124,7 +124,7 @@ module.exports = {
           description:
             "You'll feel cleansed in body and spirit after relaxing in our singular bathroom with one-of-a-kind flooring and walls.",
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/6-white-w-tree-background.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/006-white-w-tree-background.jpg',
           streetNumber: '1751',
           route: 'Collins Ave',
           locality: 'Miami Beach',
@@ -142,7 +142,7 @@ module.exports = {
           description:
             "You're welcome to stop by our favorite blue bathroom, enjoy a bubble bath, and a Martinelli's on the house :).",
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/7-lots-of-blue.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/007-lots-of-blue.jpg',
           streetNumber: '1',
           route: 'Sea Horse Ln',
           locality: 'Freeport',
@@ -160,7 +160,7 @@ module.exports = {
           description:
             "We've set up our bathroom to tickle the modern minimalist inside of everyone. We hope you come for a visit.",
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/8-modern-minimalist.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/008-modern-minimalist.jpg',
           streetNumber: '2799',
           route: 'Kilgore St',
           locality: 'Orlando',
@@ -178,7 +178,7 @@ module.exports = {
           description:
             'We are lovers of bathrooms and lovers of baby blue, hoping to share our two loves with the world.',
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/9-sky-blue-w-candles.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/009-sky-blue-w-candles.jpg',
           streetNumber: '1217',
           route: 'Jayhawk Loop',
           locality: 'Corpus Christi',
@@ -196,7 +196,7 @@ module.exports = {
           description:
             'It may not look like much on the surface, but we have never had a disappointed visitor. Just wait until you try the water jets.',
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/10-just-white-tub.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/010-just-white-tub.jpg',
           streetNumber: '10498',
           route: 'Bessemer St',
           locality: 'Houston',
@@ -214,7 +214,7 @@ module.exports = {
           description:
             'Our team of interior designers and relaxation specialists put their minds together to create this peaceful and uplifting environment.',
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/11-elegant.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/011-elegant.jpg',
           streetNumber: '1491',
           route: 'Inglewood St',
           locality: 'Austin',
@@ -232,7 +232,7 @@ module.exports = {
           description:
             'We designed this bathroom to be a family-friendly room for one and all, where all your bathroom needs can be met.',
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/12-teddy.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/012-teddy.jpg',
           streetNumber: '199',
           route: 'Front St',
           locality: 'South Portland',
@@ -250,7 +250,7 @@ module.exports = {
           description:
             'Tired of the busy Manhattan life? Stop in for a quick visit to rest from your woes.',
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/13-heated-towel-rack-plant.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/013-heated-towel-rack-plant.jpg',
           streetNumber: '60',
           route: 'E 65th St',
           locality: 'New York',
@@ -268,7 +268,7 @@ module.exports = {
           description:
             'Brookly bringing you down? Cove visit one of the local-favorite bathrooms near one of the local-favorite beaches.',
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/14-squeacky-clean-sink.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/014-squeacky-clean-sink.jpg',
           streetNumber: '105',
           route: 'Oceana Dr',
           locality: 'E Brooklyn',
@@ -286,7 +286,7 @@ module.exports = {
           description:
             'This bathroom is designed to meet all the needs of your hidden (or not) plant loving heart!',
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/15-plant-lovers.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/015-plant-lovers.jpg',
           streetNumber: '8',
           route: 'Lindner Ct',
           locality: 'Brookhaven',
@@ -304,7 +304,7 @@ module.exports = {
           description:
             'We provide lavender essential oils with a first-class diffuser to soothe your soul as you relieve yourself of stress and other things.',
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/16-large-mirror.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/016-large-mirror.jpg',
           streetNumber: '4684',
           route: 'Ulloa St',
           locality: 'San Francisco',
@@ -322,7 +322,7 @@ module.exports = {
           description:
             "We can't say our dogs mouths haven't been in the toilet, but we can say we keep it clean and sanitized!",
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/17-dog-lovers.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/017-dog-lovers.jpg',
           streetNumber: '6065',
           route: '13th St',
           locality: 'Sacramento',
@@ -340,7 +340,7 @@ module.exports = {
           description:
             "This bathroom is inspired by my mother's love for good times and good vibes.",
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/18-great-for-make-up.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/018-great-for-make-up.jpg',
           streetNumber: '4021',
           route: 'S Pacific Ave',
           locality: 'San Pedro',
@@ -358,7 +358,7 @@ module.exports = {
           description:
             "I dare you to try and find a shower you enjoy better than ours! We're excited for you to stop by.",
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/19-huge-shower.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/019-huge-shower.jpg',
           streetNumber: '40312',
           route: 'Windsor Rd',
           locality: 'Temecula',
@@ -376,7 +376,7 @@ module.exports = {
           description:
             "Don't be fooled by the rustic outside. The inside is sure to spark all the passion and excitement for life you ever needed :)",
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/20-lovers-outhouse.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/020-lovers-outhouse.jpg',
           streetNumber: '649',
           route: 'S Zuni St',
           locality: 'Denver',
@@ -394,7 +394,7 @@ module.exports = {
           description:
             "If you find me in the middle of Ross Island, you're welcome to drop in if you need and drop off what you don't need.",
           imageUrl:
-            'https://toilet-surfing.s3-us-west-1.amazonaws.com/21-grown-over-outhouse.jpg',
+            'https://toilet-surfing.s3-us-west-1.amazonaws.com/021-grown-over-outhouse.jpg',
           streetNumber: 'Somewhere',
           route: 'Ross Island',
           locality: 'Portland',
