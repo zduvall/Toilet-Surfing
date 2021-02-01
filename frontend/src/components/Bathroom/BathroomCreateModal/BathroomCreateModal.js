@@ -90,10 +90,10 @@ const BathroomCreateModal = ({
       });
 
     // close form
-    if (!newErrors.length) {
-      setUpdatedOrCreatedBR(true);
-      setShowModal(false);
-    }
+    // if (!newErrors.length) {
+    //   setUpdatedOrCreatedBR(true);
+    //   setShowModal(false);
+    // }
   };
 
   const updateFile = (e) => {
