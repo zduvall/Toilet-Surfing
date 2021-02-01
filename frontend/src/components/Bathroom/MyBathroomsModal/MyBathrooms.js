@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setCurBathroomIdAction } from '../../../store/curBathroom';
 
@@ -13,6 +13,7 @@ import { deleteBathroom } from '../../../store/bathroom';
 
 const MyBathroomsModal = ({ setShowModal }) => {
   const dispatch = useDispatch();
+  const [updatedOrCreatedBR, setUpdatedOrCreatedBR] = useState(false);
 
   const { session, bathrooms } = useSelector((state) => state);
   const bathroomsArray = [...Object.values(bathrooms)];
@@ -24,7 +25,7 @@ const MyBathroomsModal = ({ setShowModal }) => {
   useEffect(() => {
     // debugger;
     dispatch(getBathrooms());
-  }, [dispatch]);
+  }, [dispatch, updatedOrCreatedBR]);
 
   return (
     <div>
@@ -53,6 +54,7 @@ const MyBathroomsModal = ({ setShowModal }) => {
                 <BathroomCreateModal
                   style={{ color: 'rgb(242, 160, 84, 0.9)' }}
                   bathroomToUpdate={bathroom}
+                  setUpdatedOrCreatedBR={setUpdatedOrCreatedBR}
                 />
                 <button
                   className='my-bathrooms__delete-button'
@@ -71,7 +73,7 @@ const MyBathroomsModal = ({ setShowModal }) => {
         );
       })}
       <div className='my-bathrooms__list-bathroom'>
-        <BathroomCreateModal />
+        <BathroomCreateModal setUpdatedOrCreatedBR={setUpdatedOrCreatedBR} />
       </div>
     </div>
   );

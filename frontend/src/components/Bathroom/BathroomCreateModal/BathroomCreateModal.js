@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 // import thunks
 import { createBathroom } from '../../../store/bathroom';
 
-const BathroomCreateModal = ({ bathroomToUpdate, setShowModal }) => {
+const BathroomCreateModal = ({
+  bathroomToUpdate,
+  setShowModal,
+  setUpdatedOrCreatedBR,
+}) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
@@ -87,6 +91,7 @@ const BathroomCreateModal = ({ bathroomToUpdate, setShowModal }) => {
 
     // close form
     if (!newErrors.length) {
+      setUpdatedOrCreatedBR(true);
       setShowModal(false);
     }
   };

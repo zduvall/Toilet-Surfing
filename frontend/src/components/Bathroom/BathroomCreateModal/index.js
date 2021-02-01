@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import BathroomCreateModal from './BathroomCreateModal';
 
-export default function BathroomCreate({ openMenu, bathroomToUpdate }) {
+export default function BathroomCreate({
+  openMenu,
+  bathroomToUpdate,
+  setUpdatedOrCreatedBR,
+}) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -30,6 +34,7 @@ export default function BathroomCreate({ openMenu, bathroomToUpdate }) {
           <BathroomCreateModal
             bathroomToUpdate={bathroomToUpdate}
             setShowModal={setShowModal}
+            setUpdatedOrCreatedBR={setUpdatedOrCreatedBR}
           />
         </Modal>
       )}
