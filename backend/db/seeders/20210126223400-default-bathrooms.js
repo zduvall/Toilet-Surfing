@@ -120,7 +120,7 @@ module.exports = {
         },
         {
           bathroomOwnerId: 6,
-          name: 'White wash wellness',
+          name: 'White Wash Wellness',
           description:
             "You'll feel cleansed in body and spirit after relaxing in our singular bathroom with one-of-a-kind flooring and walls.",
           imageUrl:
@@ -156,7 +156,7 @@ module.exports = {
         },
         {
           bathroomOwnerId: 8,
-          name: 'The modern minimalist',
+          name: 'The Modern Minimalist',
           description:
             "We've set up our bathroom to tickle the modern minimalist inside of everyone. We hope you come for a visit.",
           imageUrl:
@@ -174,7 +174,7 @@ module.exports = {
         },
         {
           bathroomOwnerId: 9,
-          name: 'Babby Blue Bathroom',
+          name: 'Baby Blue Bathroom',
           description:
             'We are lovers of bathrooms and lovers of baby blue, hoping to share our two loves with the world.',
           imageUrl:
@@ -192,7 +192,7 @@ module.exports = {
         },
         {
           bathroomOwnerId: 10,
-          name: 'The tub of ages',
+          name: 'The Tub of Ages',
           description:
             'It may not look like much on the surface, but we have never had a disappointed visitor. Just wait until you try the water jets.',
           imageUrl:
@@ -228,7 +228,7 @@ module.exports = {
         },
         {
           bathroomOwnerId: 12,
-          name: 'Teddy and a tub',
+          name: 'Teddy and a Tub',
           description:
             'We designed this bathroom to be a family-friendly room for one and all, where all your bathroom needs can be met.',
           imageUrl:
