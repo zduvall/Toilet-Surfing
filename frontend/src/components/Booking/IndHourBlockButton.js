@@ -54,9 +54,9 @@ export default function IndHourBlockButton({ day, hour, time, amPm }) {
         style={
           anyConflicts || inThePast
             ? {
-                color: 'rgba(242, 160, 84, 0.8)',
+                color: 'rgba(220, 220, 220)',
                 cursor: 'not-allowed',
-                backgroundColor: 'white !important',
+                backgroundColor: 'rgba(220, 220, 220, 0.5)',
               }
             : {}
         }

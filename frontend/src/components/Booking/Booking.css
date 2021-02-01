@@ -104,22 +104,22 @@
 .time-selector-button-even {
   border: rgba(247, 253, 255, 0.863) solid;
   border-radius: 1rem 0.25rem 1rem 0.25rem;
-  background: rgba(242, 160, 84, 0.664) !important;
+  background: rgba(242, 160, 84, 0.664);
   flex: 1 1 0px;
-  padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;
+  padding: 0.3rem 0.25rem 0.2rem 0.25rem;
 }
 
 .time-selector-button-odd {
   border: rgba(247, 253, 255, 0.801) solid;
   border-radius: 0.25rem 1rem 0.25rem 1rem;
-  background: rgba(242, 160, 84, 0.432) !important;
+  background: rgba(242, 160, 84, 0.432);
   flex: 1 1 0px;
-  padding: 0.3rem 0.25rem 0.2rem 0.25rem !important;
+  padding: 0.3rem 0.25rem 0.2rem 0.25rem;
 }
 
 .time-selector-button-odd:hover,
 .time-selector-button-even:hover {
-  background: rgb(104, 217, 255) !important;
+  background: rgb(104, 217, 255);
 }
 
 /* booking form */
