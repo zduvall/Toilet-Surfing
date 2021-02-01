@@ -46,7 +46,7 @@ const MyBathroomsModal = ({ setShowModal }) => {
               </button> */}
               <BathroomCreateModal
                 style={{ color: 'rgb(242, 160, 84, 0.9)' }}
-                updateBathroom={bathroom}
+                bathroomToUpdate={bathroom}
               />
               <button
                 className='myBathrooms__delete-button'

@@ -3,6 +3,7 @@ import { fetch } from './csrf';
 // Action types
 const LOAD_BATHROOMS = '/bathrooms/LOAD_BATHROOMS';
 const CREATE_BATHROOM = '/bathrooms/CREATE_BATHROOM';
+const UPDATE_BATHROOM = '/bathrooms/UPDATE_BATHROOM';
 
 // Action creators
 const load = (bathrooms) => ({
@@ -15,6 +16,11 @@ const create = (bathroom) => ({
   bathroom,
 });
 
+const update = (bathroom) => ({
+  type: UPDATE_BATHROOM,
+  bathroom,
+});
+
 // Thunks
 export const getBathrooms = () => async (dispatch) => {
   const res = await fetch('/api/bathrooms');
@@ -23,7 +29,10 @@ export const getBathrooms = () => async (dispatch) => {
   }
 };
 
-export const createBathroom = (bathroom) => async (dispatch) => {
+// this one is used to update if bathroomId is passed in
+export const createBathroom = (bathroom, bathroomId = null) => async (
+  dispatch
+) => {
   const {
     images,
     image,
@@ -62,15 +71,27 @@ export const createBathroom = (bathroom) => async (dispatch) => {
   // for single file
   if (image) formData.append('image', image);
 
-  const res = await fetch(`/api/bathrooms`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-    body: formData,
-  });
+  if (bathroomId) {
+    const res = await fetch(`/api/bathrooms`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      body: formData,
+    });
 
-  dispatch(create(res.data.bathroom));
+    dispatch(update(res.data.bathroom));
+  } else {
+    const res = await fetch(`/api/bathrooms`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      body: formData,
+    });
+
+    dispatch(create(res.data.bathroom));
+  }
 };
 
 // Reducer

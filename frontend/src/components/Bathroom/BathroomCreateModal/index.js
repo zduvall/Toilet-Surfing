@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Modal } from '../../../context/Modal';
 import BathroomCreateModal from './BathroomCreateModal';
 
-export default function BathroomCreate({ openMenu, updateBathroom }) {
+export default function BathroomCreate({ openMenu, bathroomToUpdate }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -12,9 +12,9 @@ export default function BathroomCreate({ openMenu, updateBathroom }) {
           setShowModal(true);
           e.stopPropagation();
         }}
-        style={!!updateBathroom ? { color: 'rgb(242, 160, 84, 0.9)' } : {}}
+        style={!!bathroomToUpdate ? { color: 'rgb(242, 160, 84, 0.9)' } : {}}
       >
-        {!!updateBathroom ? 'Update' : 'List Toilet'}
+        {!!bathroomToUpdate ? 'Update' : 'List Toilet'}
       </button>
       {showModal && (
         <Modal
@@ -23,7 +23,7 @@ export default function BathroomCreate({ openMenu, updateBathroom }) {
             if (openMenu) openMenu();
           }}
         >
-          <BathroomCreateModal updateBathroom={updateBathroom} />
+          <BathroomCreateModal bathroomToUpdate={bathroomToUpdate} />
         </Modal>
       )}
     </>

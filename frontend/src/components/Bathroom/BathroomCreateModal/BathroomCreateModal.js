@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { createBathroom, updateBathroom } from '../../../store/bathroom';
+import { createBathroom } from '../../../store/bathroom';
 import { useDispatch, useSelector } from 'react-redux';
 
-const BathroomCreateModal = ({ updateBathroom }) => {
+const BathroomCreateModal = ({ bathroomToUpdate }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
@@ -23,20 +23,20 @@ const BathroomCreateModal = ({ updateBathroom }) => {
 
   // set default values if using form to update
   useEffect(() => {
-    if (!!updateBathroom) {
-      setName(updateBathroom.name);
-      setDescription(updateBathroom.description);
-      setImage(updateBathroom.image);
-      setStreetNumber(updateBathroom.streetNumber);
-      setRoute(updateBathroom.route);
-      setLocality(updateBathroom.locality);
-      setAdministrativeArea(updateBathroom.administrativeArea);
-      setPostalCode(updateBathroom.postalCode);
-      setCountry(updateBathroom.country);
-      setLat(updateBathroom.lat);
-      setLng(updateBathroom.lng);
+    if (!!bathroomToUpdate) {
+      setName(bathroomToUpdate.name);
+      setDescription(bathroomToUpdate.description);
+      setImage(bathroomToUpdate.image);
+      setStreetNumber(bathroomToUpdate.streetNumber);
+      setRoute(bathroomToUpdate.route);
+      setLocality(bathroomToUpdate.locality);
+      setAdministrativeArea(bathroomToUpdate.administrativeArea);
+      setPostalCode(bathroomToUpdate.postalCode);
+      setCountry(bathroomToUpdate.country);
+      setLat(bathroomToUpdate.lat);
+      setLng(bathroomToUpdate.lng);
     }
-  }, [updateBathroom]);
+  }, [bathroomToUpdate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,12 +58,10 @@ const BathroomCreateModal = ({ updateBathroom }) => {
       lng,
     };
 
-    if (!!updateBathroom) {
-      dispatch(updateBathroom(bathroomObj));
-    }
-
     dispatch(
-      createBathroom(bathroomObj)
+      !!bathroomToUpdate
+        ? createBathroom(bathroomObj, bathroomToUpdate.id) // if you pass in a bathroom id, it updates instead
+        : createBathroom(bathroomObj)
     )
       .then(() => {
         setName('');
@@ -99,7 +97,7 @@ const BathroomCreateModal = ({ updateBathroom }) => {
 
   return (
     <div>
-      <h1> {!!updateBathroom ? 'Update Toilet' : 'List Toilet'}</h1>
+      <h1> {!!bathroomToUpdate ? 'Update Toilet' : 'List Toilet'}</h1>
       <form
         encType='multipart/form-data'
         style={{ display: 'flex', flexFlow: 'column' }}
@@ -203,7 +201,7 @@ const BathroomCreateModal = ({ updateBathroom }) => {
           <input type='file' multiple onChange={updateFiles} />
         </label> */}
         <button className='form__button' type='submit' disabled={!user}>
-          {!!updateBathroom ? 'Update Toilet' : 'List Toilet'}
+          {!!bathroomToUpdate ? 'Update Toilet' : 'List Toilet'}
         </button>
       </form>
       {!user && (
