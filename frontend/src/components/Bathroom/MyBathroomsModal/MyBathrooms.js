@@ -22,7 +22,6 @@ const MyBathroomsModal = ({ setShowModal }) => {
 
   // trigger get all bathrooms
   useEffect(() => {
-    // debugger;
     dispatch(getBathrooms());
   }, [dispatch]);
 

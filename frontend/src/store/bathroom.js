@@ -32,7 +32,7 @@ export const getBathrooms = () => async (dispatch) => {
 };
 
 // create is also used to update if bathroomId is passed in as second argument
-export const createBathroom = (bathroom, bathroomId = null) => async (
+export const createBathroom = (bathroom, brIDtoUpdate = null) => async (
   dispatch
 ) => {
   const {
@@ -73,17 +73,20 @@ export const createBathroom = (bathroom, bathroomId = null) => async (
   // for single file
   if (image) formData.append('image', image);
 
-  if (bathroomId) {
+  if (brIDtoUpdate) {
     // for updating bathroom
-    const res = await fetch(`/api/bathrooms/${bathroomId}`, {
-      method: 'PATCH',
+    const res = await fetch(`/api/bathrooms/${brIDtoUpdate}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'multipart/form-data',
       },
       body: formData,
     });
 
-    if (res.ok) dispatch(create(res.data.bathroom));
+    console.log('..........bathroom returned to thunk.........', res.data.data);
+    if (res.ok) {
+      dispatch(create(res.data.updatedBathroom));
+    }
   } else {
     // for creating bathroom
     const res = await fetch(`/api/bathrooms`, {

@@ -69,18 +69,17 @@ const BathroomCreateModal = ({
         : createBathroom(bathroomObj)
     )
       .then((res) => {
-        setName('');
-        setDescription('');
-        setImage(null);
-        setStreetNumber('');
-        setRoute('');
-        setLocality('');
-        setAdministrativeArea('');
-        setPostalCode('');
-        setCountry('');
-        setLat('');
-        setLng('');
-
+        // setName('');
+        // setDescription('');
+        // setImage(null);
+        // setStreetNumber('');
+        // setRoute('');
+        // setLocality('');
+        // setAdministrativeArea('');
+        // setPostalCode('');
+        // setCountry('');
+        // setLat('');
+        // setLng('');
         setShowModal(false);
       })
       .catch((res) => {
@@ -89,11 +88,6 @@ const BathroomCreateModal = ({
           setErrors(newErrors);
         }
       });
-
-    // close form
-    // if (!newErrors.length) {
-    //   setShowModal(false);
-    // }
   };
 
   const updateFile = (e) => {

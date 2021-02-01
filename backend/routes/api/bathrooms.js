@@ -22,7 +22,7 @@ router.get(
   })
 );
 
-// Create new bathroom
+// Create new bathroom validations
 const validateCreateBathroom = [
   check('name')
     .exists({ checkFalsy: true })
@@ -100,6 +100,7 @@ const validateCreateBathroom = [
   handleValidationErrors,
 ];
 
+// Create new bathroom
 router.post(
   '/',
   requireAuth,
@@ -140,7 +141,7 @@ router.post(
   })
 );
 
-// Update bathroom
+// Update bathroom validations
 const validateUpdateBathroom = [
   check('name')
     .exists({ checkFalsy: true })
@@ -208,7 +209,8 @@ const validateUpdateBathroom = [
   handleValidationErrors,
 ];
 
-router.patch(
+// update bathroom
+router.put(
   '/:bathroomId(\\d+)',
   requireAuth,
   singleMulterUpload('image'),

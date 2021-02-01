@@ -9,7 +9,6 @@ export default function LoginFormModal({ openMenu }) {
     <>
       <button
         onClick={(e) => {
-          // debugger;
           setShowModal(true);
           e.stopPropagation();
         }}
