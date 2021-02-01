@@ -125,38 +125,41 @@
 }
 
 /* my bathrooms */
-.myBathrooms-container {
+.my-bathrooms-container {
   background-color: rgba(0, 29, 41, 0.719);
   padding: 0.8rem 0.5rem 0.5rem 0.8rem;
   margin-bottom: 0.25rem;
   border-radius: 2rem 0.25rem 2rem 0.25rem;
 }
 
-.myBathrooms__name-and-buttons {
+.my-bathrooms__name-and-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   min-width: 320px;
 }
 
-.myBathrooms__br-name {
+.my-bathrooms__br-name {
   text-decoration: underline solid;
   color: rgb(0, 142, 212);
   margin: 0;
 }
-.myBathrooms__br-name:hover {
+.my-bathrooms__br-name:hover {
   cursor: pointer;
 }
 
-.myBathrooms__update-button {
+.my-bathrooms__update-button {
   color: rgb(242, 160, 84, 0.9);
 }
-.myBathrooms__delete-button {
+.my-bathrooms__delete-button {
   color: rgb(216, 67, 67);
   margin-left: 0.5rem;
 }
 
-.myBathrooms__location {
+.my-bathrooms__location {
   font-weight: 400;
   margin-bottom: 0.25rem;
+}
+
+.my-bathrooms__list-bathroom {
 }

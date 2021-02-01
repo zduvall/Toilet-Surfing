@@ -5,7 +5,7 @@ import * as sessionActions from '../../store/session';
 //import components
 import BathroomCreateModal from '../Bathroom/BathroomCreateModal';
 import MyBookingsModal from '../Booking/MyBookingsModal';
-import MyBathroomsModal from '../Bathroom/MyBathroomsModal'
+import MyBathroomsModal from '../Bathroom/MyBathroomsModal';
 
 export default function LoggedInDropdown() {
   const dispatch = useDispatch();
@@ -36,9 +36,6 @@ export default function LoggedInDropdown() {
         <ul className='navbar__dropdown navbar__dropdown-collapse'>
           <li className='navbar__dropdown__info'>{sessionUser.username}</li>
           <li className='navbar__dropdown__info'>{sessionUser.email}</li>
-          <li className='navbar__dropdown__button'>
-            <BathroomCreateModal openMenu={openMenu} />
-          </li>
           <li className='navbar__dropdown__button'>
             <MyBookingsModal openMenu={openMenu} />
           </li>

@@ -12,7 +12,11 @@ export default function BathroomCreate({ openMenu, bathroomToUpdate }) {
           setShowModal(true);
           e.stopPropagation();
         }}
-        style={!!bathroomToUpdate ? { color: 'rgb(242, 160, 84, 0.9)' } : {}}
+        style={
+          !!bathroomToUpdate
+            ? { color: 'rgb(242, 160, 84, 0.9)' }
+            : { color: 'rgb(52, 168, 226)' }
+        }
       >
         {!!bathroomToUpdate ? 'Update' : 'List Toilet'}
       </button>

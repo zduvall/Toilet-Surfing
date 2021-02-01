@@ -28,14 +28,14 @@ const MyBathroomsModal = ({ setShowModal }) => {
 
   return (
     <div>
-      <h1>My Bathrooms</h1>
+      <h1>My Toilets</h1>
       {!curUserBathrooms.length && <p>No toilets currently listed.</p>}
       {curUserBathrooms.map((bathroom) => {
         return (
-          <div key={bathroom.id} className='myBathrooms-container'>
-            <div className='myBathrooms__name-and-buttons'>
+          <div key={bathroom.id} className='my-bathrooms-container'>
+            <div className='my-bathrooms__name-and-buttons'>
               <h3
-                className='myBathrooms__br-name'
+                className='my-bathrooms__br-name'
                 onClick={(e) => {
                   dispatch(setCurBathroomIdAction(bathroom.id));
                   setShowModal(false);
@@ -55,7 +55,7 @@ const MyBathroomsModal = ({ setShowModal }) => {
                   bathroomToUpdate={bathroom}
                 />
                 <button
-                  className='myBathrooms__delete-button'
+                  className='my-bathrooms__delete-button'
                   onClick={() => {
                     dispatch(deleteBathroom(bathroom.id));
                   }}
@@ -64,12 +64,15 @@ const MyBathroomsModal = ({ setShowModal }) => {
                 </button>
               </div>
             </div>
-            <p className='myBathrooms__location'>
+            <p className='my-bathrooms__location'>
               {bathroom.locality}, {bathroom.administrativeArea}
             </p>
           </div>
         );
       })}
+      <div className='my-bathrooms__list-bathroom'>
+        <BathroomCreateModal />
+      </div>
     </div>
   );
 };

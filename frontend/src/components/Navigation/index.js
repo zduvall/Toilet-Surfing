@@ -24,9 +24,6 @@ export default function Navigation({ isLoaded }) {
       sessionLinks = (
         <>
           <li className='nav__item'>
-            <BathroomCreateModal />
-          </li>
-          <li className='nav__item'>
             <MyBookingsModal />
           </li>
           <li className='nav__item'>
