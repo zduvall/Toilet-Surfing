@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setCurBathroomIdAction } from '../../../store/curBathroom';
+import BathroomCreateModal from '../BathroomCreateModal';
 
 // import thunk
 // import { deletebathroom } from '../../../store/bathroom';
@@ -20,7 +21,7 @@ const MyBathroomsModal = ({ setShowModal }) => {
       {curUserBathrooms.map((bathroom) => {
         return (
           <div key={bathroom.id} className='myBathrooms-container'>
-            <div className='myBathrooms__name-and-button'>
+            <div className='myBathrooms__name-and-buttons'>
               <h3
                 className='myBathrooms__br-name'
                 onClick={(e) => {
@@ -35,13 +36,25 @@ const MyBathroomsModal = ({ setShowModal }) => {
               >
                 {bathroom.name}
               </h3>
-              <button
+              {/* <button
                 className='myBathrooms__update-button'
                 onClick={() => {
                   // dispatch(deleteBathroom(bathroom.id));
                 }}
               >
-                Cancel
+                Update
+              </button> */}
+              <BathroomCreateModal
+                style={{ color: 'rgb(242, 160, 84, 0.9)' }}
+                updateBathroom={bathroom}
+              />
+              <button
+                className='myBathrooms__delete-button'
+                onClick={() => {
+                  // dispatch(deleteBathroom(bathroom.id));
+                }}
+              >
+                Delete
               </button>
             </div>
             <p className='myBathrooms__location'>

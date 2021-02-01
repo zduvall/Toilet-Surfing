@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { createBathroom } from '../../../store/bathroom';
+import { useState, useEffect } from 'react';
+import { createBathroom, updateBathroom } from '../../../store/bathroom';
 import { useDispatch, useSelector } from 'react-redux';
 
-const BathroomCreateModal = () => {
+const BathroomCreateModal = ({ updateBathroom }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
@@ -21,25 +21,49 @@ const BathroomCreateModal = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
 
+  // set default values if using form to update
+  useEffect(() => {
+    if (!!updateBathroom) {
+      setName(updateBathroom.name);
+      setDescription(updateBathroom.description);
+      setImage(updateBathroom.image);
+      setStreetNumber(updateBathroom.streetNumber);
+      setRoute(updateBathroom.route);
+      setLocality(updateBathroom.locality);
+      setAdministrativeArea(updateBathroom.administrativeArea);
+      setPostalCode(updateBathroom.postalCode);
+      setCountry(updateBathroom.country);
+      setLat(updateBathroom.lat);
+      setLng(updateBathroom.lng);
+    }
+  }, [updateBathroom]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
     let newErrors = [];
+
+    let bathroomObj = {
+      bathroomOwnerId: user.id,
+      name,
+      description,
+      image,
+      streetNumber,
+      route,
+      locality,
+      administrativeArea,
+      postalCode,
+      country,
+      lat,
+      lng,
+    };
+
+    if (!!updateBathroom) {
+      dispatch(updateBathroom(bathroomObj));
+    }
+
     dispatch(
-      createBathroom({
-        bathroomOwnerId: user.id,
-        name,
-        description,
-        image,
-        streetNumber,
-        route,
-        locality,
-        administrativeArea,
-        postalCode,
-        country,
-        lat,
-        lng,
-      })
+      createBathroom(bathroomObj)
     )
       .then(() => {
         setName('');
@@ -75,7 +99,7 @@ const BathroomCreateModal = () => {
 
   return (
     <div>
-      <h1>List Toilet</h1>
+      <h1> {!!updateBathroom ? 'Update Toilet' : 'List Toilet'}</h1>
       <form
         encType='multipart/form-data'
         style={{ display: 'flex', flexFlow: 'column' }}
@@ -179,7 +203,7 @@ const BathroomCreateModal = () => {
           <input type='file' multiple onChange={updateFiles} />
         </label> */}
         <button className='form__button' type='submit' disabled={!user}>
-          List Toilet
+          {!!updateBathroom ? 'Update Toilet' : 'List Toilet'}
         </button>
       </form>
       {!user && (

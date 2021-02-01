@@ -132,23 +132,26 @@
   border-radius: 2rem 0.25rem 2rem 0.25rem;
 }
 
-.myBathrooms__name-and-button {
+.myBathrooms__name-and-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  min-width: 320px;
 }
 
 .myBathrooms__br-name {
   text-decoration: underline solid;
   color: rgb(0, 142, 212);
   margin: 0;
-  margin-right: 1rem;
 }
 .myBathrooms__br-name:hover {
   cursor: pointer;
 }
 
 .myBathrooms__update-button {
+  color: rgb(242, 160, 84, 0.9);
+}
+.myBathrooms__delete-button {
   color: rgb(216, 67, 67);
 }
 
