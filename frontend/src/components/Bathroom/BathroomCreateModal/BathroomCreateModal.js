@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
-import { createBathroom } from '../../../store/bathroom';
 import { useDispatch, useSelector } from 'react-redux';
 
-const BathroomCreateModal = ({ bathroomToUpdate }) => {
+// import thunks
+import { createBathroom } from '../../../store/bathroom';
+
+const BathroomCreateModal = ({ bathroomToUpdate, setShowModal }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
@@ -78,10 +80,13 @@ const BathroomCreateModal = ({ bathroomToUpdate }) => {
       })
       .catch((res) => {
         if (res.data && res.data.errors) {
+          if (!res.data.errors) setShowModal(false);
           newErrors = res.data.errors;
           setErrors(newErrors);
+          // close form
         }
       });
+
   };
 
   const updateFile = (e) => {

@@ -23,7 +23,10 @@ export default function BathroomCreate({ openMenu, bathroomToUpdate }) {
             if (openMenu) openMenu();
           }}
         >
-          <BathroomCreateModal bathroomToUpdate={bathroomToUpdate} />
+          <BathroomCreateModal
+            bathroomToUpdate={bathroomToUpdate}
+            setShowModal={setShowModal}
+          />
         </Modal>
       )}
     </>

@@ -34,7 +34,7 @@ export const createBathroom = (bathroom, bathroomId = null) => async (
   dispatch
 ) => {
   const {
-    images,
+    // images,
     image,
     bathroomOwnerId,
     name,
@@ -62,11 +62,11 @@ export const createBathroom = (bathroom, bathroomId = null) => async (
   formData.append('lng', lng);
 
   // for multiple files
-  if (images && images.length !== 0) {
-    for (var i = 0; i < images.length; i++) {
-      formData.append('images', images[i]);
-    }
-  }
+  // if (images && images.length !== 0) {
+  //   for (var i = 0; i < images.length; i++) {
+  //     formData.append('images', images[i]);
+  //   }
+  // }
 
   // for single file
   if (image) formData.append('image', image);
