@@ -11,10 +11,12 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {model: 'Users'}
       },
       bathroomId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {model: 'Bathrooms'}
       },
       dateTimeStart: {
         type: Sequelize.DATE,

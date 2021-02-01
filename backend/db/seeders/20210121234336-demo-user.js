@@ -35,7 +35,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        email: 'demo-lition@gmail.io',
+        email: 'demo-surfer@gmail.io',
         username: 'PottyTrainer',
         hashedPassword: bcrypt.hashSync('password'),
         createdAt: new Date(),

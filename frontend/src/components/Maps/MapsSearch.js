@@ -81,8 +81,7 @@ export default function Map() {
           id='search-map'
           mapContainerStyle={containerStyle}
           center={center}
-          zoom={4
-          }
+          zoom={4}
           onLoad={handleMapLoad}
           // onZoomChanged={handleBoundsChanged}
           // onBoundsChanged={handleBoundsChanged}
