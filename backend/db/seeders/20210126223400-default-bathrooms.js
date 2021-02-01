@@ -210,7 +210,7 @@ module.exports = {
         },
         {
           bathroomOwnerId: 11,
-          name: 'Toilet of elegance',
+          name: 'Toilet of Elegance',
           description:
             'Our team of interior designers and relaxation specialists put their minds together to create this peaceful and uplifting environment.',
           imageUrl:
@@ -354,7 +354,7 @@ module.exports = {
         },
         {
           bathroomOwnerId: 19,
-          name: 'One shower to rule them all',
+          name: 'One Shower to Rule Them All',
           description:
             "I dare you to try and find a shower you enjoy better than ours! We're excited for you to stop by.",
           imageUrl:
