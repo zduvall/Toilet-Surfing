@@ -24,10 +24,14 @@
 
 .single-bathroom__text {
   padding: 1.5rem;
+  position: relative;
 }
 
 /* Bathroom favorite star */
 .fav-star-container {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
 }
 
 /* Bathroom Header */
