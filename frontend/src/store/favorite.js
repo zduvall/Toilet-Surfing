@@ -30,16 +30,15 @@ export const getFavorites = () => async (dispatch) => {
 
 export const createFavorite = (favorite) => async (dispatch) => {
   const { userId, bathroomId } = favorite;
-
-  const res = await fetch('/api/favorites', {
-    method: 'POST',
-    body: JSON.stringify({
-      userId,
-      bathroomId,
-    }),
-  });
-  dispatch(create(res.data.favorite));
-  return res;
+  // const res = await fetch('/api/favorites', {
+  //   method: 'POST',
+  //   body: JSON.stringify({
+  //     userId,
+  //     bathroomId,
+  //   }),
+  // });
+  // dispatch(create(res.data.favorite));
+  // return res;
 };
 
 export const removeFavorite = (favoriteId) => async (dispatch) => {

@@ -1,10 +1,21 @@
+import { useDispatch, useSelector } from 'react-redux';
+
+// import thunk
+import { createFavorite } from '../../store/favorite';
+
 import './FavoriteStar.css';
 
-export default function FavoriteStar({ curBathroomId }) {
+export default function FavoriteStar() {
+  const dispatch = useDispatch();
+  const { session, curBathroomId } = useSelector((state) => state);
+
   let faved = false;
-  
+
   function handleClick() {
     console.log('Clicked favorite star');
+    dispatch(
+      createFavorite({ userId: session.user.id, bathroomId: curBathroomId })
+    );
   }
 
   return (
