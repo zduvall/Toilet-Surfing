@@ -25,10 +25,17 @@ Icons and fonts are from:
 ## Run Toilet Surfing Locally
 Follow these instructions to run Toilet Surfing on your local machine. Note: image uploads and map functionality will not work without a valid AWS key/secret and google Maps API key.
 
-Clone the repository at https://github.com/zduvall/Toilet-Surfing
-Open the root folder in your terminal and use npm install (requires Node.js) to install all dependencies (in both the frontend and backend)
-Make a local .env file in the /backend folder using the .env.save file. Edit to match local configurations. Note that file upload is not supported without valid AWS secret and key. DO NOT expose your AWS credentials on github.
-Create the user and database from your .env in psql
-Run all migrations with npx dotenv sequelize db:migrate
-Seed all data with npx dotenv sequelize db:seed:all
-In two seperate terminals, cd into your /backend folder and your /frontend folder. Use the script npm start in each to start the servers. React will launch the site in your browser.
+To run this application locally for development, you'll need to:
+
+1. `git clone` this repo
+2. `cd` into the local clone of the repository
+3. `cd` into the backend folder and `npm install`
+4. Create your own .env file in the backend based on the .env.example there
+5. Create a user that matches the only you identified in your .env file in PostgreSQL
+6. Run npx dotenv sequelize db:create to create the database
+7. If the sequelize module is not found, try running npx dotenv sequelize-cli db:create and replace sequelize with sequelize-cli for the rest of these commands
+8. Run npx dotenv sequelize db:migrate to run the migrations
+9. Run npx dotenv sequelize db:seed:all to seed the database
+10. Open another terminal and cd into the frontend directory and npm install there
+11. Run npm start in your backend and then another npm start in your frontend.
+12. The React server will open up a browser window with the correct address, and you can begin your work from there.
