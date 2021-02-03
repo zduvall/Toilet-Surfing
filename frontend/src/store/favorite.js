@@ -39,9 +39,8 @@ export const createFavorite = (favorite) => async (dispatch) => {
       bathroomId,
     }),
   });
-  console.log(res.data.favorite);
-  // dispatch(create(res.data.favorite));
-  // return res;
+  dispatch(create(res.data.favorite));
+  return res;
 };
 
 export const removeFavorite = (favoriteId) => async (dispatch) => {
