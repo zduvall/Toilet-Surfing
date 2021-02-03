@@ -8,7 +8,7 @@ Logged-in users can create, update, and delete toilets as well as book and cance
 Try the live site [here](https://toiletsurfing.herokuapp.com/), and view the database schema, routes, feature list (current and planned), and user stories in the [Wiki](https://github.com/zduvall/Toilet-Surfing/wiki).
 
 ## Tech Stack
-[Toilet Surfing](https://toiletsurfing.herokuapp.com/) uses the following tools, frameworks, and key packages:
+### [Toilet Surfing](https://toiletsurfing.herokuapp.com/) uses the following tools, frameworks, and key packages:
 
 [Sequelize](https://sequelize.org/) (with [PostgreSQL](https://www.postgresql.org/))
 [Express.js](https://expressjs.com/)
