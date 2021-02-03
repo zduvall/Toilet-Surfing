@@ -18,7 +18,7 @@ Try the live site [here](https://toiletsurfing.herokuapp.com/), and view the dat
 [react-google-maps-api](https://react-google-maps-api-docs.netlify.app/)
 Hosted on [Heroku](https://dashboard.heroku.com/)
 
-Icons and fonts are from:
+### Icons and fonts are from:
 [Google Fonts](https://fonts.google.com/)
 [Font Awesome](https://fontawesome.com/)
 
