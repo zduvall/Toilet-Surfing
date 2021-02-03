@@ -1,6 +1,6 @@
 # [Toilet-Surfing](https://toiletsurfing.herokuapp.com/)
 
-[Welcome to Toilet Surfing](/frontend/public/pictures/toilet-surfer-preview.png)
+![Welcome to Toilet Surfing](/frontend/public/pictures/toilet-surfer-preview.png)
 
 Toilet Surfing, where chill people share their toilets with other chill people, inspired by the giving and laid-back culture of couch surfing and by good vibes of surfers in general. This was my first full-stack solo project using node.js, react, redux, css, html, and express. The whole site is contained on the root route `/` , allowing for a seemless user experience and limited the need for frequent database and redux store calls.
 
