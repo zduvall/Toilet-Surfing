@@ -7,6 +7,7 @@ import * as sessionActions from './store/session';
 import { getBathrooms } from './store/bathroom';
 import { getUsers } from './store/user';
 import { getBookings } from './store/booking';
+import { getFavorites } from './store/favorite';
 
 import Navigation from './components/Navigation';
 import Home from './components/Home';
@@ -21,6 +22,7 @@ function App() {
     dispatch(getBathrooms());
     dispatch(getUsers());
     dispatch(getBookings());
+    dispatch(getFavorites());
   }, [dispatch]);
 
   return (

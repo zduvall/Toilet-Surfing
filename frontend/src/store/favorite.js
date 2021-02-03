@@ -6,8 +6,9 @@ const CREATE_FAVORITE = '/favorites/CREATE_FAVORITE';
 const REMOVE_FAVORITE = '/favorites/REMOVE_FAVORITE';
 
 // Action creators
-const load = () => ({
+const load = (favorites) => ({
   type: LOAD_FAVORITES,
+  favorites,
 });
 
 const create = (favorite) => ({
@@ -23,6 +24,7 @@ const remove = (favorite) => ({
 // Thunks
 export const getFavorites = () => async (dispatch) => {
   const res = await fetch('/api/favorites');
+  console.log('favorites in thunk res', res.data);
   if (res.ok) {
     dispatch(load(res.data));
   }
@@ -30,13 +32,14 @@ export const getFavorites = () => async (dispatch) => {
 
 export const createFavorite = (favorite) => async (dispatch) => {
   const { userId, bathroomId } = favorite;
-  // const res = await fetch('/api/favorites', {
-  //   method: 'POST',
-  //   body: JSON.stringify({
-  //     userId,
-  //     bathroomId,
-  //   }),
-  // });
+  const res = await fetch('/api/favorites', {
+    method: 'POST',
+    body: JSON.stringify({
+      userId,
+      bathroomId,
+    }),
+  });
+  console.log(res.data.favorite);
   // dispatch(create(res.data.favorite));
   // return res;
 };
