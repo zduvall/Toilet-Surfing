@@ -30,12 +30,12 @@ To run this application locally for development, you'll need to:
 1. `git clone` this repo
 2. `cd` into the local clone of the repository
 3. `cd` into the `backend` folder and `npm install`
-4. Create your own `.env` file in `backend` based on the `.env.example` there
-5. Create a user that matches the only you identified in your .env file in PostgreSQL
-6. Run npx dotenv sequelize db:create to create the database
-7. If the sequelize module is not found, try running npx dotenv sequelize-cli db:create and replace sequelize with sequelize-cli for the rest of these commands
-8. Run npx dotenv sequelize db:migrate to run the migrations
-9. Run npx dotenv sequelize db:seed:all to seed the database
-10. Open another terminal and cd into the frontend directory and npm install there
-11. Run npm start in your backend and then another npm start in your frontend.
-12. The React server will open up a browser window with the correct address, and you can begin your work from there.
+4. Create your own `.env` file in `backend` and `frontend` directories based on the `.env.example` files there
+5. Create a PostgreSQL user that matches the one you identified in your `backend` `.env` file
+6. Run `npx dotenv sequelize db:create to create the database`
+7. If the sequelize module is not found, try running `npx dotenv sequelize-cli db:create` and replace sequelize with sequelize-cli for the rest of these commands
+8. Run `npx dotenv sequelize db:migrate` to run the migrations
+9. Run `npx dotenv sequelize db:seed:all` to seed the database
+10. Open another terminal and `cd` into the `frontend` directory and `npm install`
+11. Run `npm start` in both the terminal on your backend and frontend
+12. The React server should open up a browser window with the correct address
