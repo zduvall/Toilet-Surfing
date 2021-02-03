@@ -1,8 +1,8 @@
 # [Toilet-Surfing](https://toiletsurfing.herokuapp.com/)
 
-[Welcome to Toilet Surfing](/frontend/public/pictures/toilet-surfer-preview.png)
-
 Toilet Surfing, where chill people share their toilets with other chill people, inspired by the giving and laid-back culture of couch surfing and by good vibes of surfers in general. This was my first full-stack solo project using node.js, react, redux, css, html, and express. The whole site is contained on the root route `/` , allowing for a seemless user experience and limited the need for frequent database and redux store calls.
+
+![Welcome to Toilet Surfing](/frontend/public/pictures/toilet-surfer-preview.png)
 
 Logged-in users can create, update, and delete toilets as well as book and cancel bookings for toilets to use in the future.
 
@@ -11,13 +11,18 @@ Try the live site [here](https://toiletsurfing.herokuapp.com/), and view the dat
 ## Tech Stack
 ### [Toilet Surfing](https://toiletsurfing.herokuapp.com/) uses the following tools, frameworks, and key packages:
 
-* [Sequelize](https://sequelize.org/) (with [PostgreSQL](https://www.postgresql.org/))
+* [AWS S3](https://aws.amazon.com/s3/)
+* [Bcryptjs](https://www.npmjs.com/package/bcrypt)
+* [Express-session](https://www.npmjs.com/package/express-session)
+* [Express-validator](https://express-validator.github.io/docs/)
 * [Express.js](https://expressjs.com/)
-* [React](https://reactjs.org/)
-* [Redux](https://react-redux.js.org/)
-* [Node.js](https://nodejs.org/en/)
-* [React Google Maps Api](https://react-google-maps-api-docs.netlify.app/)
 * Hosted on [Heroku](https://dashboard.heroku.com/)
+* [Node.js](https://nodejs.org/en/)
+* [React](https://reactjs.org/)
+* [React Google Maps Api](https://react-google-maps-api-docs.netlify.app/)
+* [Redux](https://react-redux.js.org/)
+* [Sequelize](https://sequelize.org/) (with [PostgreSQL](https://www.postgresql.org/))
+
 
 ### Icons and fonts are from:
 * [Google Fonts](https://fonts.google.com/)
