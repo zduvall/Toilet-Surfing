@@ -1,10 +1,12 @@
+import './FavoriteStar.css';
+
 export default function FavoriteStar () {
   return (
     <>
       <i className='far fa-star'></i>
-      <i className='fas fa-star'></i>
     </>
   );
 }
 
-// top one for not filled in, button filled in
+// above for not filled in, below for filled in
+// <i className='fas fa-star'></i>;
