@@ -15,7 +15,7 @@ Try the live site [here](https://toiletsurfing.herokuapp.com/), and view the dat
 * [React](https://reactjs.org/)
 * [Redux](https://react-redux.js.org/)
 * [Node.js](https://nodejs.org/en/)
-* [react-google-maps-api](https://react-google-maps-api-docs.netlify.app/)
+* [React Google Maps Api](https://react-google-maps-api-docs.netlify.app/)
 * Hosted on [Heroku](https://dashboard.heroku.com/)
 
 ### Icons and fonts are from:
