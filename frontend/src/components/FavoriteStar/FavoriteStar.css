@@ -1,0 +1,7 @@
+.star-not-fav {
+  color: rgba(242, 160, 84, 0.5);
+}
+
+.star-fav {
+    color: rgba(242, 160, 84);
+}

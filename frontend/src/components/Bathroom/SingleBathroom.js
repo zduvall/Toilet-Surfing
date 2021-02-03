@@ -25,7 +25,7 @@ export default function Bathroom() {
 
             <section className='single-bathroom__text'>
               <div className='fav-star-container'>
-                <FavoriteStar />
+                <FavoriteStar faved={curBathroomId} />
               </div>
               <BathroomHeader
                 name={curBathroom.name}
