@@ -11,13 +11,18 @@ Try the live site [here](https://toiletsurfing.herokuapp.com/), and view the dat
 ## Tech Stack
 ### [Toilet Surfing](https://toiletsurfing.herokuapp.com/) uses the following tools, frameworks, and key packages:
 
-* [Sequelize](https://sequelize.org/) (with [PostgreSQL](https://www.postgresql.org/))
+* [AWS S3](https://aws.amazon.com/s3/)
+* [Bcryptjs](https://www.npmjs.com/package/bcrypt)
+* [Express-session](https://www.npmjs.com/package/express-session)
+* [Express-validator](https://express-validator.github.io/docs/)
 * [Express.js](https://expressjs.com/)
-* [React](https://reactjs.org/)
-* [Redux](https://react-redux.js.org/)
-* [Node.js](https://nodejs.org/en/)
-* [React Google Maps Api](https://react-google-maps-api-docs.netlify.app/)
 * Hosted on [Heroku](https://dashboard.heroku.com/)
+* [Node.js](https://nodejs.org/en/)
+* [React](https://reactjs.org/)
+* [React Google Maps Api](https://react-google-maps-api-docs.netlify.app/)
+* [Redux](https://react-redux.js.org/)
+* [Sequelize](https://sequelize.org/) (with [PostgreSQL](https://www.postgresql.org/))
+
 
 ### Icons and fonts are from:
 * [Google Fonts](https://fonts.google.com/)
