@@ -42,19 +42,19 @@ export const createFavorite = (favorite) => async (dispatch) => {
   return res;
 };
 
-export const removeFavorite = (bookingId) => async (dispatch) => {
-  const res = await fetch(`/api/favorites/${bookingId}`, {
+export const removeFavorite = (favoriteId) => async (dispatch) => {
+  const res = await fetch(`/api/favorites/${favoriteId}`, {
     method: 'DELETE',
   });
   if (res.ok) {
-    dispatch(remove(bookingId));
+    dispatch(remove(favoriteId));
   }
 };
 
 // Reducer
 const initState = {};
 
-const bookingReducer = (state = initState, action) => {
+const favoriteReducer = (state = initState, action) => {
   const newState = { ...state };
 
   switch (action.type) {
@@ -74,4 +74,4 @@ const bookingReducer = (state = initState, action) => {
   }
 };
 
-export default bookingReducer;
+export default favoriteReducer;
