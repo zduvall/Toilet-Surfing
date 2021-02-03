@@ -10,17 +10,17 @@ Try the live site [here](https://toiletsurfing.herokuapp.com/), and view the dat
 ## Tech Stack
 ### [Toilet Surfing](https://toiletsurfing.herokuapp.com/) uses the following tools, frameworks, and key packages:
 
-[Sequelize](https://sequelize.org/) (with [PostgreSQL](https://www.postgresql.org/))
-[Express.js](https://expressjs.com/)
-[React](https://reactjs.org/)
-[Redux](https://react-redux.js.org/)
-[Node.js](https://nodejs.org/en/)
-[react-google-maps-api](https://react-google-maps-api-docs.netlify.app/)
-Hosted on [Heroku](https://dashboard.heroku.com/)
+* [Sequelize](https://sequelize.org/) (with [PostgreSQL](https://www.postgresql.org/))
+* [Express.js](https://expressjs.com/)
+* [React](https://reactjs.org/)
+* [Redux](https://react-redux.js.org/)
+* [Node.js](https://nodejs.org/en/)
+* [react-google-maps-api](https://react-google-maps-api-docs.netlify.app/)
+* Hosted on [Heroku](https://dashboard.heroku.com/)
 
 ### Icons and fonts are from:
-[Google Fonts](https://fonts.google.com/)
-[Font Awesome](https://fontawesome.com/)
+* [Google Fonts](https://fonts.google.com/)
+* [Font Awesome](https://fontawesome.com/)
 
 ## Run Toilet Surfing Locally
 Follow these instructions to run Toilet Surfing on your local machine. Note: image uploads and map functionality will not work without a valid AWS key/secret and google Maps API key.
