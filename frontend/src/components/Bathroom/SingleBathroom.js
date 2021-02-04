@@ -5,6 +5,7 @@ import './Bathroom.css';
 import BathroomHeader from './BothroomHeader';
 import BathroomInfo from './BathroomInfo';
 import Booking from '../Booking';
+import FavoriteStar from '../FavoriteStar';
 
 export default function Bathroom() {
   const { bathrooms, users, curBathroomId } = useSelector((state) => state);
@@ -23,6 +24,9 @@ export default function Bathroom() {
             ></section>
 
             <section className='single-bathroom__text'>
+              <div className='fav-star-container'>
+                <FavoriteStar />
+              </div>
               <BathroomHeader
                 name={curBathroom.name}
                 owner={users[curBathroom.bathroomOwnerId].username}
