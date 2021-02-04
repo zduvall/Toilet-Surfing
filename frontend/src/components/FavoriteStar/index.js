@@ -14,10 +14,10 @@ export default function FavoriteStar() {
 
   function handleClick() {
     console.log('Clicked favorite star');
-    // setFaved(faved ? false : true)
-    dispatch(
-      createFavorite({ userId: session.user.id, bathroomId: curBathroomId })
-    );
+    setFaved(faved ? false : true)
+    // dispatch(
+    //   createFavorite({ userId: session.user.id, bathroomId: curBathroomId })
+    // );
   }
 
   return (
