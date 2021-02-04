@@ -4,7 +4,7 @@ Toilet Surfing, where chill people share their toilets with other chill people, 
 
 ![Welcome to Toilet Surfing](/frontend/public/pictures/toilet-surfer-preview.png)
 
-Logged-in users can create, update, and delete toilets as well as book and cancel bookings for toilets to use in the future.
+Logged-in users can create, update, and delete toilets as well as book and cancel bookings to use toilets in the future.
 
 Try the live site [here](https://toiletsurfing.herokuapp.com/), and view the database schema, routes, feature list (current and planned), and user stories in the [Wiki](https://github.com/zduvall/Toilet-Surfing/wiki).
 
