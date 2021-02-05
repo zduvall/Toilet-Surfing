@@ -16,15 +16,14 @@ const create = (favorite) => ({
   favorite,
 });
 
-const remove = (favorite) => ({
+const remove = (favoriteId) => ({
   type: REMOVE_FAVORITE,
-  favorite,
+  favoriteId,
 });
 
 // Thunks
 export const getFavorites = () => async (dispatch) => {
   const res = await fetch('/api/favorites');
-  console.log('favorites in thunk res', res.data);
   if (res.ok) {
     dispatch(load(res.data));
   }
@@ -63,12 +62,13 @@ const favoriteReducer = (state = initState, action) => {
       for (let favorite of action.favorites) {
         newState[Number(favorite.id)] = favorite;
       }
+      // maybe refactor this to filter out only cur user's favs upon load?
       return newState;
     case CREATE_FAVORITE:
       newState[Number(action.favorite.id)] = action.favorite;
       return newState;
     case REMOVE_FAVORITE:
-      delete newState[Number(action.favorite)];
+      delete newState[Number(action.favoriteId)];
       return newState;
     default:
       return newState;
