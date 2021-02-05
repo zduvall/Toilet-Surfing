@@ -16,6 +16,7 @@ export default function FavoriteStar() {
     let found = false;
     favoritesArray.forEach((favorite) => {
       if (
+        session.user &&
         favorite.userId === session.user.id &&
         favorite.bathroomId === curBathroomId
       ) {
@@ -27,7 +28,10 @@ export default function FavoriteStar() {
   }, [favorites, session, curBathroomId]);
 
   function handleClick() {
-    console.log('Clicked favorite star');
+    if (!session.user) {
+      window.alert('Must be logged in to add to favorites')
+      return
+    }
     if (favoriteId) {
       dispatch(removeFavorite(favoriteId));
       setFavoriteId(null);
@@ -48,9 +52,14 @@ export default function FavoriteStar() {
             : 'far fa-star fa-lg star-not-fav'
         }
         title={
-          favoriteId
+          !session.user
+            ? 'Must be logged in to add favorites'
+            : favoriteId
             ? 'Click to remove from favorites'
             : 'Click to add to favorites'
+        }
+        style={
+          !session.user ? { cursor: 'not-allowed' } : { cursor: 'pointer' }
         }
         onClick={handleClick}
       ></i>
