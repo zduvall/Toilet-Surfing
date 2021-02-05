@@ -48,10 +48,6 @@ const MyBathroomsModal = ({ setShowModal }) => {
               >
                 {bathroom.name}
               </h3>
-
-              <div>
-                <p>Button?</p>
-              </div>
             </div>
             <p className='my-bathrooms__location'>
               {bathroom.locality}, {bathroom.administrativeArea}
