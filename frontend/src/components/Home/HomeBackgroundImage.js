@@ -28,7 +28,7 @@ export default function HomeBackgroundImage() {
     <div className='home__background-container'>
       <img
         className='home__background'
-        src='./pictures/Bathroom-ocean-lng.png'
+        src='./pictures/Bathroom-ocean-lng-small.png'
         alt='Ocean view from bathroom window'
       ></img>
       {showDownArrow && (

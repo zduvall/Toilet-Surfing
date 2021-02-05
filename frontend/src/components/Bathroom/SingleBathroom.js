@@ -16,12 +16,14 @@ export default function Bathroom() {
       {curBathroom && users[curBathroom.bathroomOwnerId] && (
         <>
           <div className='single-bathroom'>
-            <section
+            <div
+              onClick={() => window.open(`${curBathroom.imageUrl}`, '_blank')}
               className='single-bathroom__image-container'
               style={{
                 background: `center / cover url(${curBathroom.imageUrl})`,
+                cursor: 'zoom-in',
               }}
-            ></section>
+            ></div>
 
             <section className='single-bathroom__text'>
               {curBathroom.id !== 1 && (
@@ -42,3 +44,12 @@ export default function Bathroom() {
     </>
   );
 }
+
+// <a href={curBathroom.imageUrl} target='_blank' rel='noreferrer'>
+//   <div
+//     className='single-bathroom__image-container'
+//     style={{
+//       background: `center / cover url(${curBathroom.imageUrl})`,
+//     }}
+//   ></div>
+// </a>;
