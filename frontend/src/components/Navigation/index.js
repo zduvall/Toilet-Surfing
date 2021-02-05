@@ -7,6 +7,7 @@ import LoginFormModal from '../LoginFormModal';
 import SignUpFormModal from '../SignUpFormModal';
 import MyBookingsModal from '../Booking/MyBookingsModal';
 import MyBathroomsModal from '../Bathroom/MyBathroomsModal';
+import MyFavoritesModal from '../FavoriteStar/MyFavoritesModal';
 import LoggedInDropdown from './LoggedInDropdown';
 import SessionLinksDropdown from './LoggedOutDropdown';
 
@@ -27,6 +28,9 @@ export default function Navigation({ isLoaded }) {
           </li>
           <li className='nav__item'>
             <MyBathroomsModal />
+          </li>
+          <li className='nav__item'>
+            <MyFavoritesModal />
           </li>
           <li className='nav__item'>
             <ProfileButton user={sessionUser} />
