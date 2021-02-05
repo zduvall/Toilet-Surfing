@@ -24,9 +24,11 @@ export default function Bathroom() {
             ></section>
 
             <section className='single-bathroom__text'>
-              <div className='fav-star-container'>
-                <FavoriteStar />
-              </div>
+              {curBathroom.id !== 1 && (
+                <div className='fav-star-container'>
+                  <FavoriteStar />
+                </div>
+              )}
               <BathroomHeader
                 name={curBathroom.name}
                 owner={users[curBathroom.bathroomOwnerId].username}
