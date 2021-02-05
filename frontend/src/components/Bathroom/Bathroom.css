@@ -152,7 +152,7 @@
 .my-bathrooms__br-name {
   text-decoration: underline solid;
   color: rgb(0, 142, 212);
-  margin: 0;
+  margin: 0 1rem 0 0;
 }
 .my-bathrooms__br-name:hover {
   cursor: pointer;
@@ -161,7 +161,7 @@
 .my-bathrooms__update-button {
   color: rgb(242, 160, 84, 0.9);
 }
-.my-bathrooms__delete-button {
+.my-bathrooms__unlist-button {
   color: rgb(216, 67, 67);
   margin-left: 0.5rem;
 }

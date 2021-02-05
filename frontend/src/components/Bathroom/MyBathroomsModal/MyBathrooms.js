@@ -54,12 +54,12 @@ const MyBathroomsModal = ({ setShowModal }) => {
                   bathroomToUpdate={bathroom}
                 />
                 <button
-                  className='my-bathrooms__delete-button'
+                  className='my-bathrooms__unlist-button'
                   onClick={() => {
                     dispatch(deleteBathroom(bathroom.id));
                   }}
                 >
-                  Delete
+                  Unlist
                 </button>
               </div>
             </div>
