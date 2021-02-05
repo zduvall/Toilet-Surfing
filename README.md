@@ -1,12 +1,14 @@
 # [Toilet-Surfing](https://toiletsurfing.herokuapp.com/)
 
-Toilet Surfing, where chill people share their toilets with other chill people, inspired by the giving and laid-back culture of couch surfing and by good vibes of surfers in general. This was my first full-stack solo project using node.js, react, redux, css, html, and express. The whole site is contained on the root route `/` , allowing for a seamless user experience and imiting the need for excessive database and redux store calls.
+[Toilet-Surfing](https://toiletsurfing.herokuapp.com/), where chill people share their toilets with other chill people, inspired by the giving and laid-back culture of couch surfing and by good vibes of surfers in general. This was my first full-stack solo project using node.js, react, redux, css, html, and express. The whole site is contained on the root route `/` , allowing for a seamless user experience and imiting the need for excessive database and redux store calls.
 
 ![Welcome to Toilet Surfing](/frontend/public/pictures/toilet-surfer-preview.png)
 
 Logged-in users can create, update, and delete toilets as well as book and cancel bookings to use toilets in the future.
 
-Try the live site [here](https://toiletsurfing.herokuapp.com/), and view the database schema, routes, feature list (current and planned), and user stories in the [Wiki](https://github.com/zduvall/Toilet-Surfing/wiki).
+Try the live site [here](https://toiletsurfing.herokuapp.com/).
+
+View the database schema, routes, feature list (current and planned), and user stories in the [Wiki](https://github.com/zduvall/Toilet-Surfing/wiki).
 
 ## Tech Stack
 ### [Toilet Surfing](https://toiletsurfing.herokuapp.com/) uses the following tools, frameworks, and key packages:
