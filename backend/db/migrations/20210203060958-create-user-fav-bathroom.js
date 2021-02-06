@@ -16,7 +16,7 @@ module.exports = {
       bathroomId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        reference: {model: 'Bathrooms'}
+        references: {model: 'Bathrooms'}
       },
       createdAt: {
         allowNull: false,
