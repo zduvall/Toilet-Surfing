@@ -90,7 +90,21 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function (models) {
     // associations can be defined here
-    User.hasMany(models.Bathroom, { foreignKey: 'bathroomOwnerId' });
+    User.hasMany(models.Bathroom, {
+      foreignKey: 'bathroomOwnerId',
+      onDelete: 'CASCADE',
+      hooks: true,
+    });
+    User.hasMany(models.UserBookBathroom, {
+      foreignKey: 'userId',
+      onDelete: 'CASCADE',
+      hooks: true,
+    });
+    User.hasMany(models.UserFavBathroom, {
+      foreignKey: 'userId',
+      onDelete: 'CASCADE',
+      hooks: true,
+    });
     User.belongsToMany(models.Bathroom, {
       through: 'UserBookBathroom',
       otherKey: 'bathroomId',
@@ -106,3 +120,10 @@ module.exports = (sequelize, DataTypes) => {
   };
   return User;
 };
+
+// User.associate = (models) => {
+//   User.belongsTo(models.Organization, {
+//     foreignKey: { name: 'organizationId', allowNull: true },
+//     onDelete: 'CASCADE',
+//   });
+// };

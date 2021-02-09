@@ -16,6 +16,7 @@ router.get(
     const favorites = await UserFavBathroom.findAll({
       attributes: ['id', 'userId', 'bathroomId'],
     });
+    // const favorites = await UserFavBathroom.findAll();
     return res.json(favorites);
   })
 );

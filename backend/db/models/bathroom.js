@@ -26,6 +26,16 @@ module.exports = (sequelize, DataTypes) => {
   Bathroom.associate = function (models) {
     // associations can be defined here
     Bathroom.belongsTo(models.User, { foreignKey: 'bathroomOwnerId' });
+    Bathroom.hasMany(models.UserBookBathroom, {
+      foreignKey: 'bathroomId',
+      onDelete: 'CASCADE',
+      hooks: true,
+    });
+    Bathroom.hasMany(models.UserFavBathroom, {
+      foreignKey: 'bathroomId',
+      onDelete: 'CASCADE',
+      hooks: true,
+    });
     Bathroom.belongsToMany(models.User, {
       through: 'UserBookBathroom',
       otherKey: 'userId',

@@ -23,7 +23,6 @@ router.get(
       ],
     });
     // const bookings = await UserBookBathroom.findAll();
-    // console.log(bookings);
     return res.json(bookings);
   })
 );

@@ -18,7 +18,6 @@ router.get(
   '/',
   asyncHandler(async (_req, res) => {
     const bathrooms = await Bathroom.findAll();
-    // console.log(bathrooms);
     return res.json(bathrooms);
   })
 );
@@ -266,11 +265,10 @@ router.delete(
   '/:bathroomId(\\d+)',
   requireAuth,
   asyncHandler(async (req, res) => {
-    const bookingId = Number(req.params.bathroomId);
-    const numDestroyed = await Bathroom.destroy({
-      where: { id: bookingId },
-    });
-    return res.json(numDestroyed);
+    const bathroomId = Number(req.params.bathroomId);
+    const bathroomToDelete = await Bathroom.findByPk(bathroomId);
+    await bathroomToDelete.destroy();
+    return res.json('success');
   })
 );
 

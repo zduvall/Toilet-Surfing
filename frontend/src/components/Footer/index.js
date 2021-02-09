@@ -10,15 +10,20 @@ export default function Footer() {
             (window.location = 'https://www.linkedin.com/in/zachary-duvall/')
           }
         >
-          <i className='fab fa-linkedin fa-lg footer__icon'></i>
+          <i
+            title='https://www.linkedin.com/in/zachary-duvall/'
+            className='fab fa-linkedin fa-lg footer__icon'
+          ></i>
         </button>
         <button
           onClick={() => (window.location = 'https://github.com/zduvall')}
         >
-          <i className='fab fa-github-square fa-lg footer__icon'></i>
+          <i
+            title='https://github.com/zduvall'
+            className='fab fa-github-square fa-lg footer__icon'
+          ></i>
         </button>
       </div>
     </footer>
   );
 }
-
