@@ -157,6 +157,7 @@
 
 .mybookings__cancel-button {
   color: rgb(216, 67, 67);
+  margin-left: .5rem;
 }
 
 .mybookings__time {

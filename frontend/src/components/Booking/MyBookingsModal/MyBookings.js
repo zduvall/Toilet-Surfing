@@ -19,6 +19,8 @@ const MyBookingsModal = ({ setShowModal }) => {
       {!curUserBookings.length && <p>No toilets currently booked.</p>}
       {curUserBookings.map((booking) => {
         let now = new Date();
+        let twoWeeksFromNow = new Date()
+        twoWeeksFromNow.setDate(now.getDate() + 14);
 
         // starting time
         let amPmStart = 'am';
@@ -31,7 +33,7 @@ const MyBookingsModal = ({ setShowModal }) => {
         // ending time
         let amPmEnd = 'am';
         let timeEnd = new Date(booking.dateTimeEnd);
-        if (timeEnd < now) return <></>;
+        if (timeEnd < now || timeEnd > twoWeeksFromNow) return <></>;
         let hoursEnd = timeEnd.getHours();
         if (hoursEnd >= 12) amPmEnd = 'pm';
         if (hoursEnd > 12) hoursEnd = hoursEnd - 12;
@@ -63,6 +65,7 @@ const MyBookingsModal = ({ setShowModal }) => {
                 Cancel
               </button>
             </div>
+            <p>{timeStart.toDateString()}</p>
             <p className='mybookings__time'>
               {timeStart.toTimeString().slice(0, 9)} {amPmStart} -{' '}
               {timeEnd.toTimeString().slice(0, 9)} {amPmEnd}
