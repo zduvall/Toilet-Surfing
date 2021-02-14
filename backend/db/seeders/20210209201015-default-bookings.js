@@ -63,27 +63,27 @@ module.exports = {
       let booking = createDate(userId, BrId);
       const bookingX26 = [booking];
 
-      for(let i = 0; i < 26; i++) {
+      for (let i = 0; i < 26; i++) {
         // create new start and end times two weeks out
         const strtPls2Wks = new Date(booking.dateTimeStart);
         strtPls2Wks.setDate(strtPls2Wks.getDate() + 14);
         const endPls2Wks = new Date(booking.dateTimeEnd);
         endPls2Wks.setDate(endPls2Wks.getDate() + 14);
-        
+
         // copy and update attributes on newBooking
         const newBooking = { ...booking };
         newBooking.dateTimeStart = strtPls2Wks;
         newBooking.dateTimeEnd = endPls2Wks;
 
-        bookingX26.push(newBooking)
-        booking = newBooking
+        bookingX26.push(newBooking);
+        booking = newBooking;
       }
 
       return bookingX26;
     }
 
-    for (let userId = 3; userId <= numUsers; userId++) {
-      const max = Math.ceil(Math.random() * maxPerUser);
+    for (let userId = 2; userId <= numUsers; userId++) {
+      const max = (userId === 2 ? 6 : Math.ceil(Math.random() * maxPerUser));
       for (let i = 0; i < max; i++) {
         const randBrId = Math.ceil(Math.random() * numBathrooms);
         fillerBookings = [...fillerBookings, ...repeatDate(userId, randBrId)];

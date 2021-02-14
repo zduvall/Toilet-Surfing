@@ -12,14 +12,17 @@ const MyBookingsModal = ({ setShowModal }) => {
   const curUserBookings = bookingsArray.filter(
     (booking) => booking.userId === session.user.id
   );
+  const sortedCurUserBookings = curUserBookings.sort((a, b) =>
+    new Date(a.dateTimeStart) < new Date(b.dateTimeStart) ? -1 : 1
+  );
 
   return (
     <div>
       <h1>My Bookings</h1>
-      {!curUserBookings.length && <p>No toilets currently booked.</p>}
-      {curUserBookings.map((booking) => {
+      {!sortedCurUserBookings.length && <p>No toilets currently booked.</p>}
+      {sortedCurUserBookings.map((booking) => {
         let now = new Date();
-        let twoWeeksFromNow = new Date()
+        let twoWeeksFromNow = new Date();
         twoWeeksFromNow.setDate(now.getDate() + 14);
 
         // starting time

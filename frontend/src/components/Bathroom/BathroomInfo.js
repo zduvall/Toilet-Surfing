@@ -20,8 +20,6 @@ export default function BathroomInfo({ curBathroom }) {
       <p className='lat-lng'>
         {`Lat: ${curBathroom.lat} \u00A0 - \u00A0 Lng: ${curBathroom.lng}`}
       </p>
-      {/* {curBathroom.id === 1 && <p>&nbsp;&nbsp;</p>}
-      {curBathroom.id === 1 && <p>&nbsp;&nbsp;</p>} */}
     </>
   );
 }
