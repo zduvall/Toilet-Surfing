@@ -6,7 +6,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     // create filler users
     const fillerUsers = [];
-    const numFillerUsers = 40; // edit this to edit the number of users created
+    const numFillerUsers = 60; // edit this to edit the number of users created
 
     for (let i = 0; i < numFillerUsers; i++) {
       let userName = faker.internet.userName();

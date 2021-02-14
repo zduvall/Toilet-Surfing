@@ -1,6 +1,7 @@
 .single-bathroom {
   display: grid;
   grid-template-columns: 50% 50%;
+  min-height: 50vh
 }
 
 @media (max-width: 800px) {
@@ -14,7 +15,7 @@
 
 .single-bathroom__image-container {
   overflow: hidden;
-  min-height: 250px;
+  /* min-height: 250px; */
 }
 
 .single-bathroom__image {
@@ -56,8 +57,18 @@
 
 /* Bathroom Info */
 
+.single-bathroom__desctiption {
+  margin: 1.5rem 0;
+}
+
+.single-bathroom__address {
+  margin: 0.5rem auto;
+  color: rgb(0, 102, 153);
+}
+
 .lat-lng {
   color: rgba(0, 0, 0, 0.466);
+  margin-top: 2rem;
 }
 
 /* Bathroom Small View */
