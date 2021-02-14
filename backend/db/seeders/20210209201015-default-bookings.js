@@ -58,12 +58,12 @@ module.exports = {
       };
     }
 
-    // make copy of every booking every two weeks for one year (26 copies)
+    // make copy of every booking every two weeks for 6 months (13 copies)
     function repeatDate(userId, BrId) {
       let booking = createDate(userId, BrId);
       const bookingX26 = [booking];
 
-      for (let i = 0; i < 26; i++) {
+      for (let i = 0; i < 13; i++) {
         // create new start and end times two weeks out
         const strtPls2Wks = new Date(booking.dateTimeStart);
         strtPls2Wks.setDate(strtPls2Wks.getDate() + 14);
