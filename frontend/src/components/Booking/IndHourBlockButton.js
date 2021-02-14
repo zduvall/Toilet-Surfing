@@ -52,8 +52,8 @@ export default function IndHourBlockButton({ day, hour, time, amPm }) {
         }}
         className={
           hour % 2 === 0
-            ? 'time-selector-button-even'
-            : 'time-selector-button-odd'
+            ? 'time-selector-button time-selector-button-even'
+            : 'time-selector-button time-selector-button-odd'
         }
         disabled={anyConflicts || inThePast}
         style={
