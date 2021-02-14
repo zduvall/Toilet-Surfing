@@ -39,7 +39,7 @@ export default function IndHourBlockButton({ day, hour, time, amPm }) {
       (testBookingStart < thisButtonTime && thisButtonTime < testBookingEnd)
     ) {
       anyConflicts = true;
-      booker = users[booking.userId].username
+      booker = users[booking.userId].username;
     }
   });
 

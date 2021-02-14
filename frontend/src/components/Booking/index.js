@@ -30,11 +30,17 @@ export default function Booking() {
 
   const width = useWindowWidth();
 
-  // identify all bookings associated with this bathroom to use in context
+  // identify all bookings associated with this bathroom in next 2-week to use in context
   useEffect(() => {
     const bookingsArray = [...Object.values(bookings)];
+
+    const todayPls2wks = new Date();
+    todayPls2wks.setDate(todayPls2wks.getDate() + 14);
+
     const filterCurBRBookings = bookingsArray.filter(
-      (booking) => booking.bathroomId === curBathroomId
+      (booking) =>
+        booking.bathroomId === curBathroomId &&
+        new Date(booking.dateTimeStart) < todayPls2wks
     );
     setCurBRBookings(filterCurBRBookings);
   }, [bookings, curBathroomId]);
