@@ -6,7 +6,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     // create filler bookings
     let fillerBookings = [];
-    const maxPerUser = 20; // edit this to edit the max # bookings per user
+    const maxPerUser = 15; // edit this to edit the max # bookings per user
     const numUsers = await db.User.count();
     const numBathrooms = await db.Bathroom.count();
 
