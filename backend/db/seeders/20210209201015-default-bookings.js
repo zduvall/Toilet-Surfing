@@ -6,7 +6,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     // create filler bookings
     let fillerBookings = [];
-    const maxPerUser = 5; // edit this to edit the max # bookings per user
+    const maxPerUser = 20; // edit this to edit the max # bookings per user
     const numUsers = await db.User.count();
     const numBathrooms = await db.Bathroom.count();
 
@@ -58,10 +58,10 @@ module.exports = {
       };
     }
 
-    // make 26 copies of every booking repeated two weeks out every time (to cover one year)
+    // make copy of every booking every two weeks for one year (26 copies)
     function repeatDate(userId, BrId) {
       let booking = createDate(userId, BrId);
-      const bookingX26 = []
+      const bookingX26 = [booking];
 
       for(let i = 0; i < 26; i++) {
         // create new start and end times two weeks out
