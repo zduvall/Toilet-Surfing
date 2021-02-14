@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import { Modal } from '../../context/Modal';
 import BookingFormModal from './BookingFormModal';
 
@@ -7,6 +9,7 @@ import { useCurBRBookingsContext } from './index';
 
 export default function IndHourBlockButton({ day, hour, time, amPm }) {
   const [showModal, setShowModal] = useState(false);
+  const { users } = useSelector((state) => state);
   const { curBRBookings } = useCurBRBookingsContext();
 
   // find out time for this button
@@ -19,6 +22,7 @@ export default function IndHourBlockButton({ day, hour, time, amPm }) {
   // check for conflicts
   let anyConflicts = false;
   let inThePast = false;
+  let booker = null;
 
   // check if button time is in the past
   const curTime = new Date();
@@ -35,6 +39,7 @@ export default function IndHourBlockButton({ day, hour, time, amPm }) {
       (testBookingStart < thisButtonTime && thisButtonTime < testBookingEnd)
     ) {
       anyConflicts = true;
+      booker = users[booking.userId].username
     }
   });
 
@@ -60,7 +65,9 @@ export default function IndHourBlockButton({ day, hour, time, amPm }) {
               }
             : {}
         }
-        title={anyConflicts ? 'Already booked' : inThePast ? 'In the past' : ''}
+        title={
+          anyConflicts ? `Booked by ${booker}` : inThePast ? 'In the past' : ''
+        }
       >
         {time}
       </button>
