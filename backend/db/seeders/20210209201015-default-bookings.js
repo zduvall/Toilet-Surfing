@@ -56,9 +56,12 @@ module.exports = {
       };
     }
 
-    for (let i = 1; i <= numUsers; i++) {
-      let randBrId = Math.ceil(Math.random() * numBathrooms)
-      fillerBookings.push(createDate(i, randBrId));
+    for (let userId = 1; userId <= numUsers; userId++) {
+      let max = Math.ceil(Math.random() * maxPerUser);
+      for (let i = 0; i < max; i++) {
+        let randBrId = Math.ceil(Math.random() * numBathrooms);
+        fillerBookings.push(createDate(userId, randBrId));
+      }
     }
 
     return queryInterface.bulkInsert(
