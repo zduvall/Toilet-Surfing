@@ -1,23 +1,50 @@
 'use strict';
 
+// const db = require('../models.index');
+
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    function createDate(userId, bathroomId, daysAhead) {
+  up: async (queryInterface, Sequelize) => {
+    // create filler bookings
+    const fillerBookings = [];
+    // const maxFillerBookingsPerUser = 5; // edit this to edit the max # bookings per user
+    // const numUsers = await db.User.count();
+    // const numBathrooms = await db.Bathroom.count();
+
+    function createDate(userId, bathroomId) {
       let now = new Date();
+      let daysAhead = Math.ceil(Math.random() * 14);
+
+      let strtHr = Math.ceil(Math.random() * 15) + 6; // random hour between 6AM and 9PM
+      let strtMin = Math.floor(Math.random() * 4) * 15; // random increment between 0 and 3 * 15
+
+      let addMin = Math.ceil(Math.random() * 8) * 15; // random 15 minutes to 120 minutes
+      let endHr, endMin;
+      if (strtMin + addMin <= 45) {
+        endHr = strtHr;
+        endMin = strtMin + addMin;
+      } else if (strtMin + addMin <= 105) {
+        endHr = strtHr + 1;
+        endMin = strtMin + addMin - 60;
+      } else {
+        endHr = strtHr + 2;
+        endMin = strtMin + addMin - 120;
+      }
+
+      // console.log(`${strtHr}:${strtMin} + ${addMin / 15}x15min = ${endHr}:${endMin}`);
 
       let start = new Date(
         now.getFullYear(),
         now.getMonth(),
         now.getDate() + daysAhead,
-        10,
-        45
+        strtHr,
+        strtMin
       );
       let end = new Date(
         now.getFullYear(),
         now.getMonth(),
         now.getDate() + daysAhead,
-        11,
-        15
+        endHr,
+        endMin
       );
       return {
         userId,
@@ -28,23 +55,19 @@ module.exports = {
         updatedAt: new Date(),
       };
     }
-    
-    let daysAhead = Math.ceil(Math.random() * 14); 
 
-    // let bookings = [createDate(1, 1, daysAhead)];
-    let bookings = [createDate(1, 1, 20)];
+    for (let i = 1; i <= 22; i++) {
+      fillerBookings.push(createDate(1, i));
+    }
 
-    return queryInterface.bulkInsert('UserBookBathrooms', [...bookings], {});
+    return queryInterface.bulkInsert(
+      'UserBookBathrooms',
+      [...fillerBookings],
+      {}
+    );
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-      */
     return queryInterface.bulkDelete('UserBookBathrooms', null, {});
   },
 };
