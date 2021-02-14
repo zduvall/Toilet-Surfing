@@ -58,6 +58,13 @@
 
 .lat-lng {
   color: rgba(0, 0, 0, 0.466);
+  margin-top: 1rem;
+  font-size: .8rem;
+}
+
+.single-bathroom__address {
+  margin: 0.5rem auto;
+  color: rgb(0, 102, 153);
 }
 
 /* Bathroom Small View */
