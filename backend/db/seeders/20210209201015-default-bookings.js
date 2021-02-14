@@ -1,14 +1,14 @@
 'use strict';
 
-// const db = require('../models.index');
+const db = require('../models/index');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     // create filler bookings
     const fillerBookings = [];
-    // const maxFillerBookingsPerUser = 5; // edit this to edit the max # bookings per user
-    // const numUsers = await db.User.count();
-    // const numBathrooms = await db.Bathroom.count();
+    const maxPerUser = 5; // edit this to edit the max # bookings per user
+    const numUsers = await db.User.count();
+    const numBathrooms = await db.Bathroom.count();
 
     function createDate(userId, bathroomId) {
       let now = new Date();
@@ -56,8 +56,9 @@ module.exports = {
       };
     }
 
-    for (let i = 1; i <= 22; i++) {
-      fillerBookings.push(createDate(1, i));
+    for (let i = 1; i <= numUsers; i++) {
+      let randBrId = Math.ceil(Math.random() * numBathrooms)
+      fillerBookings.push(createDate(i, randBrId));
     }
 
     return queryInterface.bulkInsert(
