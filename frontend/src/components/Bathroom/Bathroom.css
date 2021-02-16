@@ -15,7 +15,7 @@
 
 .single-bathroom__image-container {
   overflow: hidden;
-  /* min-height: 250px; */
+  min-height: 40vh;
 }
 
 .single-bathroom__image {
