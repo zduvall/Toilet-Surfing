@@ -4,7 +4,7 @@
 
 ![Welcome to Toilet Surfing](/frontend/public/pictures/toilet-surfer-preview.png)
 
-Logged-in users can create, update, and delete toilets as well as book and cancel bookings to use toilets in the future.
+Logged-in users can create, update, and delete toilets as well as create and delete bookings to use toilets in the future.
 
 Try the live site [here](https://toiletsurfing.herokuapp.com/).
 
