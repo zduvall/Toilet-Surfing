@@ -85,16 +85,10 @@ function SignUpFormPage() {
             Start Surfing
           </button>
         </div>
-
-        {!!errors.length && (
-          <div>
-            <ul>
-              {errors.map((error, idx) => (
-                <li key={idx}>{error}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div className={errors.length ? 'errors' : ''}>
+          {!!errors.length &&
+            errors.map((error, idx) => <div key={idx}>{error}</div>)}
+        </div>
       </form>
     </>
   );

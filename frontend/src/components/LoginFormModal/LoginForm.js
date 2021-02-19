@@ -55,7 +55,7 @@ function LoginForm() {
         <div>
           <button
             className='form__button'
-            style={{marginTop: '.65rem'}}
+            style={{ marginTop: '.65rem' }}
             onClick={(e) => {
               e.preventDefault();
               setCredential('PottyTraining');
@@ -65,16 +65,10 @@ function LoginForm() {
             Demo Credentials
           </button>
         </div>
-
-        {!!errors.length && (
-          <div>
-            <ul>
-              {errors.map((error, idx) => (
-                <li key={idx}>{error}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div className={errors.length ? 'errors' : ''}>
+          {!!errors.length &&
+            errors.map((error, idx) => <div key={idx}>{error}</div>)}
+        </div>
       </form>
     </>
   );
