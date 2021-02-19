@@ -10,7 +10,7 @@ body {
 .errors {
   background-color: rgba(155, 155, 155, 0.4);
   border-radius: 1.5rem 0.25rem 1.5rem 0.25rem;
-  padding: 0.5rem 0 0.2rem 0.5rem;
+  padding: 0.5rem 0.5rem 0.2rem 0.5rem;
   margin-top: 0.25rem;
   color: rgb(242, 121, 84);
 }
