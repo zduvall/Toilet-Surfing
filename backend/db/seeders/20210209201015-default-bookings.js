@@ -70,7 +70,7 @@ module.exports = {
         const endPls2Wks = new Date(booking.dateTimeEnd);
         endPls2Wks.setDate(endPls2Wks.getDate() + 14);
 
-        // copy and update attributes on newBooking
+        // copy and update attributes on newBooking to add it two weeks out each time
         const newBooking = { ...booking };
         newBooking.dateTimeStart = strtPls2Wks;
         newBooking.dateTimeEnd = endPls2Wks;
@@ -83,9 +83,13 @@ module.exports = {
     }
 
     for (let userId = 2; userId <= numUsers; userId++) {
-      const max = (userId === 2 ? 6 : Math.ceil(Math.random() * maxPerUser));
+      // demo user gets a max of 6 in a 2 week period, all others get 1 - maxPerUser
+      const max = userId === 2 ? 6 : Math.ceil(Math.random() * maxPerUser);
       for (let i = 0; i < max; i++) {
-        const randBrId = Math.ceil(Math.random() * numBathrooms);
+        let randBrId = Math.ceil(Math.random() * numBathrooms);
+        // don't allow bookings on bathroom 1
+        if (randBrId === 1)
+          randBrId += Math.ceil(Math.random() * numBathrooms - 2) + 1;
         fillerBookings = [...fillerBookings, ...repeatDate(userId, randBrId)];
       }
     }
