@@ -25,7 +25,7 @@ module.exports = {
         type: Sequelize.STRING(200),
         allowNull: false,
         validate: {
-          len: [20, 200],
+          len: [4, 200],
         },
       },
       imageUrl: {

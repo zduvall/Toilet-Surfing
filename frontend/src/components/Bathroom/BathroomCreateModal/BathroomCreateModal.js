@@ -4,10 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import thunks
 import { createBathroom } from '../../../store/bathroom';
 
-const BathroomCreateModal = ({
-  bathroomToUpdate,
-  setShowModal,
-}) => {
+const BathroomCreateModal = ({ bathroomToUpdate, setShowModal }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState(null);
@@ -118,8 +115,9 @@ const BathroomCreateModal = ({
             onChange={(e) => setName(e.target.value)}
           />
         </label>
-        <label>Description</label>
+        <label for='descriptino'>Description</label>
         <textarea
+          id='description'
           placeholder="I was dreamin' when I wrote this, forgive me if it goes astray, but when you wake up in the morning, you'll be glad this room began your day. Please stop by and use this bathroom ;)"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -215,8 +213,10 @@ const BathroomCreateModal = ({
           <li>Must be logged in to add a toilet.</li>
         </ul>
       )}
-      {errors.length > 0 &&
-        errors.map((error) => <div key={error}>{error}</div>)}
+      <div className={errors.length ? 'errors' : ''}>
+        {errors.length > 0 &&
+          errors.map((error) => <div key={error}>{error}</div>)}
+      </div>
     </div>
   );
 };
