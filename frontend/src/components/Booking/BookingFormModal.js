@@ -131,9 +131,7 @@ export default function BookingFormModal({ day, time, amPm, setShowModal }) {
         </div>
 
         {!session.user && (
-          <ul>
-            <li>Must be logged in to book a toilet.</li>
-          </ul>
+          <div className='errors'>Must be logged in to book a toilet.</div>
         )}
 
         {!!errors.length && (

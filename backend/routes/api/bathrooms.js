@@ -28,7 +28,7 @@ const validateCreateBathroom = [
     .exists({ checkFalsy: true })
     .withMessage('Bathroom name cannot be empty.')
     .isLength({ min: 3, max: 50 })
-    .withMessage('Name must be between 4 and 50 characters.')
+    .withMessage('Name must be 4 - 50 characters.')
     .custom((value) => {
       return Bathroom.findOne({ where: { name: value } }).then((name) => {
         if (name) {
@@ -39,8 +39,8 @@ const validateCreateBathroom = [
   check('description')
     .exists({ checkFalsy: true })
     .withMessage('Description cannot be empty.')
-    .isLength({ min: 20, max: 200 })
-    .withMessage('Description must be between 20 and 200 characters.'),
+    .isLength({ min: 4, max: 200 })
+    .withMessage('Description must be 4 - 200 characters.'),
   check('image')
     .custom((_value, { req }) => {
       if (!req.file) {
@@ -147,12 +147,12 @@ const validateUpdateBathroom = [
     .exists({ checkFalsy: true })
     .withMessage('Bathroom name cannot be empty.')
     .isLength({ min: 3, max: 50 })
-    .withMessage('Name must be between 4 and 50 characters.'),
+    .withMessage('Name must be 4 - 50 characters.'),
   check('description')
     .exists({ checkFalsy: true })
     .withMessage('Description cannot be empty.')
-    .isLength({ min: 20, max: 200 })
-    .withMessage('Description must be between 20 and 200 characters.'),
+    .isLength({ min: 4, max: 200 })
+    .withMessage('Description must be 4 - 200 characters.'),
   check('image').custom((_value, { req }) => {
     if (!req.file) {
       return true;
