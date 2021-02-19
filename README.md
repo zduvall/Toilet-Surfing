@@ -2,7 +2,7 @@
 
 [Toilet-Surfing](https://toiletsurfing.herokuapp.com/), where chill people share their toilets with other chill people, inspired by the giving and laid-back culture of couch surfing and by good vibes of surfers in general. 
 
-This was my first full-stack solo project, and I used node.js, react, redux, css, html, and express. The whole site is contained on the root route `/`, allowing for a seamless user experience and limiting the need for excessive database and redux store calls.
+This was my first full-stack solo project. For this project, I used node.js, react, redux, css, html, and express. The whole site is contained on the root route `/`, allowing for a seamless user experience and limiting the need for excessive database and redux store calls.
 
 ![Welcome to Toilet Surfing](/frontend/public/pictures/toilet-surfer-preview.png)
 
