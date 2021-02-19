@@ -10,7 +10,7 @@ Logged-in users can create, update, and delete toilets as well as create and del
 
 Try the live site [here](https://toiletsurfing.herokuapp.com/).
 
-Visit my [site wiki](https://github.com/zduvall/Toilet-Surfing/wiki) to see database schema, routes, user stories, and feature list (current and planned).
+Visit my [site wiki](https://github.com/zduvall/Toilet-Surfing/wiki) to see the database schema, routes, user stories, and feature list (current and planned).
 
 ## Tech Stack
 ### [Toilet Surfing](https://toiletsurfing.herokuapp.com/) uses the following tools, frameworks, and key packages:
