@@ -134,15 +134,10 @@ export default function BookingFormModal({ day, time, amPm, setShowModal }) {
           <div className='errors'>Must be logged in to book a toilet.</div>
         )}
 
-        {!!errors.length && (
-          <div>
-            <ul>
-              {errors.map((error, idx) => (
-                <li key={idx}>{error}</li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div className={errors.length ? 'errors' : ''}>
+          {!!errors.length &&
+            errors.map((error, idx) => <div key={idx}>{error}</div>)}
+        </div>
       </form>
     </>
   );
