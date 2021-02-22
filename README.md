@@ -35,7 +35,7 @@ Visit my [site wiki](https://github.com/zduvall/Toilet-Surfing/wiki) to see the 
 ## Run Toilet Surfing Locally
 Follow these instructions to run Toilet Surfing on your local machine. Note: image uploads and map functionality will not work without a valid AWS key/secret and google Maps API key.
 
-To run the Toilet Surfing application locally, use the following instructions:
+To run the Toilet Surfing application locally, refer to the following instructions:
 
 1. `git clone` this repo
 2. `cd` into the local clone of the repository
