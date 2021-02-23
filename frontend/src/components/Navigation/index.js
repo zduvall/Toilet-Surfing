@@ -9,7 +9,7 @@ import MyBookingsModal from '../Booking/MyBookingsModal';
 import MyBathroomsModal from '../Bathroom/MyBathroomsModal';
 import MyFavoritesModal from '../FavoriteStar/MyFavoritesModal';
 import LoggedInDropdown from './LoggedInDropdown';
-import SessionLinksDropdown from './LoggedOutDropdown';
+import SessionLinksDropdown from './SessionLinksDropdown';
 
 import './Navigation.css';
 
