@@ -1,6 +1,8 @@
 # [Toilet-Surfing](https://toiletsurfing.herokuapp.com/)
 
-[Toilet-Surfing](https://toiletsurfing.herokuapp.com/), where chill people share their toilets with other chill people, inspired by the giving and laid-back culture of couch surfing and by good vibes of surfers in general. This was my first full-stack solo project using node.js, react, redux, css, html, and express. The whole site is contained on the root route `/`, allowing for a seamless user experience and limiting the need for excessive database and redux store calls.
+[Toilet-Surfing](https://toiletsurfing.herokuapp.com/), where chill people share their toilets with other chill people, inspired by the giving and laid-back culture of couch surfing and by good vibes of surfers in general. 
+
+This was my first full-stack solo project. The whole site is contained on the root route `/`, allowing for a seamless user experience and limiting database queries.
 
 ![Welcome to Toilet Surfing](/frontend/public/pictures/toilet-surfer-preview.png)
 
@@ -8,7 +10,7 @@ Logged-in users can create, update, and delete toilets as well as create and del
 
 Try the live site [here](https://toiletsurfing.herokuapp.com/).
 
-View the database schema, routes, feature list (current and planned), and user stories in the [Wiki](https://github.com/zduvall/Toilet-Surfing/wiki).
+Visit my [site wiki](https://github.com/zduvall/Toilet-Surfing/wiki) to see the database schema, routes, user stories, and feature list (current and planned).
 
 ## Tech Stack
 ### [Toilet Surfing](https://toiletsurfing.herokuapp.com/) uses the following tools, frameworks, and key packages:
@@ -33,7 +35,7 @@ View the database schema, routes, feature list (current and planned), and user s
 ## Run Toilet Surfing Locally
 Follow these instructions to run Toilet Surfing on your local machine. Note: image uploads and map functionality will not work without a valid AWS key/secret and google Maps API key.
 
-To run this application locally for development, you'll need to:
+To run the Toilet Surfing application locally, refer to the following instructions:
 
 1. `git clone` this repo
 2. `cd` into the local clone of the repository
