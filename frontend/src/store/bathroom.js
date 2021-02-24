@@ -83,7 +83,6 @@ export const createBathroom = (bathroom, brIDtoUpdate = null) => async (
       body: formData,
     });
 
-    console.log('..........bathroom returned to thunk.........', res.data.data);
     if (res.ok) {
       dispatch(create(res.data.updatedBathroom));
     }
