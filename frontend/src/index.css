@@ -14,3 +14,7 @@ body {
   margin-top: 0.25rem;
   color: rgb(242, 121, 84);
 }
+
+*:focus {
+  outline: none;
+}
