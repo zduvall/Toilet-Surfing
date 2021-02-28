@@ -66,17 +66,6 @@ const BathroomCreateModal = ({ bathroomToUpdate, setShowModal }) => {
         : createBathroom(bathroomObj)
     )
       .then((res) => {
-        // setName('');
-        // setDescription('');
-        // setImage(null);
-        // setStreetNumber('');
-        // setRoute('');
-        // setLocality('');
-        // setAdministrativeArea('');
-        // setPostalCode('');
-        // setCountry('');
-        // setLat('');
-        // setLng('');
         setShowModal(false);
       })
       .catch((res) => {
