@@ -18,7 +18,6 @@ const create = (bathroom) => ({
 });
 
 const remove = (bathroomId) => ({
-  // also used for update
   type: REMOVE_BATHROOM,
   bathroomId,
 });
