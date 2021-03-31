@@ -42,7 +42,7 @@ To run the Toilet Surfing application locally, refer to the following instructio
 3. `cd` into the `backend` folder and `npm install`
 4. Create your own `.env` file in `backend` and `frontend` directories based on the `.env.example` files there
 5. Create a PostgreSQL user that matches the one you identified in your `backend` `.env` file
-6. Run `npx dotenv sequelize db:create to create the database`
+6. Run `npx dotenv sequelize db:create` to create the database
 7. If the sequelize module is not found, try running `npx dotenv sequelize-cli db:create` and replace sequelize with sequelize-cli for the rest of these commands
 8. Run `npx dotenv sequelize db:migrate` to run the migrations
 9. Run `npx dotenv sequelize db:seed:all` to seed the database
