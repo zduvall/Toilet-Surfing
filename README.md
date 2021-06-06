@@ -2,7 +2,7 @@
 
 [Toilet-Surfing](https://toiletsurfing.herokuapp.com/), where chill people share their toilets with other chill people, inspired by the giving and laid-back culture of couch surfing and by good vibes of surfers in general. 
 
-First full-stack solo project. The whole site is contained on the root route `/`. This allows for a seamless user experience and limits database queries.
+First full-stack solo project. The whole site is contained on the root route `/`, which allows for a seamless user experience and limits database queries.
 
 ![Welcome to Toilet Surfing](/frontend/public/pictures/toilet-surfer-preview.png)
 
