@@ -33,7 +33,7 @@ Visit my [site wiki](https://github.com/zduvall/Toilet-Surfing/wiki) to see the 
 * [Font Awesome](https://fontawesome.com/)
 
 ## Run Toilet Surfing Locally
-Follow these instructions to run Toilet Surfing on your local machine. Note: image uploads and map functionality will not work without a valid AWS key/secret and google Maps API key.
+Follow these instructions to run Toilet Surfing on your local machine. Note: image uploads and map functionality will not work without a valid AWS key and AWS secret and google Maps API key.
 
 To run the Toilet Surfing application locally, refer to the following instructions:
 
