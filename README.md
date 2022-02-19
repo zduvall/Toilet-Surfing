@@ -2,7 +2,7 @@
 
 [Toilet-Surfing](https://toiletsurfing.herokuapp.com/), where chill people share their toilets with other chill people, inspired by the giving and laid-back culture of couch surfing and by good vibes of surfers in general. 
 
-This was my first full-stack solo project. The whole site is contained on the root route `/`, allowing for a seamless user experience and limiting database queries.
+First full-stack solo project. The whole site is contained on the root route `/`, allowing for a seamless user experience and limiting database queries.
 
 ![Welcome to Toilet Surfing](/frontend/public/pictures/toilet-surfer-preview.png)
 
@@ -33,7 +33,7 @@ Visit my [site wiki](https://github.com/zduvall/Toilet-Surfing/wiki) to see the 
 * [Font Awesome](https://fontawesome.com/)
 
 ## Run Toilet Surfing Locally
-Follow these instructions to run Toilet Surfing on your local machine. Note: image uploads and map functionality will not work without a valid AWS key/secret and google Maps API key.
+Follow these instructions to run Toilet Surfing on your local machine. Note: image uploads and map functionality will not work without a valid AWS key and AWS secret and google Maps API key.
 
 To run the Toilet Surfing application locally, refer to the following instructions:
 
@@ -42,7 +42,7 @@ To run the Toilet Surfing application locally, refer to the following instructio
 3. `cd` into the `backend` folder and `npm install`
 4. Create your own `.env` file in `backend` and `frontend` directories based on the `.env.example` files there
 5. Create a PostgreSQL user that matches the one you identified in your `backend` `.env` file
-6. Run `npx dotenv sequelize db:create to create the database`
+6. Run `npx dotenv sequelize db:create` to create the database
 7. If the sequelize module is not found, try running `npx dotenv sequelize-cli db:create` and replace sequelize with sequelize-cli for the rest of these commands
 8. Run `npx dotenv sequelize db:migrate` to run the migrations
 9. Run `npx dotenv sequelize db:seed:all` to seed the database
